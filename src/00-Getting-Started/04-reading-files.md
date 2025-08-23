@@ -270,9 +270,9 @@ Write a markdown link, e.g., [Rendered linked text](./path/to/file.md), with a r
 
 Write one that assumes the file is `.md`, and another that assumes it is an `.html` file.
 
-- ![0.3-Using the Command Line](./03-cmd-line.md)
+- [0.3-Using the Command Line](./03-cmd-line.md)
 
-- ![0.3-Using the Command Line](./03-cmd-line.html)
+- [0.3-Using the Command Line](./03-cmd-line.html)
 
 
 ## E3. Link to a resource in same project
