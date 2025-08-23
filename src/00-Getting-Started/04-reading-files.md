@@ -281,7 +281,7 @@ Write a markdown link, e.g., [Rendered linked text](./path/to/file.md), with a *
 
 <p class="tip">You will need to use the double-dot <code>..</code> notation to travel back up the hierarchy in the project, since the image is not in the same folder/directory as this chapter's file.</p>
 
-- Link to the Github Anatomy image.
+- Link to the [Github Anatomy image](./../assets/images/0-gs/gh-anatomy.png)
 
 ## E4. Render an image
 
