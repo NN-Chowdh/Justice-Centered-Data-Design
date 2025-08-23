@@ -262,7 +262,7 @@ Put the screenshot image in the following path, which assumes we're in the root 
 
 Use a relative filepath in the Markdown image to do so.
 
-ADD_YOUR_IMG_HERE
+![Markdown](./../00-Getting-Started/../assets/images/markdown.png)
 
 ## E2. Link to 0.3 Using the Command Line
 
