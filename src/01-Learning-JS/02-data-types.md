@@ -62,8 +62,40 @@ Primitives enable you to perform fundamental data operations.
 3. Print them all to the console with `console.log()`.
 4. Check your work, as you go, by opening the browser console with the **Inspect Element** tool.
 
-```javascript
-// Write your code in here
+```js
+// String
+let favPlant = "Spinach!";
+
+console.log("Favourite Plant:", favPlant)
+
+// Number
+let amountTaken = 12
+
+console.log("I consume Spinach: ", amountTaken," gm")
+
+// Boolean
+let isOrganic = true;
+
+console.log("Is Organic:", isOrganic)
+
+// null
+let seasonalPlant = null;
+
+console.log("Seasonal Plant:", seasonalPlant)
+
+// undefined
+let upcomingPlant;
+
+console.log("Upcoming Plant",upcomingPlant)
+
+// Object
+let gardenTools = {
+  tool1: "Bucket",
+  tool2: "Water Can"
+}
+
+console.log("1st Garden Tools:",gardenTools.tool1)
+
 ```
 
 ## Submission
