@@ -63,38 +63,41 @@ Primitives enable you to perform fundamental data operations.
 4. Check your work, as you go, by opening the browser console with the **Inspect Element** tool.
 
 ```js
-// String
-let favPlant = "Spinach!";
+// Friends- themed suite of primitives
 
-console.log("Favourite Plant:", favPlant)
+// String
+let catchPhrase = "How you doin'?"
+
+console.log("Joey's favorite dialogue :", catchPhrase)
 
 // Number
-let amountTaken = 12
+let totalSeason = 10
 
-console.log("I consume Spinach: ", amountTaken," gm")
+console.log("Number of Episodes :", totalSeason)
 
 // Boolean
-let isOrganic = true;
+let rossDivorcedAgain = true
 
-console.log("Is Organic:", isOrganic)
+console.log("Is Ross divorced (again)", rossDivorcedAgain)
 
 // null
-let seasonalPlant = null;
+let joeyFridge = null
 
-console.log("Seasonal Plant:", seasonalPlant)
+console.log("Joey's Fridge :",)
 
 // undefined
-let upcomingPlant;
+let chandlersJob;
 
-console.log("Upcoming Plant",upcomingPlant)
+console.log("Chandler's Job", chandlersJob)
 
 // Object
-let gardenTools = {
-  tool1: "Bucket",
-  tool2: "Water Can"
+let monica = {
+  name: "Monica Gelle",
+  favoriteActivity: "Cleaning"
 }
 
-console.log("1st Garden Tools:",gardenTools.tool1)
+console.log("Monica's Profile:", monica.name)
+console.log("Monica's Profile:", monica.favoriteActivity)
 
 ```
 
