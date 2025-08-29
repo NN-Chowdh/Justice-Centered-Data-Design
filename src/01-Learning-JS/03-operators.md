@@ -215,8 +215,70 @@ First, go back to the last chapter and grab the suite of primitives that you cre
 4. Print them all to the console with `console.log()`.
 5. Check your work, as you go, by opening the browser console with the **Inspect Element** tool.
 
-```javascript
-// Write your code in here
+```js
+// Friends- themed suite of primitives
+
+// String
+let catchPhrase = "How you doin'?";
+
+console.log("Joey's favorite dialogue:", catchPhrase);
+
+// Number
+let totalSeasons = 10;
+
+console.log("Number of Seasons:", totalSeasons);
+
+// Boolean
+let rossMarriedAgain = true;
+
+console.log("Is Ross divorced (again)", rossMarriedAgain);
+
+// null
+let joeyFridge = null;
+
+console.log("Joey's Fridge:",);
+
+// undefined
+let chandlersJob;
+
+console.log("Chandler's Job", chandlersJob)
+
+// Object
+let monica = {
+  name: "Monica Geller",
+  favoriteActivity: "Cleaning"
+};
+//Assign new property to object
+monica.marriedTo = "Chandler";
+
+console.log("Monica's Profile:", monica);
+
+// Assignment operators
+let episodes = 236;  // total Friend episodes
+episodes += 10;  // add bonus episodes hypothetically
+episodes -= 6; // maybe lost episodes
+
+console.log("Episodes after adjustment:", episodes);
+
+// Arithmetic operators
+let coffeeCups = 3 * 6;  // 3 cups per friend
+let leftOverPizza = 10 % 6; // Joey eats most, but remainder pizza slices
+
+console.log("Total Coffee Cups:", coffeeCups);
+console.log("Leftover Pizza Slices:", leftOverPizza);
+
+// Comparison Operators
+console.log("Was Friends a long-running show?", totalSeasons > 5);
+console.log("Did Ross get married again?", rossMarriedAgain == true);
+console.log("Is Joey's fridge working?", joeyFridge !== null);
+console.log("Do we know Chandler's job?", chandlersJob !== undefined);
+
+// Logical Operators
+let iconicShow = (totalSeasons >= 10) && rossMarriedAgain;
+console.log("Is Friends iconic series?", iconicShow);
+let sillyFact = (monica.favoriteActivity == "Cleaning") || (monica.name == "Rachel");
+console.log("Silly fact about Monica or Rachel:", sillyFact);
+
 ```
 
 ## Submission
