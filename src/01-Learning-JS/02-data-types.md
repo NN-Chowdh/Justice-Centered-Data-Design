@@ -92,12 +92,13 @@ console.log("Chandler's Job", chandlersJob)
 
 // Object
 let monica = {
-  name: "Monica Gelle",
+  name: "Monica Geller",
   favoriteActivity: "Cleaning"
 }
+//Assign new property to object
+monica.marriedTo = "Chandler"
 
-console.log("Monica's Profile:", monica.name)
-console.log("Monica's Profile:", monica.favoriteActivity)
+console.log("Monica's Profile:", monica)
 
 ```
 
