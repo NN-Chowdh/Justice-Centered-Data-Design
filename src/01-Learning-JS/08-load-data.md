@@ -64,7 +64,7 @@ In this project, check out the `/src/data/events.json` file, which is a small ex
   What other properties of JSON do you notice?
 </p>
 
-**RESPONSE**: Write your response here.
+**RESPONSE**: JSON is structured as an array of objects, where each object contains key/value pairs. 
 
 ## 1.8.2 Framework's FileAttachment()
 
@@ -221,6 +221,12 @@ Goal: Demonstrate your understanding of the CSV file format by creating a mini C
 Use the empty codeblock below.
 
 ```
+Food,Price,Calories
+Pizza,10,300
+Pasta,8,250
+Burger,5,450
+Sandwich,7,200
+French Fries,3,350
 ```
 
 ### E2. Load a CSV file
@@ -234,12 +240,17 @@ In this case, load the following CSV file: `nc_absentee_mail_2024.csv`.
 2. In the second codeblock, use `console.log()` to log the following properties to the console: `.name` and `.size`.
 3. Still in the second codeblock, add a second `console.log()` and log the first object in the Array to the console.
 
-```javascript
-// Your FileAttachment() code goes here
+```js
+const data = FileAttachment("src/data/nc-voters/nc_absentee_mail_2024.csv")
 ```
 
-```javascript
-// Your other code with your variable goes here
+```js
+console.log(data.name)
+console.log(data.size)
+
+const absenteeData = FileAttachment("src/data/nc-voters/nc_absentee_mail_2024.csv").csv({typed: true})
+
+console.log(absenteeData[0])
 ```
 
 Make sure that you verify the logs are there!
