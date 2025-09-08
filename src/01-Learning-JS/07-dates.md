@@ -371,13 +371,67 @@ Here are some tips to consider as you complete this exercise.
 <p class="tip"><strong>Isolate interested parts of data</strong>: If dates are important to the inquiry, remember that the dates are stored as Strings in the following format: <code>"10/24/2024"</code>, i.e.,<code>"mm/dd/YYYY"</code>.</p>
 
 <!-- E1 -->
-```javascript
-// Convert and code here
+```js
+let nc2024SampleVoters = [
+  {
+    "race": "WHITE",
+    "ethnicity": "NOT HISPANIC or NOT LATINO",
+    "gender": "F",
+    "age": 33,
+    "ballot_req_type": "MAIL",
+    "ballot_request_party": "REP",
+    "ballot_req_dt": "10/23/2024",
+    "ballot_send_dt": "10/28/2024",
+    "ballot_rtn_dt": null,
+    "ballot_rtn_status": null
+  },
+  {
+    "race": "BLACK or AFRICAN AMERICAN",
+    "ethnicity": "UNDESIGNATED",
+    "gender": "F",
+    "age": 57,
+    "ballot_req_type": "MAIL",
+    "ballot_request_party": "DEM",
+    "ballot_req_dt": "09/14/2024",
+    "ballot_send_dt": "09/23/2024",
+    "ballot_rtn_dt": "10/28/2024",
+    "ballot_rtn_status": "SPOILED-EV"
+  },
+  {
+    "race": "WHITE",
+    "ethnicity": "NOT HISPANIC or NOT LATINO",
+    "gender": "M",
+    "age": 21,
+    "ballot_req_type": "MAIL",
+    "ballot_request_party": "UNA",
+    "ballot_req_dt": "09/19/2024",
+    "ballot_send_dt": "09/21/2024",
+    "ballot_rtn_dt": "10/24/2024",
+    "ballot_rtn_status": "ACCEPTED"
+  },
+  {
+    "race": "WHITE",
+    "ethnicity": "UNDESIGNATED",
+    "gender": "F",
+    "age": 32,
+    "ballot_req_type": "MAIL",
+    "ballot_request_party": "DEM",
+    "ballot_req_dt": "08/03/2024",
+    "ballot_send_dt": "09/24/2024",
+    "ballot_rtn_dt": null,
+    "ballot_rtn_status": "SPOILED-EV"
+  }
+]
+const parseDateSlash = d3.utcParse("%m/%d/%Y")
+
+let ballotsWithDateObjs = nc2024SampleVoters.map(voter => ({
+  ...voter,
+  ballot_req_dt_obj: parseDateSlash(voter.ballot_req_dt)
+}))
 ```
 
-```javascript
-// Convert and output
-ballotsWithDateObjs
+```js
+console.log(ballotsWithDateObjs)
 ```
 
 ### E2. d3.utcFormat(): Convert & format Date() object to String
@@ -385,13 +439,17 @@ ballotsWithDateObjs
 **Goal**: Use `.map()` to loop through the updated array of objects, `ballotsWithDateObjs`, and create a new array of objects called `updatedBallots`. In the new `updatedBallots`, use `d3.utcFormat()` to assign a converted and formatted version of `ballot_req_dt_obj` with the following date ***format***: Wed., January 27, 1981.
 
 <!-- E2 -->
-```javascript
-// Convert and code here
+```js
+const prettyFormat = d3.utcFormat("%a., %B %d, %Y")
+
+let updatedBallots = ballotsWithDateObjs.map(voter => ({
+  ...voter,
+  ballot_req_dt_pretty: prettyFormat(voter.ballot_req_dt_obj)
+}))
 ```
 
-```javascript
-// Convert and output updatedBallots here
-updatedBallots
+```js
+console.log(updatedBallots)
 ```
 
 ## Submission
