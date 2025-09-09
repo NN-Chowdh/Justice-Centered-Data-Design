@@ -298,7 +298,7 @@ Below, I have assigned a tiny sample of 4 randomly selected abridged entries fro
 Take a moment to review the data below in the interactive output.
 
 <!-- Assign nc2024SampleVoters -->
-```js
+```javascripts
 // Sample of 4 randomly selected abridged entries from NC November 2024 absentee voter data
 let nc2024SampleVoters = [
   {
@@ -356,7 +356,7 @@ let nc2024SampleVoters = [
   Interactive output of <code>nc2024SampleVoters</code>
 </p>
 
-```js
+```javascripts
 nc2024SampleVoters
 ```
 
@@ -442,6 +442,7 @@ let ballotsWithDateObjs = nc2024SampleVoters.map(
     }
   }
 )
+console.log(ballotsWithDateObjs)
 ```
 
 ```js
@@ -453,12 +454,51 @@ ballotsWithDateObjs
 **Goal**: Use `.map()` to loop through the updated array of objects, `ballotsWithDateObjs`, and create a new array of objects called `updatedBallots`. In the new `updatedBallots`, use `d3.utcFormat()` to assign a converted and formatted version of `ballot_req_dt_obj` with the following date ***format***: Wed., January 27, 1981.
 
 <!-- E2 -->
-```javascript
-// Convert and code here
+```js
+const parseDateSlash = utcParse("%m/%d/%Y")
+
+let ballotsWithDateObjs = nc2024SampleVoters.map(
+  (voter) => {
+    return {
+      race: voter.race,
+      ethnicity: voter.ethnicity,
+      gender: voter.gender,
+      age: voter.age,
+      ballot_req_type: voter.ballot_req_type,
+      ballot_request_party: voter.ballot_request_party,
+      ballot_req_dt: voter.ballot_req_dt,
+      ballot_send_dt: voter.ballot_send_dt,
+      ballot_rtn_dt: voter.ballot_rtn_dt,
+      ballot_rtn_status: voter.ballot_rtn_status,
+      ballot_req_dt_obj: parseDateSlash(voter.ballot_req_dt)
+    }
+  }
+)
+
+const formatPretty = utcFormat("%a., %B %d, %Y")
+
+let updatedBallots = ballotsWithDateObjs.map(
+  (voter) => {
+    return {
+      race: voter.race,
+      ethnicity: voter.ethnicity,
+      gender: voter.gender,
+      age: voter.age,
+      ballot_req_type: voter.ballot_req_type,
+      ballot_request_party: voter.ballot_request_party,
+      ballot_req_dt: voter.ballot_req_dt,
+      ballot_send_dt: voter.ballot_send_dt,
+      ballot_rtn_dt: voter.ballot_rtn_dt,
+      ballot_rtn_status: voter.ballot_rtn_status,
+      ballot_req_dt_obj: voter.ballot_req_dt_obj,
+      ballot_req_dt_pretty: formatPretty(voter.ballot_req_dt_obj)
+    }
+  }
+)
+
 ```
 
-```javascript
-// Convert and output updatedBallots here
+```js
 updatedBallots
 ```
 
