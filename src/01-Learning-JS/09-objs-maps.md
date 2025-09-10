@@ -1394,9 +1394,10 @@ ncVotersByCityGenderParty
 
 First outline your procedure with steps below. Then, use the JS codeblock to perform your rollup as a D3.js `InternMap()`.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. created D3 date parser using utcParse("%m/%d/%y")
+2. Used a for...of loop to itertae through each voter
+3. Added a new property ballot_req_dt_obj
+4. Used d3.rollup() to group voters by their ballot request date and count how many voters per date
 
 ```js
 let nc2024SampleVoters = [
