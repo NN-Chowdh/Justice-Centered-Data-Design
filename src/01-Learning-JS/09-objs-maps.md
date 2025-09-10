@@ -1294,9 +1294,12 @@ nc2024GroupedByAge
 
 First outline your procedure with steps below. Then, use the JS codeblock to perform your grouping as a D3.js `InternMap()`.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. I chose voter_city, gender, and ballot_request_party
+2. Then, used the d3.group() to aggregate the dataset into InterMap
+3. For the nested group I wanted, wrote the code as following: 
+      - (d) => d.voter_city
+      - (d) => d.gender
+      - (d) => d.ballot_request_party
 
 ```js
 let nc2024SampleVoters = [
