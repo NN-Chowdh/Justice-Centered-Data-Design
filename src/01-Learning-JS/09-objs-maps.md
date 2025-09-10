@@ -1398,12 +1398,101 @@ First outline your procedure with steps below. Then, use the JS codeblock to per
 2. Enter step 2
 3. ...
 
-```javascript
-// Your code goes here
+```js
+let nc2024SampleVoters = [
+  {
+    id_num: 452004,
+    county_desc: "WAKE",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 65,
+    voter_city: "RALEIGH",
+    voter_state: "NC",
+    voter_zip: 27614,
+    voter_party_code: "DEM",
+    precinct_desc: "PRECINCT 02-02",
+    ballot_req_dt: "1/10/24",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV",
+    ballot_send_dt: "9/24/24",
+  },
+  {
+    id_num: 462107,
+    county_desc: "WAYNE",
+    race: "BLACK or AFRICAN AMERICAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "F",
+    age: 53,
+    voter_city: "GOLDSBORO",
+    voter_state: "NC",
+    voter_zip: 27530,
+    voter_party_code: "DEM",
+    precinct_desc: 29,
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_req_dt: "9/21/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV"
+  },
+  {
+    id_num: 436436,
+    county_desc: "WAKE",
+    race: "ASIAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "M",
+    age: 60,
+    voter_city: "CARY",
+    voter_state: "NC",
+    voter_zip: 27519,
+    voter_party_code: "UNA",
+    precinct_desc: "PRECINCT 20-15",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "UNA",
+    ballot_req_dt: "8/7/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+  {
+    id_num: 367818,
+    county_desc: "SURRY",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 81,
+    voter_city: "MOUNT AIRY",
+    voter_state: "NC",
+    voter_zip: 27030,
+    voter_party_code: "REP",
+    precinct_desc: "MT AIRY #9",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "REP",
+    ballot_req_dt: "9/25/24",
+    ballot_send_dt: "9/26/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+]
+
+const parseDateSlash = utcParse("%m/%d/%y")
+
+for (const voter of nc2024SampleVoters) {
+  voter.ballot_req_dt_obj = parseDateSlash(voter.ballot_req_dt)
+}
+
+const nc2024VotersByReqDate = d3.rollup(
+  nc2024SampleVoters, (D) => D.length,
+  (d) => d.ballot_req_dt_obj
+)
+
 ```
 
-```javascript
-// Your grouped variable here
+```js
+nc2024VotersByReqDate
 ```
 
 ## Submission
