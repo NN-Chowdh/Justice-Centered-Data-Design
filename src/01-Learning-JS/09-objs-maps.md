@@ -955,12 +955,99 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   Be sure to write your code in a manner aligned with how I break down the process above.
 </p>
 
-```javascript
-// Your code goes here
+```js
+let nc2024SampleVoters = [
+  {
+    id_num: 452004,
+    county_desc: "WAKE",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 65,
+    voter_city: "RALEIGH",
+    voter_state: "NC",
+    voter_zip: 27614,
+    voter_party_code: "DEM",
+    precinct_desc: "PRECINCT 02-02",
+    ballot_req_dt: "1/10/24",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV",
+    ballot_send_dt: "9/24/24",
+  },
+  {
+    id_num: 462107,
+    county_desc: "WAYNE",
+    race: "BLACK or AFRICAN AMERICAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "F",
+    age: 53,
+    voter_city: "GOLDSBORO",
+    voter_state: "NC",
+    voter_zip: 27530,
+    voter_party_code: "DEM",
+    precinct_desc: 29,
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_req_dt: "9/21/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV"
+  },
+  {
+    id_num: 436436,
+    county_desc: "WAKE",
+    race: "ASIAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "M",
+    age: 60,
+    voter_city: "CARY",
+    voter_state: "NC",
+    voter_zip: 27519,
+    voter_party_code: "UNA",
+    precinct_desc: "PRECINCT 20-15",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "UNA",
+    ballot_req_dt: "8/7/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+  {
+    id_num: 367818,
+    county_desc: "SURRY",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 81,
+    voter_city: "MOUNT AIRY",
+    voter_state: "NC",
+    voter_zip: 27030,
+    voter_party_code: "REP",
+    precinct_desc: "MT AIRY #9",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "REP",
+    ballot_req_dt: "9/25/24",
+    ballot_send_dt: "9/26/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+]
+let voterWithReturnStatus = nc2024SampleVoters.map(
+  (voter) => {
+    if (voter.ballot_rtn_status != null) {
+      return {
+        ballot_rtn_status: voter.ballot_rtn_status,
+        race: voter.race
+      }
+    }
+  }
+)
 ```
 
-```javascript
-// Your new variable here
+```js
+voterWithReturnStatus
 ```
 
 ### E2. Group NC Voters By the Ballot Sent Date as an InternMap()
@@ -976,12 +1063,97 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   Be sure to write your code in a manner aligned with how I break down the process above.
 </p>
 
-```javascript
-// Your code goes here
+```js
+let nc2024SampleVoters = [
+  {
+    id_num: 452004,
+    county_desc: "WAKE",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 65,
+    voter_city: "RALEIGH",
+    voter_state: "NC",
+    voter_zip: 27614,
+    voter_party_code: "DEM",
+    precinct_desc: "PRECINCT 02-02",
+    ballot_req_dt: "1/10/24",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV",
+    ballot_send_dt: "9/24/24",
+  },
+  {
+    id_num: 462107,
+    county_desc: "WAYNE",
+    race: "BLACK or AFRICAN AMERICAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "F",
+    age: 53,
+    voter_city: "GOLDSBORO",
+    voter_state: "NC",
+    voter_zip: 27530,
+    voter_party_code: "DEM",
+    precinct_desc: 29,
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_req_dt: "9/21/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV"
+  },
+  {
+    id_num: 436436,
+    county_desc: "WAKE",
+    race: "ASIAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "M",
+    age: 60,
+    voter_city: "CARY",
+    voter_state: "NC",
+    voter_zip: 27519,
+    voter_party_code: "UNA",
+    precinct_desc: "PRECINCT 20-15",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "UNA",
+    ballot_req_dt: "8/7/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+  {
+    id_num: 367818,
+    county_desc: "SURRY",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 81,
+    voter_city: "MOUNT AIRY",
+    voter_state: "NC",
+    voter_zip: 27030,
+    voter_party_code: "REP",
+    precinct_desc: "MT AIRY #9",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "REP",
+    ballot_req_dt: "9/25/24",
+    ballot_send_dt: "9/26/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+]
+
+const parseDateSlash = utcParse("%m/%d/%y")
+
+for (const voter of nc2024SampleVoters) {
+  voter.ballot_send_dt_obj = parseDateSlash(voter.ballot_send_dt)
+}
+
+const nc2024GroupedBySendDate = d3.group(nc2024SampleVoters, (d) => d.ballot_send_dt_obj)
 ```
 
-```javascript
-// Your grouped variable here
+```js
+nc2024GroupedBySendDate
 ```
 
 ### E3. Group NC Voters By Age Range as an InternMap()
@@ -1000,12 +1172,120 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   </ol>
 </div>
 
-```javascript
-// Your code goes here
+```js
+let nc2024SampleVoters = [
+  {
+    id_num: 452004,
+    county_desc: "WAKE",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 65,
+    voter_city: "RALEIGH",
+    voter_state: "NC",
+    voter_zip: 27614,
+    voter_party_code: "DEM",
+    precinct_desc: "PRECINCT 02-02",
+    ballot_req_dt: "1/10/24",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV",
+    ballot_send_dt: "9/24/24",
+  },
+  {
+    id_num: 462107,
+    county_desc: "WAYNE",
+    race: "BLACK or AFRICAN AMERICAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "F",
+    age: 53,
+    voter_city: "GOLDSBORO",
+    voter_state: "NC",
+    voter_zip: 27530,
+    voter_party_code: "DEM",
+    precinct_desc: 29,
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_req_dt: "9/21/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV"
+  },
+  {
+    id_num: 436436,
+    county_desc: "WAKE",
+    race: "ASIAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "M",
+    age: 60,
+    voter_city: "CARY",
+    voter_state: "NC",
+    voter_zip: 27519,
+    voter_party_code: "UNA",
+    precinct_desc: "PRECINCT 20-15",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "UNA",
+    ballot_req_dt: "8/7/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+  {
+    id_num: 367818,
+    county_desc: "SURRY",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 81,
+    voter_city: "MOUNT AIRY",
+    voter_state: "NC",
+    voter_zip: 27030,
+    voter_party_code: "REP",
+    precinct_desc: "MT AIRY #9",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "REP",
+    ballot_req_dt: "9/25/24",
+    ballot_send_dt: "9/26/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+]
+
+let ageLimits = [30, 40, 50, 60, 70, 80, 90, 100]
+
+const nc2024GroupedByAge = d3.group(nc2024SampleVoters, 
+  (d) => {
+    if (d.age < 30) {
+      return "Age under 30"
+    }
+    else if (d.age >= 30 && d.age < 40) {
+      return "Age 30-40"
+    }
+    else if (d.age >= 40 && d.age < 50) {
+      return "Age 40-50"
+    }
+    else if (d.age >= 50 && d.age < 60) {
+      return "Age 50-60"
+    }
+    else if (d.age >= 60 && d.age < 70) {
+      return "Age 60-70"
+    }
+    else if (d.age >= 70 && d.age < 80) {
+      return "Age 70-80"
+    }
+    else if (d.age >= 80 && d.age < 90) {
+      return "Age 80-90"
+    }
+    else {
+      return "Age 90+"
+    }
+  }
+)
 ```
 
-```javascript
-// Your grouped variable here
+```js
+nc2024GroupedByAge
 ```
 
 ### E4. Group NC Voters by Your Desired set of 2-3 Fields as an InternMap()
@@ -1018,12 +1298,91 @@ First outline your procedure with steps below. Then, use the JS codeblock to per
 2. Enter step 2
 3. ...
 
-```javascript
-// Your code goes here
+```js
+let nc2024SampleVoters = [
+  {
+    id_num: 452004,
+    county_desc: "WAKE",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 65,
+    voter_city: "RALEIGH",
+    voter_state: "NC",
+    voter_zip: 27614,
+    voter_party_code: "DEM",
+    precinct_desc: "PRECINCT 02-02",
+    ballot_req_dt: "1/10/24",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV",
+    ballot_send_dt: "9/24/24",
+  },
+  {
+    id_num: 462107,
+    county_desc: "WAYNE",
+    race: "BLACK or AFRICAN AMERICAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "F",
+    age: 53,
+    voter_city: "GOLDSBORO",
+    voter_state: "NC",
+    voter_zip: 27530,
+    voter_party_code: "DEM",
+    precinct_desc: 29,
+    ballot_req_type: "MAIL",
+    ballot_request_party: "DEM",
+    ballot_req_dt: "9/21/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: "SPOILED-EV"
+  },
+  {
+    id_num: 436436,
+    county_desc: "WAKE",
+    race: "ASIAN",
+    ethnicity: "UNDESIGNATED",
+    gender: "M",
+    age: 60,
+    voter_city: "CARY",
+    voter_state: "NC",
+    voter_zip: 27519,
+    voter_party_code: "UNA",
+    precinct_desc: "PRECINCT 20-15",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "UNA",
+    ballot_req_dt: "8/7/24",
+    ballot_send_dt: "9/24/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+  {
+    id_num: 367818,
+    county_desc: "SURRY",
+    race: "WHITE",
+    ethnicity: "NOT HISPANIC or NOT LATINO",
+    gender: "F",
+    age: 81,
+    voter_city: "MOUNT AIRY",
+    voter_state: "NC",
+    voter_zip: 27030,
+    voter_party_code: "REP",
+    precinct_desc: "MT AIRY #9",
+    ballot_req_type: "MAIL",
+    ballot_request_party: "REP",
+    ballot_req_dt: "9/25/24",
+    ballot_send_dt: "9/26/24",
+    ballot_rtn_dt: null,
+    ballot_rtn_status: null
+  },
+]
+const ncVotersByCityGenderParty = d3.group(nc2024SampleVoters, (d) => d.voter_city, (d) => d.gender, (d) => d.ballot_request_party
+)
 ```
 
-```javascript
-// Your grouped variable here
+```js
+ncVotersByCityGenderParty
 ```
 
 ### E5. Rollup NC Voters by Total Ballot Sent Date as an InternMap()
