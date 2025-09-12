@@ -121,7 +121,7 @@ const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n2
 const parseDateSlash = utcParse("%m/%d/%Y")
 
 for (const voter of ncVoterData) {
-  voter.ballot_send_dt_obj = utcParse(voter.ballot_send_dt)
+  voter.ballot_send_dt_obj = parseDateSlash (voter.ballot_send_dt)
 }
 ```
 
