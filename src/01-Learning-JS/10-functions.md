@@ -93,8 +93,9 @@ Overall keep that rule-of-thumb in mind as you practice writing functions.
 Use D3.js `FileAttachment()` method below in VS Code. Remember that you'll need to write a relative path as a String parameter that helps the computer find where the CSV file is in relation to this particular page's file in the project tree.
 
 <!-- Attach sampled NC voter data -->
-```javascript
+```js
 // Convert to `js` codeblock and attach sampled NC voter data file: nc_absentee_mail_2024_n20000.csv
+const voterData = FileAttachment("./../src/data/nc-voters/nc_absentee_mail_2024_n20000.csv")
 ```
 
 ## E2. Convert String dates to Date() objects
