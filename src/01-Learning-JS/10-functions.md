@@ -114,28 +114,31 @@ First outline your procedure with steps below.
 
 Now, code!
 
-```javascript
+```js
 // Your function code goes here
-const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
+// const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
 
 const parseDateSlash = utcParse("%m/%d/%Y")
 
-for (const voter of ncVoterData) {
-  voter.ballot_send_dt_obj = parseDateSlash (voter.ballot_send_dt)
-}
+const convertStringToDate = (dataArray, dateFieldName) => {
+  for (const item of dataArray) {
+    item[dateFieldName + "_obj"] = parseDateSlash(item[dateFieldName])
+  }
+  return dataArray
 ```
 
 ```js
 // Your use of the function code goes here
-
+const updatedVoterData = convertStringToDate(ncVoterData, "ballot_send_dt")
 ```
 
 <p class="codeblock-caption">
   E1 Interactive Output
 </p>
 
-```javascript
+```js
 // Convert and output variable here
+updatedVoterData
 ```
 
 ## E3. Create Your Own Function (with Conditions)!
