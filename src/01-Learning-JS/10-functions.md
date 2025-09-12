@@ -156,20 +156,45 @@ First outline your procedure with steps below.
 
 Now, code!
 
-```javascript
+```js
 // Your function code goes here
+const countAgeGroups = (dataArray) => {
+
+  let youngCount = 0
+  let middleAgeCount = 0
+  let seniorCount = 0
+
+  for (const item of dataArray) {
+    if (item.age >= 18 && item.age <= 35) {
+      youngCount = youngCount + 1
+    }
+    else if (item.age >=36 && item.age <= 65) {
+      middleAgeCount = middleAgeCount + 1
+    }
+    else if (item.age > 65) {
+      seniorCount = seniorCount + 1
+    }
+  }
+  return {
+    young: youngCount,
+    middleAged: middleAgeCount,
+    senior: seniorCount
+  }
+}
 ```
 
-```javascript
+```js
 // Your use of the function code goes here
+const ageGroupResults = countAgeGroups(ncVoterData)
 ```
 
 <p class="codeblock-caption">
   E2 Interactive Output
 </p>
 
-```javascript
+```js
 // Your output variable here
+ageGroupResults
 ```
 
 ## Submission
