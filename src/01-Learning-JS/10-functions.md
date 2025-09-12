@@ -118,13 +118,16 @@ Now, code!
 // Your function code goes here
 // const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
 
-const parseDateSlash = utcParse("%m/%d/%Y")
+import {utcParse,utcFormat} from "d3-time-format";
+
+const parseDateSlash = utcParse("%m/%d/%y")
 
 const convertStringToDate = (dataArray, dateFieldName) => {
   for (const item of dataArray) {
     item[dateFieldName + "_obj"] = parseDateSlash(item[dateFieldName])
   }
   return dataArray
+}
 ```
 
 ```js
