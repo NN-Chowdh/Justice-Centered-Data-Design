@@ -95,11 +95,11 @@ Use D3.js `FileAttachment()` method below in VS Code. Remember that you'll need 
 <!-- Attach sampled NC voter data -->
 ```js
 // Convert to `js` codeblock and attach sampled NC voter data file: nc_absentee_mail_2024_n20000.csv
-const voterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
+const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
 ```
 
 ```js
-voterData
+ncVoterData
 ```
 
 ## E2. Convert String dates to Date() objects
@@ -116,10 +116,18 @@ Now, code!
 
 ```javascript
 // Your function code goes here
+const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
+
+const parseDateSlash = utcParse("%m/%d/%Y")
+
+for (const voter of ncVoterData) {
+  voter.ballot_send_dt_obj = utcParse(voter.ballot_send_dt)
+}
 ```
 
-```javascript
+```js
 // Your use of the function code goes here
+
 ```
 
 <p class="codeblock-caption">
