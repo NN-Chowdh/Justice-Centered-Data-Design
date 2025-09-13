@@ -1,7 +1,7 @@
 # "Book Publication Data Analysis"
 
 - **Name**: Nazifa Chowdhury
-- **Dataset**: BooksDataset
+- **Dataset**: BooksDataset.csv
 
 ## Overview
 
@@ -13,6 +13,15 @@ The dataset includes rich information for each book: titles, authors, detailed d
 import {utcParse,utcFormat} from "d3-time-format";
 ```
 ## Attach the data
+
+Let me load the book publication dataset and examine its properties and structure in detail.
+
+```js
+const bookData = FileAttachment("./../data/midterm-options/books/BooksDataset.csv").csv({typed: true})
+```
+```js
+bookData
+```
 
 ## Convert Dates
 
