@@ -12,3 +12,12 @@ The dataset includes rich information for each book: titles, authors, detailed d
 ```js
 import {utcParse,utcFormat} from "d3-time-format";
 ```
+## Attach the data
+
+## Convert Dates
+
+## Grouping #1 - Name of grouping here
+
+## Grouping #2 - Name of grouping here
+
+## Reflection
