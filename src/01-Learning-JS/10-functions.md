@@ -108,9 +108,10 @@ ncVoterData
 
 First outline your procedure with steps below.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. 1st, I imported utcParse and utcFormat
+2. Then, I declared a function
+3. then, used a for...of loop and inside it, converted the string to date object
+4. Finally, called the function.
 
 Now, code!
 
@@ -150,9 +151,10 @@ updatedVoterData
 
 First outline your procedure with steps below.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. At first, i have to declare a function.
+2. Then, I used a for..of loop and inside it I used a if condition.
+3. Again, I declared variables used in the if condition
+4. Finally, I called the function.
 
 Now, code!
 
