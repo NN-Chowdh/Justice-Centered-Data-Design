@@ -14,13 +14,30 @@ import {utcParse,utcFormat} from "d3-time-format";
 ```
 ## Attach the data
 
-Let me load the book publication dataset and examine its properties and structure in detail.
+I will now load the dataset using FileAttachment to begin the analysis process.
 
 ```js
-const bookData = FileAttachment("./../data/midterm-options/books/BooksDataset.csv").csv({typed: true})
+const booksData = FileAttachment("./../data/midterm-options/books/BooksDataset.csv").csv({typed: true})
 ```
+<p class="codeblock-caption">
+  Interactive Display of the BookDataset
+</p>
+
 ```js
-bookData
+booksData
+```
+Let me also examine the file properties to understand more about this dataset:
+
+```js
+const booksFile = FileAttachment("./../data/midterm-options/books/BooksDataset.csv")
+```
+
+<p class="codeblock-caption">
+  BookDataset Size and Structure Analysis
+</p>
+
+```js
+booksFile
 ```
 
 ## Convert Dates
