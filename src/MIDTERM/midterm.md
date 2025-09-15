@@ -72,6 +72,114 @@ booksData
 
 ## Grouping #1 - Name of grouping here
 
+I want to analyze publishing trends over time by grouping books into decades and counting how many books were published in each decade. This will reveal patterns in publishing volume and help identify which decades had the most prolific book production in this dataset.
+
+```js
+import {group} from "d3-array"
+
+const booksByDecadeAndPublisher = group(
+  booksData,
+  (d) => {
+    if (d.publish_year >= "1900" && d.publish_year < "1910") {
+      return "1900s"
+    }
+    else if (d.publish_year >= "1910" && d.publish_year < "1920") {
+      return "1910s"
+    }
+    else if (d.publish_year >= "1920" && d.publish_year < "1930") {
+      return "1920s"
+    }
+    else if (d.publish_year >= "1930" && d.publish_year < "1940") {
+      return "1930s"
+    }
+    else if (d.publish_year >= "1940" && d.publish_year < "1950") {
+      return "1940s"
+    }
+    else if (d.publish_year >= "1950" && d.publish_year < "1960") {
+      return "1950s"
+    }
+    else if (d.publish_year >= "1960" && d.publish_year < "1970") {
+      return "1960s"
+    }
+    else if (d.publish_year >= "1970" && d.publish_year < "1980") {
+      return "1970s"
+    }
+    else if (d.publish_year >= "1980" && d.publish_year < "1990") {
+      return "1980s"
+    }
+    else if (d.publish_year >= "1990" && d.publish_year < "2000") {
+      return "1990s"
+    }
+    else if (d.publish_year >= "2000" && d.publish_year < "2010") {
+      return "2000s"
+    }
+    else if (d.publish_year >= "2010" && d.publish_year < "2020") {
+      return "2010s"
+    }
+    return "Other"
+  },
+  (d) => d.Publisher
+)
+```
+<p class="codeblock-caption">
+Nested grouping of books by decade and publisher
+</p>
+
+```js
+booksByDecadeAndPublisher
+```
+
+```js
+import {rollup} from "d3-array"
+
+const bookCountsByDecadeAndPublisher = rollup(
+  booksData,
+  (books) => books.length,  // Count how many books in each group
+  (d) => {
+    if (d.publish_year >= "1900" && d.publish_year < "1910") {
+      return "1900s"
+    }
+    else if (d.publish_year >= "1910" && d.publish_year < "1920") {
+      return "1910s"
+    }
+    else if (d.publish_year >= "1920" && d.publish_year < "1930") {
+      return "1920s"
+    }
+    else if (d.publish_year >= "1930" && d.publish_year < "1940") {
+      return "1930s"
+    }
+    else if (d.publish_year >= "1940" && d.publish_year < "1950") {
+      return "1940s"
+    }
+    else if (d.publish_year >= "1950" && d.publish_year < "1960") {
+      return "1950s"
+    }
+    else if (d.publish_year >= "1960" && d.publish_year < "1970") {
+      return "1960s"
+    }
+    else if (d.publish_year >= "1970" && d.publish_year < "1980") {
+      return "1970s"
+    }
+    else if (d.publish_year >= "1980" && d.publish_year < "1990") {
+      return "1980s"
+    }
+    else if (d.publish_year >= "1990" && d.publish_year < "2000") {
+      return "1990s"
+    }
+    else if (d.publish_year >= "2000" && d.publish_year < "2010") {
+      return "2000s"
+    }
+    else if (d.publish_year >= "2010" && d.publish_year < "2020") {
+      return "2010s"
+    }
+    return "Other"
+  },
+  (d) => d.Publisher
+)
+```
+```js
+bookCountsByDecadeAndPublisher
+```
 ## Grouping #2 - Name of grouping here
 
 ## Reflection
