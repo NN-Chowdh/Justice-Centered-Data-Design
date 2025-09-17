@@ -77,44 +77,23 @@ I want to analyze publishing trends over time by grouping books into decades and
 ```js
 import {group} from "d3-array"
 
-const booksByDecadeAndPublisher = group(
+const booksByEraAndPublisher = group(
   booksData,
   (d) => {
-    if (d.publish_year >= "1900" && d.publish_year < "1910") {
-      return "1900s"
+    if (d.publish_year >= "1900" && d.publish_year <= "1925") {
+      return "Early 20th Century (1901-1925)"
     }
-    else if (d.publish_year >= "1910" && d.publish_year < "1920") {
-      return "1910s"
+    else if (d.publish_year >= "1926" && d.publish_year <= "1950") {
+      return "Mid 20th Century (1926-1950)"
     }
-    else if (d.publish_year >= "1920" && d.publish_year < "1930") {
-      return "1920s"
+    else if (d.publish_year >= "1951" && d.publish_year <= "1975") {
+      return "Late 20th Century (1951-1975)"
     }
-    else if (d.publish_year >= "1930" && d.publish_year < "1940") {
-      return "1930s"
+    else if (d.publish_year >= "1976" && d.publish_year <= "2000") {
+      return "End of 20th Century (1976-2000)"
     }
-    else if (d.publish_year >= "1940" && d.publish_year < "1950") {
-      return "1940s"
-    }
-    else if (d.publish_year >= "1950" && d.publish_year < "1960") {
-      return "1950s"
-    }
-    else if (d.publish_year >= "1960" && d.publish_year < "1970") {
-      return "1960s"
-    }
-    else if (d.publish_year >= "1970" && d.publish_year < "1980") {
-      return "1970s"
-    }
-    else if (d.publish_year >= "1980" && d.publish_year < "1990") {
-      return "1980s"
-    }
-    else if (d.publish_year >= "1990" && d.publish_year < "2000") {
-      return "1990s"
-    }
-    else if (d.publish_year >= "2000" && d.publish_year < "2010") {
-      return "2000s"
-    }
-    else if (d.publish_year >= "2010" && d.publish_year < "2020") {
-      return "2010s"
+    else if (d.publish_year >= "2001" && d.publish_year <= "2025") {
+      return "Early 21st Century (2001-2025)"
     }
     return "Other"
   },
@@ -122,11 +101,11 @@ const booksByDecadeAndPublisher = group(
 )
 ```
 <p class="codeblock-caption">
-Nested grouping of books by decade and publisher
+Nested grouping of books by Era and publisher
 </p>
 
 ```js
-booksByDecadeAndPublisher
+booksByEraAndPublisher
 ```
 
 ```js
