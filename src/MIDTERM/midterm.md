@@ -108,12 +108,17 @@ Nested grouping of books by Era and publisher
 bookByEraPublisher
 ```
 
-## Grouping #2 - Name of grouping here
+## Grouping #2 - Name of grouping here 
 
 ```js
+// Just now I have discovered that the prices are with strings. So, i am trying extract only the price in dollar. and add a new column as Price_number where only the number will be stored.
+
 for (const book of booksData) {
   book["Price in Dollar"] = book.Price.split("$")[1]
-  book.Price_Number = Number(book["Price in Dollar"])
+
+  // I have just splited the price property into two parts: [0] = "Price starting at" and [1] = $.$$. But the value is still in string . I have to convert it into number as I am trying to grouping them as per price
+
+  book.Price_Dollar = Number(book["Price in Dollar"])
 }
 ```
 ```js
@@ -121,13 +126,51 @@ booksData
 ```
 
 ```js
-const booksByPrice = rollup(
-  booksData,
-  (book) => book.length
-  (d) => {
-    if 
+// now i want to sort the data by pricing.
+
+let booksWithPriceNumber = booksData.map(
+  (book) => {
+    if (book.Price_Dollar < 5) 
+    {
+      book.Price_Range = "under $5"
+    }
+    else if (book.Price_Dollar >= 5 && book.Price_Dollar < 10) 
+    {
+      book.Price_Range = "within $5 to $9.99"
+    }
+    else if (book.Price_Dollar >= 10 && book.Price_Dollar < 15) 
+    {
+      book.Price_Range = "within $10 to $14.99"
+    }
+    else if (book.Price_Dollar >= 15 && book.Price_Dollar < 20) 
+    {
+      book.Price_Range = "within $15 to $19.99"
+    }
+    else 
+    {
+      book.Price_Range = "above $20"
+    }
+    return book
   }
 )
+```
+
+```js
+booksWithPriceNumber
+```
+
+```js
+import {rollup} from "d3-array"
+
+let booksByPriceRange = rollup(
+  booksWithPriceNumber,
+  (D) => D.length,        // reducer: count items
+  (d) => d.Price_Range    // group by the Price_Range field
+)
+```
+
+```js
+booksByPriceRange
 ```
 
 ## Reflection
