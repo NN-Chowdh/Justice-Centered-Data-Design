@@ -130,6 +130,7 @@ import {rollup} from "d3-array"
 let booksByPriceRange = rollup(
   booksData,
   (D) => D.length,
+  (d) => d.Category,
   (d) => {
     if (d.price_number < 5) {
       return "under $5"
