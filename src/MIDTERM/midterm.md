@@ -11,7 +11,7 @@ My plan is to explore how the publishing industry has evolved over time. I am pa
 
 ## Attach the data
 
-Before starting the analysis, I need to load the dataset and get familiar with its structure and contents. This initial exploration will help me verify that the data loaded correctly and give me a clear idea of what I'm working with.
+Before starting the analysis, I need to load the dataset and get familiar with its structure and contents. This step will help me verify that the data loaded correctly and give me a clear idea of what I'm working with.
 
 ```js
 const booksData = FileAttachment("./../data/midterm-options/books/BooksDataset.csv").csv({typed: true})
@@ -39,12 +39,12 @@ booksFile
 
 ## Convert Dates
 
-I will convert the publication date strings into Date objects using D3.js parsers and create multiple useful date formats for analysis. The original dates are in "%A, %B %d, %Y" format.
+In this step, I will convert the publication date strings into Date objects using D3.js parsers. Since the dataset stores dates as long strings like "Friday, January 1, 1993", I will also add new fields for year, month, and day of the week after parsing, so I can group and analyze by time later.
 
 ```js
 import {utcParse,utcFormat} from "d3-time-format";
 
- // create parser for the specific date format in our data
+// parser for the specific date format in our data
 const parseDateSlash = utcParse("%A, %B %d, %Y")
 
 // create formatters using D3 parse
@@ -56,9 +56,9 @@ for (const book of booksData) {
   const dateObject = parseDateSlash(book["Publish Date"])
 
   book.publish_date_obj = dateObject
-  book.publish_year = Number(formatYear(dateObject))
+  book.publish_year = formatYear(dateObject)
   book.publish_month = formatMonth(dateObject)
-  book.publish_DayOfWeek = formatDayOfWeek(dateObject)
+  book.publish_day_of_week = formatDayOfWeek(dateObject)
 }
 ```
 <p class="codeblock-caption">
@@ -69,34 +69,45 @@ Converting publication dates and adding formatted date properties
 booksData
 ```
 
-## Grouping #1 - Name of grouping here
+## Grouping 1 - Books by Historical Era and Publisher
 
-I want to analyze publishing trends over time by grouping books into era and counting how many books were published in each era. This will reveal patterns in publishing volume and help identify which era had the most prolific book production in this dataset.
+I want to analyze publishing trends over time by grouping books into historical eras and then by publisher within each era. This approach will help me understand how publishing activity has evolved across different time periods and which publishers were most active during specific eras. By using 25-year periods, I can create meaningful historical divisions that might reveal interesting patterns in the publishing industry.
+
+**Procedures of grouping plan:**
+
+1. Import d3.group from d3-array
+2. Convert the publish_year string to number
+3. Group books by historical era using if/else conditions based on publish_year (25-year periods)
+4. Group by publisher within each era
+5. Display the result
 
 ```js
 import {group} from "d3-array"
 
+// Group books by historical era, then by publisher
 const bookByEraPublisher = group(
   booksData,
   (d) => {
+    // Assign each book into an era based on publish_year
+    const year = Number(d.publish_year) // String to numeric value
     if (d.publish_year >= 1901 && d.publish_year <= 1925) {
       return "Early 20th Century (1901-1925)"
     }
-    else if (d.publish_year >= 1926 && d.publish_year <= 1950) {
+    else if (d.publish_year >= 1926 && d.year <= 1950) {
       return "Mid 20th Century (1926-1950)"
     }
-    else if (d.publish_year >= 1951 && d.publish_year <= 1975) {
+    else if (d.year >= 1951 && d.year <= 1975) {
       return "Late 20th Century (1951-1975)"
     }
-    else if (d.publish_year >= 1976 && d.publish_year <= 2000) {
+    else if (d.year >= 1976 && d.year <= 2000) {
       return "End of 20th Century (1976-2000)"
     }
-    else if (d.publish_year >= 2001 && d.publish_year <= 2025) {
+    else if (d.year >= 2001 && d.year <= 2025) {
       return "Early 21st Century (2001-2025)"
     }
     return "Other"
   },
-  (d) => d.Publisher
+  (d) => d.Publisher // Group by publisher within each era
 )
 ```
 <p class="codeblock-caption">
@@ -107,17 +118,27 @@ Nested grouping of books by Era and publisher
 bookByEraPublisher
 ```
 
-## Grouping #2 - Name of grouping here 
+## Grouping 2 - Books by Category and Price Range
+
+Now, I want to analyze the relationship between book categories and pricing by grouping books first by their genre categories, then by price ranges within each category. This will help me understand how pricing varies across different types of books and whether certain genres tend to be more expensive than others.
+
+**Procedures of grouping plan:**
+
+1. Extract numerical price values from the "Price" key using for...of loop and .split()
+2. Convert price strings to numbers
+3. Import d3.rollup from d3-array
+4. Group the books by category
+5. Group the books by price_number under each category
+6. Display the results
 
 ```js
-
 for (const book of booksData) {
   // split the price by $ and take the number string and convert it to number
   book.price_number = Number(book.Price.split("$")[1])
 }
 ```
 <p class="codeblock-caption">
-Added new price number
+Added new price_number
 </p>
 
 ```js
@@ -127,11 +148,12 @@ booksData
 ```js
 import {rollup} from "d3-array"
 
-let booksByPriceRange = rollup(
+let booksByCategory_Price = rollup(
   booksData,
   (D) => D.length,
-  (d) => d.Category,
+  (d) => d.Category, // Group by category
   (d) => {
+    // Group by price
     if (d.price_number < 5) {
       return "under $5"
     }
@@ -151,7 +173,11 @@ let booksByPriceRange = rollup(
 )
 ```
 
+<p class="codeblock-caption">
+Books grouped by category and price range
+</p>
+
 ```js
-booksByPriceRange
+booksByCategory_Price
 ```
 ## Reflection
