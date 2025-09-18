@@ -180,3 +180,13 @@ Books grouped by category and price range
 booksByCategory_Price
 ```
 ## Reflection
+
+**Insights**
+
+1. The dataset shows more books published in the late 20th century (1976–2000) than in the early 21st century (2001–2025). At first this was surprising, since I expected more recent decades to dominate publishing. This suggests that either the dataset has fewer records for the 21st century or it is skewed toward older publications.
+2. Certain publishers stood out across different eras. For example, "Simon & Schuster" had a very large number of publications in the late 20th century but far fewer in the early 21st century. This change highlights how publisher activity shifts over time.
+3. When grouping books by category and price range, the majority of books fell into the $5–$9.99 range, followed by a significant number under $5. In contrast, very few books were priced above $15. This suggests that most of the dataset reflects mass-market or affordable books, rather than high-end or specialty pricing.
+
+**Question**
+
+1. Why does the dataset show fewer books for the early 21st century compared to the late 20th century? I was wondering if this is due to incomplete data collection or actual publishing trends?
