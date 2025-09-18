@@ -5,13 +5,13 @@
 
 ## Overview
 
-I chose the book publication dataset because it contains a comprehensive collection of over 100,000 published books with detailed metadata that seemed most manageable among the three dataset options. 
+I decided to work with the book publication dataset because it was the clearest and most structured of the three options. When I compared the datasets, the meta ads and pollution data looked intimidating with lots of technical variables I wasn't sure how to interpret. The book dataset, on the other hand, had straightforward columns like title, author, category, and price - information that made immediate sense to me. 
 
-The dataset includes rich information for each book: titles, authors, detailed descriptions, genre categories, publishers, publication dates, and pricing data. With over 100,000 records, this dataset offers the scale needed to identify meaningful statistical patterns in publishing industry trends, popular genres, and market dynamics that wouldn't be visible in smaller datasets.
+My plan is to explore how the publishing industry has evolved over time. I am particularly interested in grouping books by different eras, and since it also includes pricing information, I can examine how book costs vary across different categories. These approaches will allow me to demonstrate the date conversion and grouping techniques we have been practicing in class.
 
 ## Attach the data
 
-I will now load the dataset using FileAttachment to begin the analysis process.
+Before starting the analysis, I need to load the dataset and get familiar with its structure and contents. This initial exploration will help me verify that the data loaded correctly and give me a clear idea of what I'm working with.
 
 ```js
 const booksData = FileAttachment("./../data/midterm-options/books/BooksDataset.csv").csv({typed: true})
@@ -23,7 +23,7 @@ const booksData = FileAttachment("./../data/midterm-options/books/BooksDataset.c
 ```js
 booksData
 ```
-Let me also examine the file properties like its name, mimeType, size etc to understand more about this dataset:
+Let me also examine the file properties like its name, mimeType, size etc to  get additional insights about the dataset:
 
 ```js
 const booksFile = FileAttachment("./../data/midterm-options/books/BooksDataset.csv")
@@ -154,96 +154,4 @@ let booksByPriceRange = rollup(
 ```js
 booksByPriceRange
 ```
-
-```js
-import {rollup} from "d3-array"
-
-let categoryCounts = rollup(
-  booksData,
-  (D) => D.length,   // count books
-  (d) => d.Category
-)
-```
-
-```js
-categoryCounts
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- //   book["Price in Dollar"] = book.Price.split("$")[1]
-
-//   // I have just splited the price property into two parts: [0] = "Price starting at" and [1] = $.$$. But the value is still in string . I have to convert it into number as I am trying to grouping them as per price
-
-//   book.Price_Dollar = Number(book["Price in Dollar"])
-// }
-// ```
-// ```js
-// booksData
-// ```
-
-// ```js
-// // now i want to sort the data by pricing.
-
-// let booksWithPriceNumber = booksData.map(
-//   (book) => {
-//     if (book.Price_Dollar < 5) 
-//     {
-//       book.Price_Range = "under $5"
-//     }
-//     else if (book.Price_Dollar >= 5 && book.Price_Dollar < 10) 
-//     {
-//       book.Price_Range = "within $5 to $9.99"
-//     }
-//     else if (book.Price_Dollar >= 10 && book.Price_Dollar < 15) 
-//     {
-//       book.Price_Range = "within $10 to $14.99"
-//     }
-//     else if (book.Price_Dollar >= 15 && book.Price_Dollar < 20) 
-//     {
-//       book.Price_Range = "within $15 to $19.99"
-//     }
-//     else 
-//     {
-//       book.Price_Range = "above $20"
-//     }
-//     return book
-//   }
-// )
-// ```
-
-// ```js
-// booksWithPriceNumber
-// ```
-
-// ```js
-// import {rollup} from "d3-array"
-
-// let booksByPriceRange = rollup(
-//   booksWithPriceNumber,
-//   (D) => D.length,        // reducer: count items
-//   (d) => d.Price_Range    // group by the Price_Range field
-// )
-// ```
-
-// ```js
-// booksByPriceRange -->
-
-
 ## Reflection
