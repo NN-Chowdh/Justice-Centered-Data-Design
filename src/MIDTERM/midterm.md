@@ -90,19 +90,19 @@ const bookByEraPublisher = group(
   (d) => {
     // Assign each book into an era based on publish_year
     const year = Number(d.publish_year) // String to numeric value
-    if (d.publish_year >= 1901 && d.publish_year <= 1925) {
+    if (year >= 1901 && year <= 1925) {
       return "Early 20th Century (1901-1925)"
     }
-    else if (d.publish_year >= 1926 && d.year <= 1950) {
+    else if (year >= 1926 && year <= 1950) {
       return "Mid 20th Century (1926-1950)"
     }
-    else if (d.year >= 1951 && d.year <= 1975) {
+    else if (year >= 1951 && year <= 1975) {
       return "Late 20th Century (1951-1975)"
     }
-    else if (d.year >= 1976 && d.year <= 2000) {
+    else if (year >= 1976 && year <= 2000) {
       return "End of 20th Century (1976-2000)"
     }
-    else if (d.year >= 2001 && d.year <= 2025) {
+    else if (year >= 2001 && year <= 2025) {
       return "Early 21st Century (2001-2025)"
     }
     return "Other"
@@ -151,7 +151,7 @@ import {rollup} from "d3-array"
 let booksByCategory_Price = rollup(
   booksData,
   (D) => D.length,
-  (d) => d.Category, // Group by category
+  (d) => d.Category,
   (d) => {
     // Group by price
     if (d.price_number < 5) {
