@@ -154,7 +154,19 @@ let booksByPriceRange = rollup(
 booksByPriceRange
 ```
 
+```js
+import {rollup} from "d3-array"
 
+let categoryCounts = rollup(
+  booksData,
+  (D) => D.length,   // count books
+  (d) => d.Category
+)
+```
+
+```js
+categoryCounts
+```
 
 
 
