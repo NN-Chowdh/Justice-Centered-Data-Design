@@ -7,7 +7,7 @@
 
 I decided to work with the book publication dataset because it was the clearest and most structured of the three options. When I compared the datasets, the meta ads and pollution data looked intimidating with lots of technical variables I wasn't sure how to interpret. The book dataset, on the other hand, had straightforward columns like title, author, category, and price - information that made immediate sense to me. 
 
-My plan is to explore how the publishing industry has evolved over time. I am particularly interested in grouping books by different eras, and since it also includes pricing information, I can examine how book costs vary across different categories. These approaches will allow me to demonstrate the date conversion and grouping techniques we have been practicing in class.
+My plan is to explore how the the book industry has changed over time. I am particularly interested in grouping books by different eras, and since it also includes pricing information, I can examine how book costs vary across different categories. These approaches will allow me to demonstrate the date conversion and grouping techniques we have been practicing in class.
 
 ## Attach the data
 
@@ -71,7 +71,7 @@ booksData
 
 ## Grouping 1 - Books by Historical Era and Publisher
 
-I want to analyze publishing trends over time by grouping books into historical eras and then by publisher within each era. This approach will help me understand how publishing activity has evolved across different time periods and which publishers were most active during specific eras. By using 25-year periods, I can create meaningful historical divisions that might reveal interesting patterns in the publishing industry.
+I want to analyze publishing trends over time by grouping books into historical eras and then by publisher within each era. It will help me understand how publishing activity has evolved across different time periods and which publishers were most active during specific eras. By using 25-year periods, I can create meaningful historical divisions that might reveal interesting patterns in the publishing industry.
 
 **Procedures of grouping plan:**
 
@@ -119,7 +119,7 @@ bookByEraPublisher
 
 ## Grouping 2 - Books by Category and Price Range
 
-Now, I want to analyze the relationship between book categories and pricing by grouping books first by their genre categories, then by price ranges within each category. This will help me understand how pricing varies across different types of books and whether certain genres tend to be more expensive than others.
+Now, I want to analyze the relationship between book categories and pricing by grouping books first by their genre categories, then by price ranges within each category. This will help me understand how pricing varies across different types of books.
 
 **Procedures of grouping plan:**
 
@@ -183,7 +183,7 @@ booksByCategory_Price
 
 **Insights**
 
-1. The dataset shows more books published in the late 20th century (1976–2000) than in the early 21st century (2001–2025). At first this was surprising, since I expected more recent decades to dominate publishing. This suggests that either the dataset has fewer records for the 21st century or it is skewed toward older publications.
+1. The dataset shows more books published in the late 20th century (1976–2000) than in the early 21st century (2001–2025). At first this was surprising, since I expected more recent decades to dominate publishing. 
 2. Certain publishers stood out across different eras. For example, "Simon & Schuster" had a very large number of publications in the late 20th century but far fewer in the early 21st century. This change highlights how publisher activity shifts over time.
 3. When grouping books by category and price range, the majority of books fell into the $5–$9.99 range, followed by a significant number under $5. In contrast, very few books were priced above $15. This suggests that most of the dataset reflects mass-market or affordable books, rather than high-end or specialty pricing.
 
