@@ -189,4 +189,4 @@ booksByCategory_Price
 
 **Question**
 
-1. Why does the dataset show fewer books for the early 21st century compared to the late 20th century? I was wondering if this is due to incomplete data collection or actual publishing trends?
+1. During the analysis, I encountered a technical challenge with the execution. My grouping worked correctly initially and produced the expected era-based groups.
