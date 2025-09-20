@@ -190,3 +190,12 @@ booksByCategory_Price
 **Question**
 
 1. During the analysis, I encountered a technical challenge with the execution. My grouping worked correctly initially and produced the expected era-based groups.
+
+<p>
+  <img src="./../assets/images/Problem.png" 
+       alt="Problem" 
+       width="300" 
+       style="margin-left: 40px;"/>
+</p>
+
+But, when I come back again, the results would revert to showing only 'Other' category. I tried to fix this by converting publish_year inside the grouping function, but it still came back. I am not sure how to fully solve this issue yet.
