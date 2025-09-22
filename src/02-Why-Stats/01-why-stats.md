@@ -118,15 +118,9 @@ The structural perspective provides a comprehensive framework for both practice 
 
 **Question**: Why do Lindgren, Gerdes, and Lawrence position a "SJ ethic" as essential to the future of TPC? What types of problems does it help TPC tackle?
 
-TPC has been supporting unfair systems without realizing it. Past ethics focused on individual "good behavior" but ignored bigger problems of inequality. SJ ethics focus on working together to fix unfair systems and help oppressed groups.
+Lindgren, Gerdes, and Lawrence position SJ ethics as essential to TPC's future because traditional ethical frameworks have proven inadequate for addressing the field's complicity in oppression. Earlier work in the 1990s attempted to debunk myths of neutrality and objectivity. However, it remained limited to "white, Western, male-dominated theories," which constrained whose perspectives were centered. Despite these efforts, the field has remained complicit in oppressive practices. Social justice work has been relegated to the margins as an "optional pursuit" rather than central to the discipline. SJ ethics differs fundamentally by shifting focus from individualistic pursuits of "good" moral behavior to building coalitions for collective action. This approach seeks to redress structural injustice by constantly re-orienting actions to center "groups who are in most need".
 
-**Problems SJ ethics help solve:**
-
-1. Language discrimination - Technologies like voice assistants only work well for white English speakers, excluding others.
-2. Excluding marginalized groups - Some groups (like Indigenous people) are left out of important decisions.
-3. Accent bias - Technologies that try to "fix" non-white accents instead of accepting them.
-4. Data control - Big companies collect people's data without letting communities control their own information.
-5. Multiple forms of unfairness - People face different types of discrimination at the same time
+SJ ethics helps TPC tackle complex problems including cultural imperialism and marginalization (such as accent bias in speech technologies and the ongoing marginalization of Indigenous peoples), intersectional oppression (recognizing that racism, sexism, and other forms of discrimination must be addressed simultaneously), and issues around inclusion and exclusion (moving beyond simplistic notions that inclusion is always good). Additionally, SJ ethics addresses research and practice inequities by establishing reciprocity in research relationships and promoting reflexivity to avoid co-opting social justice for institutional gain. The framework also tackles power, privilege, and positionality issues through the "3Ps" approach to recognize "interlocking mechanisms of social injustice" and reorganize people, technologies, and norms.
 
 ## 4. Questions About "Statistical Genre Analysis" (SGA)
 
