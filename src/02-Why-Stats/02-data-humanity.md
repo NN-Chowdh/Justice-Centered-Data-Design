@@ -49,7 +49,18 @@ All PDF copies are available in our learning management system.
 
 **Question**: According to D'Ignazio and Klein, what principles concern data and "power"? Define and discuss each principle below. Be sure to note the important questions to ask about data and power.
 
-YOUR_RESPONSE_HERE
+Catherine D'Ignazio and Lauren F. Klein identify two key principles in their work "Data Feminism" that directly concern the relationship between data and "power": Examine Power and Challenge Power. These principles are fundamental to their argument that data science is not neutral and can either reinforce or dismantle existing power structures.
+
+**The Principles of Data and Power**:
+
+- **Examine Power**: This principle involves critically analyzing how power operates in the world and how it is reflected in datasets, databases, and algorithms. The goal is to identify and understand the forces of oppression - such as systemic racism, patriarchy, and colonialism. These are embedded in our daily lives and, by extension, in our data systems.
+    - **Question to ask**: 
+        1. Data science for whom? (Who benefits from the data science work?)
+        2. Data science by whom? (Who is actually doing the data science work?)
+        3. Data science with whose interests and goals in mind? (Whose agenda is being served?)
+- **Challenge Power**: This principle follows from the first, as once power is examined, the next step is to challenge it. It is a commitment to dismantling unequal power structures and working toward justice. This means moving beyond focusing on individual biases or technical fixes to address the larger systems that perpetuate inequality. For this, the authors emphasize collecting counterdata - gathering data that powerful institutions are failing to collect, especially when official counting systems are inadequate or biased.
+    - **Question to ask**: 
+      1. Does the data strengthen existing power imbalances, or does it empower underrepresented communities?
 
 ### 1.2 Data: Objective mirror, or not?
 
