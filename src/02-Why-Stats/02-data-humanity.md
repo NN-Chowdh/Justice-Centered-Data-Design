@@ -85,21 +85,39 @@ All PDF copies are available in our learning management system.
 - "Short paraphrase 2" (p. xx)
 - ...
 
+**Answer**:
+
+1. **Queer Data**
+2. **Intersectional LGBTQ data**
+
+
 **Question**: Based on your list above, write your own movie tagline, i.e., a short and entertaining one-liner that tries to capture one of the main aspects of "queer data", and another tagline about "intersectional LGBTQ data."
 
-YOUR_TAGLINE_HERE
+**Queer Data**: "The numbers don't lie... but who's asking the questions?"
+
+**Intersectional LGBTQ data**: "One identity is never enough to tell the whole story."
 
 ### 2.2 Guyan's exigence for the book
 
 **Question**: Why did Guyan write this book? What was his exigence?
 
-YOUR_RESPONSE_HERE
+Kevin Guyan wrote this book because of his experiences and observations while working as a researcher in the higher education sector. He felt there was an urgent need to address a few key issues he encountered: 
+- He wanted to clear up misunderstandings about data on LGBTQ staff and students.
+- He observed that some groups were using misinformation and fear to "weaponize" data about gender, sex, and sexuality to reduce the rights of LGBTQ people.
+- He was frustrated that people often didn't understand data well and only focused on simple, headline numbers, missing the deeper context.
 
 ### 2.3 "Prescriptive" versus "descriptive"
 
 **Question**: What does Guyan mean when he labels terms like gender, sex, and sexuality as being descriptive—*not* prescriptive (see pp. 13-14 in particular)? Explain the differences between the two with an example from each of the terms.
 
-YOUR_RESPONSE_HERE
+**Answer**: According to Kevin Guyan, when he labels terms like gender, sex, and sexuality as being descriptive—not prescriptive—he means that these terms should describe a person's individual experience rather than tell them who they are or how they should be. The terms are meant to capture how people actually live their lives, which can be fluid and unique to each person.
+
+Here's the difference between descriptive and prescriptive terms with an example for each:
+
+- **Descriptive**: This approach acknowledges that how a person defines their own gender, sex, or sexuality can change over time and may vary from person to person. The terms are meant to describe an individual's personal and social identity, how they express themselves, and how they are perceived by others.
+    - **Example for Gender**: Instead of saying, "You are a man," which is prescriptive, a descriptive approach would say, "I am a man," or "They identify as a woman".
+- **Prescriptive**: This approach uses a fixed, rigid definition for these terms, which can be limiting and does not allow for individual differences. A prescriptive view dictates what a person's identity "should" be, often based on biological or legal factors
+    - **Example for Sex**: A prescriptive approach to sex would be to say, "Your sex is based solely on your genitalia or reproductive functions". Guyan argues against this by noting that a person's lived identity and legal status also play a role and that these concepts are not exclusively biological.
 
 ### 2.4 "'Visibility is a trap'"
 
