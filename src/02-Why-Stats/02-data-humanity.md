@@ -49,7 +49,7 @@ All PDF copies are available in our learning management system.
 
 **Question**: According to D'Ignazio and Klein, what principles concern data and "power"? Define and discuss each principle below. Be sure to note the important questions to ask about data and power.
 
-Catherine D'Ignazio and Lauren F. Klein identify two key principles in their work "Data Feminism" that directly concern the relationship between data and "power": Examine Power and Challenge Power. These principles are fundamental to their argument that data science is not neutral and can either reinforce or dismantle existing power structures.
+**Answer**: Catherine D'Ignazio and Lauren F. Klein identify two key principles in their work "Data Feminism" that directly concern the relationship between data and "power": Examine Power and Challenge Power. These principles are fundamental to their argument that data science is not neutral and can either reinforce or dismantle existing power structures.
 
 **The Principles of Data and Power**:
 
@@ -66,7 +66,12 @@ Catherine D'Ignazio and Lauren F. Klein identify two key principles in their wor
 
 **Question**: What do D'Ignazio and Klein mean by issues of "false binaries and hidden hierarchies" (p. 3)? Then, explain how principles 3, 5, 6 and 7 each approach such issues.
 
-YOUR_RESPONSE_HERE
+**Answer**: By "false binaries and hidden hierarchies" the authors refer to systems of counting and classification that our culture creates, which are based on an either/or structure but in reality conceal a power imbalance. They use the gender binary of "man" and "woman" as a prime example, where this seemingly simple division hides a hierarchy in which men are at the top, dominating social institutions. They argue that these false binaries and hidden hierarchies permeate all data collection and categorization decisions. 
+
+- **Principle 3: Elevate emotion and embodiment** This principle challenges the false binary between data communication that is "neutral, rational, and 'just the facts'" versus that which is emotional. The authors reject the idea that emotion introduces a suspicious subjectivity. It should not be exiled from the process and should advocate for considering multiple forms of knowledge. Valuing emotion in data science is important as it grounds us in the real world and with the people from whom the data are derived.
+- **Principle 5: Embrace pluralism** This principle insists that complete knowledge comes from synthesizing multiple perspectives, with priority given to a wide range of individuals and groups who are directly impacted by the issues at hand. This approach directly confronts the hierarchy of knowledge that privileges some voices over others. D'Ignazio and Klein use the example of digital contact tracing apps, noting that they often exclude the poor, children, and other "uncounted groups," whose needs should be prioritized, while relying on top-down, non-local organizations to implement a public health program.
+- **Principle 6: Consider context** This principle refutes the false binary that data is neutral or objective. Instead, it asserts that data is a product of unequal social relations and that this context is essential for accurate and ethical analysis. The authors note that understanding the geographic, environmental, and economic conditions that contribute to health outcomes in Black communities, for instance, helps to identify those communities as "more at risk" rather than "riskier" themselves, thereby challenging racist hierarchies.
+- **Principle 7: Make labor visible** This principle challenges the hierarchy that devalues and makes invisible the work of many people in data science, including those who are not "valued or even named". The authors discuss how the COVID-19 pandemic made visible the labor of essential workers who are often under-compensated and not properly valued, and who are disproportionately women and people of color. By making this labor visible, data feminism seeks to ensure that this work is properly compensated, valued, and named, thereby challenging the hidden hierarchies that place elite and highly compensated jobs at the top.
 
 ## 2. Questions about Queer Data
 
