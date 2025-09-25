@@ -141,7 +141,14 @@ Foucault's original use referred to the Panopticon prison design, where prisoner
 
 **Question**: Why does Lee think it important that Appiah changed the standard line of inquiry in legal studies from "whether racism exists" (p. 441) to "what race and racism are"? What "overdetermined" (p. 441) parts or race, i.e., issues about race, does this definitional question bring into focus for deliberation? Be sure to ***define*** and discuss Appiah's position about race as being essential/biological or not and being cultural or not. Indeed, pay close attention to Appiah's definition of culture.
 
-YOUR_RESPONSE_HERE
+**Answer**: Lee thinks Appiah's shift in the standard legal inquiry from "whether racism exists" to "what race and racism are" is important because it moves the focus from a simple, factual question to a crucial definitional and theoretical challenge. By asking "what race and racism are", Appiah forces legal studies and scholars to grapple with the conceptual foundations of race, which are complex and deeply flawed.
+
+The term "overdetermined" suggests that the concept of race is burdened by too many different, often contradictory, meanings. 
+
+Appiah's Position on Definition:
+
+  1. Appiah rejects "Race as Essential/Biological" view, stating that 'there are no races'. He argues that, this concept built on the false presumption of shared, inherited biological traits, is inherently flawed and dangerous.
+  2. Appiah’s accepts "Race as cultureal", but as a substitute. He argues that any meaningful identity should be defined as culture or "communities of meaning", which are based on shared beliefs and effort, not fixed biology.
 
 ### 3.2 Race as multiplicitous
 
