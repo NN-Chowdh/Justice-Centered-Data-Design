@@ -88,8 +88,14 @@ All PDF copies are available in our learning management system.
 **Answer**:
 
 1. **Queer Data**
+      - "Short excerpt 1" (p. 7): "Queer data is more than a study of individuals that sit outside the categories of heterosexual or cisgender."
+      - "Short paraphrase 1" (p. 7): "As an approach to data and identities, queer data disrupts the binaries of male/female, heterosexual/homosexual and cis/trans and asks us to reconsider the notion that 'numbers speak for themselves'. "
+      - "Short excerpt 1" (p. 9): "The conflictual ingredients of queer data therefore require researchers to adopt a mixed approach that elevates the stories of LGBTQ people but also exposes the constructed structures upon which all minority and majority identity characteristics stand."
+      - "Short paraphrase 1" (p. 9): "Queer Data charts a practical path through this tension that acknowledges data's potential to recreate simplified, stereotypical and exclusionary rules but also operates as a tool to gather evidence, document inequality and bring about change."
+      
 2. **Intersectional LGBTQ data**
-
+      - "Short excerpt 1" (p. 19): "Intersectional LGBTQ data tells a nuanced story that better reflects the messy and overlapping experiences of people's everyday lives."
+      - "Short paraphrase 1" (p. 19): "An intersectional approach to analysis can identify par-ticularities and new challenges."
 
 **Question**: Based on your list above, write your own movie tagline, i.e., a short and entertaining one-liner that tries to capture one of the main aspects of "queer data", and another tagline about "intersectional LGBTQ data."
 
@@ -110,20 +116,22 @@ Kevin Guyan wrote this book because of his experiences and observations while wo
 
 **Question**: What does Guyan mean when he labels terms like gender, sex, and sexuality as being descriptive—*not* prescriptive (see pp. 13-14 in particular)? Explain the differences between the two with an example from each of the terms.
 
-**Answer**: According to Kevin Guyan, when he labels terms like gender, sex, and sexuality as being descriptive—not prescriptive—he means that these terms should describe a person's individual experience rather than tell them who they are or how they should be. The terms are meant to capture how people actually live their lives, which can be fluid and unique to each person.
+**Answer**: According to Kevin Guyan, when he labels terms like gender, sex, and sexuality as being descriptive—not prescriptive, he means that these terms should describe a person's individual experience rather than tell them who they are or how they should be. The terms are meant to capture how people actually live their lives, which can be fluid and unique to each person.
 
 Here's the difference between descriptive and prescriptive terms with an example for each:
 
 - **Descriptive**: This approach acknowledges that how a person defines their own gender, sex, or sexuality can change over time and may vary from person to person. The terms are meant to describe an individual's personal and social identity, how they express themselves, and how they are perceived by others.
     - **Example for Gender**: Instead of saying, "You are a man," which is prescriptive, a descriptive approach would say, "I am a man," or "They identify as a woman".
-- **Prescriptive**: This approach uses a fixed, rigid definition for these terms, which can be limiting and does not allow for individual differences. A prescriptive view dictates what a person's identity "should" be, often based on biological or legal factors
+- **Prescriptive**: This approach uses a fixed, rigid definition for these terms, which can be limiting and does not allow for individual differences. A prescriptive view dictates what a person's identity should be, often based on biological or legal factors
     - **Example for Sex**: A prescriptive approach to sex would be to say, "Your sex is based solely on your genitalia or reproductive functions". Guyan argues against this by noting that a person's lived identity and legal status also play a role and that these concepts are not exclusively biological.
 
 ### 2.4 "'Visibility is a trap'"
 
 **Question**: Guyan cites Foucault's idea about how "'visibility is a trap'" (p. 20 of the PDF). What does this expression mean, and why does Guyan draw parallels between Foucault's original use of it with issues of power and data? Be sure to illuminate your discussion with specific examples that Guyan uses in the book.
 
-YOUR_RESPONSE_HERE
+**Answer**: Foucault's expression "Visibility is a trap" means that being seen or counted is not always a positive thing. It can actually make people vulnerable to control and harm. Guyan draws a parallel between this idea and queer data with issues of power and data highlighting that how power can be used through surveillance.
+
+Foucault's original use referred to the Panopticon prison design, where prisoners couldn't tell if they were being watched which forcing them to act as if they are always being observed. Guyan applies this to data by arguing that being made visible in official records or statistics can make LGBTQ people vulnerable to scrutiny, control, and violence by systems of power. The data collected to prove their existence or fight injustice can be weaponized against them. He aslo cites Reina Gossett et al., who state, "We are living in a time of trans visibility. Yet we are also living in a time of anti-trans violence." This shows that visibility in media and culture does not automatically lead to safety or liberation; it can, in fact, lead to an increase in backlash and attacks. In addition, cites Reina Gossett et al., who state, "We are living in a time of trans visibility. Yet we are also living in a time of anti-trans violence." This shows that visibility in media and culture does not automatically lead to safety or liberation; it can, in fact, lead to an increase in backlash and attacks.
 
 ## 3. Questions about "The topology of race"
 
