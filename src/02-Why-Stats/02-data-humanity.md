@@ -99,6 +99,8 @@ All PDF copies are available in our learning management system.
 
 **Question**: Based on your list above, write your own movie tagline, i.e., a short and entertaining one-liner that tries to capture one of the main aspects of "queer data", and another tagline about "intersectional LGBTQ data."
 
+**Answer**:
+
 **Queer Data**: "The numbers don't lie... but who's asking the questions?"
 
 **Intersectional LGBTQ data**: "One identity is never enough to tell the whole story."
@@ -107,7 +109,7 @@ All PDF copies are available in our learning management system.
 
 **Question**: Why did Guyan write this book? What was his exigence?
 
-Kevin Guyan wrote this book because of his experiences and observations while working as a researcher in the higher education sector. He felt there was an urgent need to address a few key issues he encountered: 
+**Answer**: Kevin Guyan wrote this book because of his experiences and observations while working as a researcher in the higher education sector. He felt there was an urgent need to address a few key issues he encountered: 
 - He wanted to clear up misunderstandings about data on LGBTQ staff and students.
 - He observed that some groups were using misinformation and fear to "weaponize" data about gender, sex, and sexuality to reduce the rights of LGBTQ people.
 - He was frustrated that people often didn't understand data well and only focused on simple, headline numbers, missing the deeper context.
@@ -154,7 +156,15 @@ Appiah's Position on Definition:
 
 **Question**: What does Lee mean by "race is always multiplicitous because social contexts are multiplicitous" (p. 447)? Use the Shaw v. Reno case to help you explain how this challenges both essentialist/biological definitions of race & Appiah's race as synonomous with culture.
 
-YOUR_RESPONSE_HERE
+**Answer**: Lee's statement - "race is always multiplicitous because social contexts are multiplicitous", means that the meaning of race is never fixed. It constantly shifts based on the specific context like social, political or legal. We can say it as 'dynamic concept' which can be used differently accross various situations to achieve certal goals.
+
+The Shaw v. Reno case provides a perfect example of how this multiplicitious nature challenges the 'fixed' definition of race:
+
+The Supreme Court argued that the district was unconstitutional because it separated voters based only on race. This decision treated race as a single, defining factor, ignoring the complex political, economic, and historical factors that actually motivate voting behavior in that region. Lee’s argument is that the court’s action of reducing race to a single criterion proves that the legal context shapes the definition of race.
+
+Again, the court could not treat the voting district as a neutral cultural grouping. Instead, the court viewed the district as a form of "racial domination" or political power play, not just an ethnic community organizing around cultural affinity. This shows that in a legal context, race is defined by its role in political power, social hierarchy, and historical oppression, not by a flexible cultural definition.
+
+In short, the Shaw v. Reno case demonstrates Lee's point: whether race is viewed as a fixed essential marker or a tool of political hierarchy, its meaning is determined entirely by the context of the legal dispute, not by biology or simple culture.
 
 ## 4. Questions about a data team's "rhetorical process of data"
 
@@ -162,19 +172,42 @@ YOUR_RESPONSE_HERE
 
 **Question**: Briefly describe the "god trick" problem. Also, discuss what connections you recognize between the "god trick" problem and some issues raised in our other readings.
 
-YOUR_RESPONSE_HERE
+**Answer**: The "god trick" problem refers to the false belief that data is a completely objective, neutral, and unbiased mirror of reality. It is maintained by two core ideas. 
+  - Data is presented with the false "alibi of describing it fully". This means data acts like a comprehensive, factual summary of the world, making people trust that it "objectively mirrors reality and speaks plainly for itself" 
+  - The human choices involved in selecting, analyzing, and presenting the rhetorical processes of data are "sacrificed at the altar of positivist quantification". In other words, the human decisions are hidden, making the final numbers look like pure fact rather than a choice designed to persuade.
+
+The connections between the "god trick" and other readings:
+
+  - The god trick demands fixed categories. Guyan refutes this by arguing that data categories for LGBTQ people are not value neutral and that numbers "always speak for someone."
+
+  - The god trick hides the influence of power. D'Ignazio & Klein provide principles to deliberately expose it, arguing that data choices are inherently political. 
+
+  - The god trick relies on the assumption that the subject being measured is a stable, essential fact. Lee's analysis of Appiah shows that race is "overdetermined" and "multiplicitous", meaning its definition constantly shifts based on social and legal context.
+
 
 ### 4.2 What's stasis and stasis networks?
 
 **Question**: Briefly define stasis and stasis networks. Explain what stasis networks provides qualitative researchers?
 
-YOUR_RESPONSE_HERE
+**Answer**:
+
+Statis: Stasis refers to the classic rhetorical concept of asking a series of questions to find the point of disagreement in an argument. These questions (fact, definition, quality, action) help define the core issue.
+
+Stasis Network: The Stasis Network is a new, sociotechnical methodology that combines the classical stasis questions with network analysis to map the relationships between rhetorical arguments (Stases), technical activities (Practices), and data objects (Mediating Artifacts) in real-world data work. 
+
+The Stasis Network methodology qualitative researcher a powerful tool to analyze and expose the rhetorical, value-laden nature of data work, which traditional methods pften overlook. It can capture the complex, circular, and messy negotiation that actually happens in data teams. It also helps researchers identify and quantify the human values and arguments that shape the data conclusuions.
 
 ### 4.3 What's the "DMT cluster"?
 
 **Question**: What's the *DMT cluster*, and how did connect to observations about the data team's judgment about the *quality of metrics*?
 
-YOUR_RESPONSE_HERE
+**Answer**: The DMT cluster represents the core negotiation hub of the data journalism team's process. In this cluster, the journalism team was constantly debating the meaning and classification of the data before they could move on to analysis or reporting.
+
+Connection to judgment about the *quality of metrics*:
+
+- The high density of negotiation in the DMT cluster meant that the team could not efficiently assess a metric's quality until they had first settled its definition. The network proved that the Definitive Stasis and the Quality Stasis were tightly entangled.
+- In addition, the cluster's activity showed that the instability in defintion made it difficult for the team to achieve consensus on the matric's quality.
+- This relationship proved that, the matric quality was not inherent, rather it was determined by the team's rhetorical goal. The SN revealed that the matric's utility was judged not by its raw number, but whether its definition helped the team construct a significant and ethically justifiable story angel.
 
 ## 5. Synthesis Response
 
