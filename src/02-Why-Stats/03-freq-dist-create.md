@@ -417,10 +417,9 @@ In this second video, I explain the code inside of the custom `oneLevelRollUpFla
 
 Ok, now that you have watched the above video about the `oneLevelRollUpFlatMap()` function. Import it from the `./utils/utils.js` file in the codeblock below.
 
-```javascript
+```js
 // Convert me and import oneLevelRollUpFlatMap()
-import {oneLevelRollUpFlatMap} from "./.js"
-
+import {oneLevelRollUpFlatMap} from "./utils/utils.js"
 ```
 
 Now, see if it worked!
@@ -429,7 +428,7 @@ Use the imported function in the below codeblock to rollup and flatten `ncVoters
 
 ```javascript
 // Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
-const byRaceAndBallotStatus = ADD_FUNCTION_HERE
+const byRace = ADD_FUNCTION_HERE
 ```
 
 Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
