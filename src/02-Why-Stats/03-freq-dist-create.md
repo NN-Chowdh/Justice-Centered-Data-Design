@@ -190,11 +190,23 @@ Finally, inside of the `/src/data/nc-voters/provenance/` folder, you can also re
 
 **ENTER_YOUR_RESPONSE_HERE**
 
+A SJ ethic requires that we view the NC voter data not as a neutral spreadsheet, but as the result of complex, politically charged system. In the following, I've discussed some crucial point:
 
+**Initial Understanding of the data and its values and Context**: 
+
+  - The core assumption shifts from "did voters of colors do something wrong that caused their ballots to be rejected?" to "Does the system have flaws that dispropotionately deprived certain voters?". The 583 study establishes a historical precedent for systemic disparity. We have to look for evidence of its continuation.
+  - We also should look closely at the steps a voter must take. For people with less disposable time, less digital literacy, or less reliable postal service - all of these factors are usually tied to systemic economic and racial inequality. These points in turn become barriers. 
+  - Regarding the "race" column, we must ask how accurate, how comprehensive, and how consistently it is being applied.
+  - We refuse to treat "Rejected" as a single, neutral outcome. It demands an investigation into the reason for rejection. A late ballot rejection might be due to postal service reliability, while a signature mismatch might relate to language barriers or differences in cursive instruction accross communities. The specific reason matters for developing equitable solutions.
+
+**Missing information and Questions**:
+
+  - Which specific counties have the highest rejection rate? 
+  - Since language barriers can affect the ability to fill out forms correctly, does the State Board of Elections track if a voter requested materials in Spanish or another language?
 
 **Question**: Based on the case scenario as a communicator at Protect Democracy, and a SJ ethic in mind, what questions, i.e., angles, do you think may be helpful to meet the needs of your situation. Discuss any columns/fields that you are surprised about or spark any curiosities, and create a list of questions they spark in you.
 
-ENTER_YOUR_RESPONSE_HERE
+**ENTER_YOUR_RESPONSE_HERE**
 
 **Question**: What can you understand about the `ballot_rtn_status` column? In other words, what types of values are possible?
 
