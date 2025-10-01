@@ -208,6 +208,14 @@ A SJ ethic requires that we view the NC voter data not as a neutral spreadsheet,
 
 **ENTER_YOUR_RESPONSE_HERE**
 
+As a communicator for Protect Democracy, our focus is not just reporting a problem. It is to identify the system failure that caused the problem and we should advocate for a fare fix. With a SJ ethic, we assume the fault lies with the process, not the voter. 
+
+In the below, I am discussing some angles we should consider to meet our needs:
+
+  - We must find out if certain counties (for instances- rural, under resourced) have rejection rate higher than the state average. If they do, the solution is not about traing the voters, rather it should be about forcing the state to provide equal funding and staffing for all county boards of elections.
+  - If a major cause of rejection is late arrival, we should intersect that with the voter_zip code data. Are voters in specific zip code areas known for slower postal service and in turn, dispropotionately penalized by the state's delivery deadline? The fault shifts from the voter to the postal infrastructure and the states's arbitrary deadline setting. 
+  - Like other states, NC must provide a special and expedited rules for military and overseas voters. This proves that the state can make the absentee process simple and fast. Therefore, "why note make it easy for everyone?". It shows that the current complex system is a choice, not a necessity.
+
 **Question**: What can you understand about the `ballot_rtn_status` column? In other words, what types of values are possible?
 
 ENTER_YOUR_RESPONSE_HERE
