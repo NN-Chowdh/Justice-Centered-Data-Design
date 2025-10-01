@@ -419,7 +419,7 @@ Ok, now that you have watched the above video about the `oneLevelRollUpFlatMap()
 
 ```js
 // Convert me and import oneLevelRollUpFlatMap()
-import {oneLevelRollUpFlatMap} from "./utils/utils.js"
+import {oneLevelRollUpFlatMap,twoLevelRollUpFlatMap} from "./utils/utils.js"
 ```
 
 Now, see if it worked!
@@ -476,6 +476,9 @@ const byBallotReqParty = oneLevelRollUpFlatMap(
   "count"
 )
 ```
+<p class="codeblock-caption">
+  Interactive output of rolled up <code>ballotRequestParty</code>:
+</p>
 
 ```js
 byBallotReqParty
