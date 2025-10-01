@@ -419,7 +419,7 @@ Ok, now that you have watched the above video about the `oneLevelRollUpFlatMap()
 
 ```js
 // Convert me and import oneLevelRollUpFlatMap()
-import {oneLevelRollUpFlatMap,twoLevelRollUpFlatMap} from "./utils/utils.js"
+import {oneLevelRollUpFlatMap,twoLevelRollUpFlatMap,sumUpWithReducerTests} from "./utils/utils.js"
 ```
 
 Now, see if it worked!
