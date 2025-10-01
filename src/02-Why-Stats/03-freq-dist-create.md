@@ -426,11 +426,26 @@ Now, see if it worked!
 
 Use the imported function in the below codeblock to rollup and flatten `ncVotersAll` by (1) `race` and (2) `ballot_rtn_status`.
 
-```javascript
+```js
 // Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
 const byRace = oneLevelRollUpFlatMap(
   ncVotersAll,
-  "race";
+  "race",
+  "count"
+)
+```
+
+Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
+
+```js
+byRace
+```
+
+```js
+// Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
+const byBallotStatus = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "race",
   "count"
 )
 ```
