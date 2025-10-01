@@ -218,7 +218,23 @@ In the below, I am discussing some angles we should consider to meet our needs:
 
 **Question**: What can you understand about the `ballot_rtn_status` column? In other words, what types of values are possible?
 
-ENTER_YOUR_RESPONSE_HERE
+**ENTER_YOUR_RESPONSE_HERE**
+
+```js
+import {rollup} from "d3-array"
+
+const ncVotersByRtnStatus = d3.rollup(
+  ncVotersAll, 
+  (D) => D.length,
+  (d) => d.ballot_rtn_status
+)
+```
+
+```js
+ncVotersByRtnStatus
+```
+
+By using the .rollup method, we can see that - the `ballot_rtn_status` column records the outcome of each absentee ballot. Looking at the data, there are both positive outcomes and a wide range of specific problem categories. Here, in this dataset, the column does not just say "rejected", but provides some distinct labels that explain why it was not accepted.
 
 ## 2.3.4 Calculate Absolute Grouped Frequencies with RFS Method
 
