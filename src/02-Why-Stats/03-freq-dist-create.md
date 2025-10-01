@@ -678,7 +678,19 @@ Inputs.table(
 
 **Q**: What *insights* and *new questions* did you garner from it that you hope to also illustrate/provide for your audience?
 
-ENTER_YOUR_RESPONSE_HERE
+**ENTER_YOUR_RESPONSE_HERE**
+
+The above table groups all records into a binary "ACCEPTED" or "REJECTED" outcome by "Voter Race". I chose it to execute the essential first step of the RFS method. As a result, it reduced thousands of records into a meaningful summary statistics.
+
+As the case scenario explicitly directs us to investigate racial disparity, I grouped the data by "Race" primarily. Additionally, the data originally had lots of different reasons why a ballot had not been accepted. So, I created a binary status by grouping all of the reasons into one simple "REJECTED" bucket which is also a crucial part of summary analysis. Aggregating all these into a simple "REJECTED" status, provides us the necessary absolute frequency(af) baseline, which is the denominator for calculating rates.
+
+**Key Insights**:
+
+  - The af shows that over 70,000+ ballots were rejected statewide across all races. It indicates  a massive administrative burden and failure of the mail-in system to accept all votes. 
+  - According to the table, we can see that- White voters account for the largest sheer number of rejected ballots. But, if we consider the ratio, the Black or African American group faces the highest proportional risk. Their ballots were rejected at a rate of 27.02%, making a Black voter 1.27 times more likely to have their ballot rejected than a White voter.
+  - The Asian community's rate of 23.68% also represents significant disparity. This disparity, which disproportionately affects voters of color, aligns with historical concerns in North Carolina elections. It is the critical evidence needed to pursue legal and advocacy solutions.
+
+To sum up the above discussion, we should move the inquiry from 'What is the disparity?' to 'Why is this happening?' or 'How do we fix the system?'
 
 ## Conclusion
 
