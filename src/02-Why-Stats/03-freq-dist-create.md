@@ -428,13 +428,17 @@ Use the imported function in the below codeblock to rollup and flatten `ncVoters
 
 ```javascript
 // Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
-const byRace = ADD_FUNCTION_HERE
+const byRace = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "race";
+  "count"
+)
 ```
 
 Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
 
-```javascript
-byRaceAndBallotStatus
+```js
+byRace
 ```
 
 <div class="error-caption">
