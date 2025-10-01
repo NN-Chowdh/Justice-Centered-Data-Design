@@ -140,7 +140,7 @@ Inputs.table(
       "ballot_request_party", "ballot_rtn_status"
     ],
     format: {
-      id_num: (x) => x.toLocalString(undefined, {useGrouping: false})
+      id_num: (x) => x.toLocaleString(undefined, {useGrouping: false})
       },
     rows: 25,
     width: {
@@ -615,13 +615,18 @@ const rejectedReducerFunc = (d) => {
 ```
 
 <!-- Call and use sumUpWithReducerTests() -->
-```javascript
-/**
- * Convert and use sumUpWithReducerTests().
- * Be sure to review the utils.js file, so you
- * can see the parameters needed for the function.
-**/
-
+```js
+const byRaceAccRej = sumUpWithReducerTests(
+  [
+    {type: "ACCEPTED", func: acceptedReducerFunc},
+    {type: "REJECTED", func: rejectedReducerFunc}
+  ],
+  ["WHITE", "BLACK or AFRICAN AMERICAN", "ASIAN", "UNDESIGNATED"],
+  byRaceAndBallotRtnStatus,
+  "race",
+  "ballot_rtn_status",
+  "count",
+)
 ```
 
 <p class="codeblock-caption">
@@ -629,8 +634,8 @@ const rejectedReducerFunc = (d) => {
 </p>
 
 <!-- Your Reducer Functions -->
-```javascript
-// Convert and output your summed up data
+```js
+byRaceAccRej
 ```
 
 ## E8. Tabulated absolute frequencies of rejected ballots per race
