@@ -131,13 +131,35 @@ Ok, now I want you to put all of those pieces together in your own `Inputs.table
 
 ![Example output table](./../assets/images/2-why-stats/02-why-stats-ex-table.png)
 
-```javascript
-// Insert your table here
+```js
 Inputs.table(
-  // The array of objects
   ncVotersAll,
   {
-    // enter each customizing property in this object
+    columns: [
+      "id_num", "county_desc", "race", "gender", "age",
+      "ballot_request_party", "ballot_rtn_status"
+    ],
+    format: {
+      id_num: (x) => x.toLocalString(undefined, {useGrouping: false})
+      },
+    rows: 25,
+    width: {
+      id_num: 20,
+      county_desc: 90,
+      gender: 40,
+      age: 20,
+      race: 90,
+      ballot_request_party: 90,
+    },
+    header: {
+      id_num: "ID",
+      county_desc: "County",
+      race: "Race",
+      gender: "Gender",
+      age: "Age",
+      ballot_request_party: "Ballot Party",
+      ballot_rtn_status: "Ballot Status",
+    }
   }
 )
 ```
