@@ -603,7 +603,15 @@ const acceptedReducerFunc = (d) => {
   }
 }
 
-
+const rejectedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false)
+  {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
 ```
 
 <!-- Call and use sumUpWithReducerTests() -->
@@ -613,6 +621,7 @@ const acceptedReducerFunc = (d) => {
  * Be sure to review the utils.js file, so you
  * can see the parameters needed for the function.
 **/
+
 ```
 
 <p class="codeblock-caption">
