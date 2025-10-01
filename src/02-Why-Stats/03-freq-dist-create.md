@@ -606,7 +606,7 @@ const acceptedReducerFunc = (d) => {
 const rejectedReducerFunc = (d) => {
   if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false)
   {
-    return d.af
+    return d.count
   }
   else {
     return 0
@@ -647,8 +647,31 @@ Ok, tabulate the rolledup and summed-up results with `Inputs.table()`. Be sure t
 3. Sort the table based on what you deem the most helpful combo of column and ascending vs. descending.
 4. Be sure to provide a short response to the question about your table design.
 
-```javascript
+```js
 // Enter your table here
+Inputs.table(
+  byRaceAccRej,
+  {
+    columns: ["race", "ballot_rtn_status", "count"],
+    header: {
+      race: "Voter Race",
+      ballot_rtn_status: "Ballot Status",
+      count: "Total Count"
+    },
+    width: {
+      race: 20,
+      ballot_rtn_status: 20,
+      count: 20
+    },
+    align: {
+      race: "left",
+      ballot_rtn_status: "center",
+      af: "right"
+    },
+    sort: "count",
+    reverse: true
+  }
+)
 ```
 
 ### Question: Explain your table design choices.
