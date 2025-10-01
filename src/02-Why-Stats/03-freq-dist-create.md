@@ -470,11 +470,15 @@ byBallotRtnStatus
 Ok, now you try this custom function with a different variable from the dataset.
 
 ```js
-// Convert and create your own one-level grouping
+const byBallotReqParty = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "ballot_request_party",
+  "count"
+)
 ```
 
-```javascript
-// Convert and output your variable here
+```js
+byBallotReqParty
 ```
 
 ## E6. Import and use `twoLevelRollUpFlatMap()` on `ncVotersAll`
