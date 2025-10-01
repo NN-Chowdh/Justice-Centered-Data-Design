@@ -591,8 +591,19 @@ Follow along with me in the video below to learn how to create a custom function
 </video>
 
 <!-- Your Reducer Functions -->
-```javascript
+```js
 // Convert and create your own reducer functions akin to "ACCEPTED" vs "REJECTED"
+
+const acceptedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.count
+  }
+  else {
+    return 0
+  }
+}
+
+
 ```
 
 <!-- Call and use sumUpWithReducerTests() -->
