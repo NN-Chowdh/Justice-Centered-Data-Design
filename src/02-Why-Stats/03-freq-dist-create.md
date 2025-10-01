@@ -435,7 +435,7 @@ const byRace = oneLevelRollUpFlatMap(
 )
 ```
 
-Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
+Ok, let's see if `byRace` shows up here by rendering it to the page.
 
 ```js
 byRace
@@ -443,17 +443,17 @@ byRace
 
 ```js
 // Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
-const byBallotStatus = oneLevelRollUpFlatMap(
+const byBallotRtnStatus = oneLevelRollUpFlatMap(
   ncVotersAll,
-  "race",
+  "ballot_rtn_status",
   "count"
 )
 ```
 
-Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
+Ok, let's see if `byBallotRtnStatus` shows up here by rendering it to the page.
 
 ```js
-byRace
+byBallotRtnStatus
 ```
 
 <div class="error-caption">
@@ -469,7 +469,7 @@ byRace
 
 Ok, now you try this custom function with a different variable from the dataset.
 
-```javascript
+```js
 // Convert and create your own one-level grouping
 ```
 
