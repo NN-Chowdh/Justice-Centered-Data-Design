@@ -101,8 +101,8 @@ Let's attach and render the dataset CSV file called `nc_absentee_mail_2024_no_dr
 
 Let's assign the attached data to a constant variable called `ncVotersAll`.
 
-```javascript
-// Attach with this codeblock
+```js
+const ncVotersAll = FileAttachment(./data/nc-voters/nc_absentee_mail_2024_no_dropped_dupes.csv).csv{type:true}
 ```
 
 <p class="codeblock-caption">
