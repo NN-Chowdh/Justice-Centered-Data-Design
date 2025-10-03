@@ -4,7 +4,7 @@
 ```js
 import {utcParse,utcFormat} from "d3-time-format";
 // Import your custom modules here: getUniquePropListBy, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests
-import {getUniquePropListBy,mapDateObject} from "./utils/utils.js";
+import {oneLevelRollUpFlatMap,twoLevelRollUpFlatMap,threeLevelRollUpFlatMap,sumUpWithReducerTests,getUniquePropListBy,mapDateObject} from "./utils/utils.js";
 ```
 
 ## Start Your GH Workflow
@@ -262,19 +262,25 @@ The output should resemble something like the example image below:
 
 Now use your `threeLevelRollUpFlatMap()` here.
 
-```javascript
+```js
 /**
  * Convert and use `threeLevelRollUpFlatMap()`
  * and assign to a const `afByWeekRaceStatus`.
 **/
-
+const afByWeekRaceStatus = threeLevelRollUpFlatMap(
+  ncVotersAllUpdated,
+  "ballot_req_dt_week",
+  "race",
+  "ballot_rtn_status",
+  "af"
+)
 ```
 
 <p class="codeblock-caption">
   Interactive output of ballot's per week:
 </p>
 
-```javascript
+```js
 // Convert to output afByWeekRaceStatus
 afByWeekRaceStatus
 ```
