@@ -309,7 +309,24 @@ The result should resemble the following output:
 **/
 
 // Now, do the same for what will become "REJECTED" statuses
+const acceptedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
 
+const rejectedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false)
+  {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
 ```
 
 ### 4.2 Write your reducer properties and objectify your reducer functions
