@@ -160,6 +160,8 @@ Inputs.table(
       ballot_request_party: "Ballot Party",
       ballot_rtn_status: "Ballot Status",
     }
+    sort: "id_num",
+    reverse: false
   }
 )
 ```
