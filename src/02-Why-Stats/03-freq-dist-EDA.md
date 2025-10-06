@@ -3,6 +3,7 @@
 <!-- IMPORT YOUR MODULES -->
 ```js
 import {utcParse,utcFormat} from "d3-time-format";
+import {format} from "d3-format";
 // Import your custom modules here: getUniquePropListBy, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests
 import {oneLevelRollUpFlatMap,twoLevelRollUpFlatMap,threeLevelRollUpFlatMap,sumUpWithReducerTests,getUniquePropListBy,mapDateObject} from "./utils/utils.js";
 ```
@@ -489,27 +490,65 @@ Tabulate the data here. Use `Inputs.table()`'s `format` option to express the pe
   You can then use <code>Inputs.table()</code>'s <code>format: { object_key: (x) => //use `x` in an accessor here, // Add more ... }</code> to express data appropriately. (Reference Observable Framework's <a href="https://observablehq.com/framework/inputs/table#inputs-3a86ea-4" target="_blank" rel="noreferrer noopenner">example in their docs</a>)
 </p>
 
-```javascript
+```js
 // Convert and tabulate afGroupedPercResults here
+Inputs.table(
+  afGroupedPercResults,
+  {
+    format: {
+      percentage: (x) => format(".2%")(x)
+    },
+    columns: ["ballot_req_dt_week", "race", "ballot_rtn_status", "af", "percentage"],
+    header: {
+      ballot_req_dt_week: "Week Number",
+      race: "Voter Race",
+      ballot_rtn_status: "Ballot Status",
+      af: "Total Count",
+      percentage: "Percentage"
+    },
+    width: {
+      ballot_req_dt_week: 20,
+      race: 20,
+      ballot_rtn_status: 20,
+      af: 20,
+      percentage: 20
+    },
+    align: {
+      race: "left",
+      ballot_rtn_status: "center",
+      ballot_req_dt_week: "left",
+      af: "right",
+      percentage: "right"
+    },
+    sort: "ballot_req_dt_week",
+    reverse: false
+  }
+)
 ```
 
 ## Question: Why not percentage of all ballots per week?
 
 Why did I direct you to sum the total for the week > race group, rather than calculate the percentage based on the grand sum total for the entire week across all included races? How are those percentages' respective *interpretive levels* different?
 
-YOUR_RESPONSE_HERE
+**Response**
+
+By calculating within each racial group, we can see the true rejection rate for each group and compare them fairly. If Black voters are rejected at 26.47% (Week 0) while White voters are rejected at 20.31% (Week 0), that's evidence of unequal treatment. Even though White voters have more total rejections due to higher population. 
 
 ## Question: New insights?
 
 After tabulating the data, as well as sorting and reviewing it, what new angles and questions come to mind?
 
-YOUR_RESPONSE_HERE
+**RESPONSE**
+
+After tabulating and reviewing the data, I can see that Black or African American voters consistently show higher rejection percentages compared to White voters, even when they request ballots during the same weeks. Also, some weeks show higher rejection percentages. For instance, in the later weeks closer to the deadline, the rejection rates tend to rise. 
 
 ## Question: Difficulties?
 
 After tabulating the data, as well as sorting and reviewing it, what difficulties are you experiencing as you review so much data in a table?
 
-YOUR_RESPONSE_HERE
+**RESPONSE**
+
+We reduced the data signifantly from the original dataset, but there is still a lot to process. It contains week from 0 to 51, two races, two ballot status- so for each groups total four rows. When I tried to complare rejection rates across weeks and between races, it required jumping back and forth between rows, which made it hard to see the pattern clearly.
 
 ## Conclusion
 
