@@ -369,7 +369,7 @@ Instead of creating a generalizable function for all three-level cases, some tim
 Convert the below codeblock and develop it further in this notebook to complete the task. We're not creating a module, because sometimes the complexity of the situation just demands using simpler methods to meet the situation. Indeed, there's nothing wrong with using the helpful set of for loops and conditions to get the job done. `:-)`
 
 <!-- Counting it all up through a series of custom loops -->
-```javascript
+```js
 // 1. Create array for tallied frequency results
 const afGroupedPercResults = []
 
@@ -383,11 +383,11 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
 
   // 3. Loop through testor functions with your custom conditions
   //    - Use `for...in` so we can loop as many tests as provided
-  for () {
+  for (const testorObj in reducerFuncs) {
 
     // 4. Loop through interested properties
     //    - Use `for...in` so we can loop as many tests as provided
-    for () {
+    for (const rProperty in reducerProps) {
 
       /**
        * 3. Calculate the sum grand total
@@ -406,6 +406,12 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
         // Replace me with your accessor function here
 
         // WARNING: Remember to separate your iterable and accessor with a comma
+        afByWeekRaceStatus,
+        (d) => {
+          if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty] && d.ballot_rtn_status != null) {
+            return d.af
+          }
+        }
       )
 
       /**
@@ -424,6 +430,13 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
         **/
 
        // WARNING: Remember to separate your iterable and accessor with a comma
+       afByWeekRaceStatus,
+       (d) => {
+        if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          const xTotalToSum = reducerFuncs[testorObj]["func"](d)
+          return xTotalToSum
+        }
+       }
       )
 
       // 7. Push result to array of results
@@ -439,17 +452,17 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
       **/
       afGroupedPercResults.push({
         // Add the current week
-        ballot_req_dt_week: ,
+        ballot_req_dt_week: weekNumber,
         // Add the current reducer property here
         race: reducerProps[rProperty],
         // Add the current reducer function "type"
-        ballot_rtn_status: ,
+        ballot_rtn_status: reducerFuncs[testorObj]["type"],
         // Add the AF value for the week here
-        af: ,
+        af: summedUpLevel,
         // Calculate the percentage with:
         // the total for the grouped level (summedUpLevel)
         // divided by the total for the entire week (weekRaceAF)
-        percentage: ,
+        percentage: summedUpLevel / weekRaceAF,
       })
 
     }
@@ -461,7 +474,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
   Output of afGroupedPercResults.
 </p>
 
-```javascript
+```js
 afGroupedPercResults
 ```
 
