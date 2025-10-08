@@ -180,18 +180,40 @@ Alright, let's use our custom utility functions to create some data to plot. Con
     <p class="note">We're also going to sort this data after we roll it up and flatten it.</p>
 
 <!-- Use the custom functions here -->
-```javascript
+```js
 // Convert and create the data described above
-
+const byRace = oneLevelRollUpFlatMap(
+  ncUpdates,
+  "race",
+  "af"
+)
 ```
 
 <p class="codeblock-caption">
-  Feel free to use the codeblock below to check your outputs.
+  Interactive output of byRace
 </p>
 
-```javascript
+```js
 // Convert check outputs: afByRace & afByWeekAndRace
+byRace
+```
+```js
+// Convert and create the data described above
+const afByWeekAndRace = twoLevelRollUpFlatMap(
+  ncUpdates,
+  "ballot_req_dt_week",
+  "race",
+  "af"
+)
+```
 
+<p class="codeblock-caption">
+  Interactive output of afByWeekAndRace
+</p>
+
+```js
+// Convert check outputs: afByRace & afByWeekAndRace
+afByWeekAndRace
 ```
 
 ## E4. Sort *afByWeekAndRace* with *.sort()*
@@ -207,7 +229,7 @@ JS has the built-in `sort()` method, which takes a function/accessor as a parame
 3. Code that does organizes the data.
     - In this case, we can use D3's `ascending()` function, which accepts two parameters: the 2 items to compare. Since we're comparing two objects, we need to specify which keys to compare with `a` & `b`.
 
-```javascript
+```js
 // How to use JS' .sort() method with D3's ascending or descending functions.
 const afByWeekAndRaceSorted = afByWeekAndRace.sort(
   // sort() takes a function/accessor as a parameter.
@@ -219,9 +241,9 @@ const afByWeekAndRaceSorted = afByWeekAndRace.sort(
   Output of the sorted data: <code>afByWeekAndRaceSorted</code>.
 </p>
 
-```javascript
+```js
 // Convert and output rendered data to page
-
+afByWeekAndRaceSorted
 ```
 
 ## E5. Bar Chart: Plotting Absolute Frequencies
