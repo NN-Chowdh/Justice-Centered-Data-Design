@@ -3,7 +3,7 @@
 ```js
 import {utcParse, utcFormat} from "d3-time-format";
 // Import your functions
-
+import {oneLevelRollUpFlatMap,twoLevelRollUpFlatMap,threeLevelRollUpFlatMap,sumUpWithReducerTests,getUniquePropListBy,mapDateObject} from "./utils/utils.js";
 ```
 
 ## Start Your GH Workflow
@@ -146,12 +146,13 @@ ncVotersAll
 Let's use our helpful `mapDateObject()` function in the `utils.js` file, so we can easily create Date() objects and new date fields, such as week numbers.
 
 <!-- Create date objects and new date props -->
-```javascript
+```js
 /**
  * Use the mapDateObject() function below
  * and assign the returned data to a new
  * constant called `ncUpdates`
 **/
+const ncUpdates = mapDateObject(ncVotersAll, "ballot_req_dt")
 
 ```
 
@@ -159,7 +160,7 @@ Let's use our helpful `mapDateObject()` function in the `utils.js` file, so we c
   Interactive output of full data set.
 </p>
 
-```javascript
+```js
 // Convert if you want to print the data to the page
 ncUpdates
 ```
