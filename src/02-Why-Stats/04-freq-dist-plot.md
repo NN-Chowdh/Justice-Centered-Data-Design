@@ -379,23 +379,34 @@ The output should resemble the following video, but you may add any options that
   </p>
 </video>
 
-```javascript
+```js
 // Convert and plot the histogram here
-grid: true,
-  marginLeft: 100,
-  marginRight: 0,
-  marginBottom: 60,
-  marginTop: 60,
-  label: null,
-  color: {legend: true},
-  x: {label: "Race", padding: 0},
-  y: {label: "Absolute Frequency", padding: 0},
-
+Plot.plot({
+  marginLeft: 60,
   marks: [
     // 2. Add comma-separated marks options
-    Plot.ruleY[(0)],
-    Plot.axisX({label: null, lineWidth: 8, marginBottom: 40}),
+    Plot.ruleY([0], {stroke: "blue", strokeWidth: 3,}),
+    Plot.rectY(
+      monthlyBallotRequests,
+      {
+        x: "ballot_req_dt_month",
+        y: "af",
+        tip: true,
+        insetLeft: -3,
+        insetRight: -3,
+        insetBottom: 1,
+        interval:1,
+      }
+    ),
+    Plot.tip(
+      ['Online ballot request \nbegin in January 2024,'],
+      {x: 1, y: 10000, dy: -3, anchor: "bottom"}
+    )
   ]
+})
+
+  
+  
 
 ```
 
@@ -501,6 +512,16 @@ Assign it to a constant variable named `ncMailBallots`.
 
 <!-- JS codeblock to attach nc_absentee_mail_2024_no_dropped_dupes.csv -->
 
+```js
+const ncMailBallots = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_no_dropped_dupes.csv").csv({typed: true})
+```
+<p class="codeblock-caption">
+  Output of full dataset
+</p>
+
+```js
+ncMailBallots
+```
 
 ### 2. Map date objects to OG data
 
@@ -509,11 +530,18 @@ Map those Date objects and other week properties with your custom `mapDateObject
 Assign it to a constant variable named `ncMailBallotsUpdated`.
 
 <!-- JS codeblock to map date objects as ncMailBallotsUpdated-->
+```js
+const ncMailBallotsUpdated = mapDateObject(
+  ncMailBallots,
+  "ballot_req_dt"
+)
+```
 
+<p class="codeblock-caption">
+  Interactive output of <code>ncMailBallotsUpdated</code> with new date properties:
+</p>
 
-Output `ncMailBallotsUpdated` below:
-
-```javascript
+```js
 ncMailBallotsUpdated
 ```
 
@@ -531,7 +559,21 @@ Time to use your `threeLevelRollUpFlatMap` function!
 
 #### Output of afByWeekRaceStatus
 
-```javascript
+```js
+const afByWeekRaceStatus = threeLevelRollUpFlatMap(
+  ncMailBallotsUpdated,
+  "ballot_req_dt_week",
+  "race",
+  "ballot_rtn_status",
+  "af"
+)
+```
+
+<p class="codeblock-caption">
+  Interactive output of ballot's per week:
+</p>
+
+```js
 // Convert and render data
 afByWeekRaceStatus
 ```
