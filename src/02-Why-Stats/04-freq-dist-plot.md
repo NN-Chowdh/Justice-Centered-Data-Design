@@ -182,7 +182,7 @@ Alright, let's use our custom utility functions to create some data to plot. Con
 <!-- Use the custom functions here -->
 ```js
 // Convert and create the data described above
-const byRace = oneLevelRollUpFlatMap(
+const afByRace = oneLevelRollUpFlatMap(
   ncUpdates,
   "race",
   "af"
@@ -195,7 +195,7 @@ const byRace = oneLevelRollUpFlatMap(
 
 ```js
 // Convert check outputs: afByRace & afByWeekAndRace
-byRace
+afByRace
 ```
 ```js
 // Convert and create the data described above
@@ -293,15 +293,36 @@ afByWeekAndRaceSorted
 
 I've supplied you with the skeleton for this plot. Be sure to add the options noted in the directions above.
 
-```javascript
+```js
 Plot.plot({
   // 1. Add comma-separated layout options
+  grid: true,
+  marginLeft: 100,
+  marginRight: 0,
+  marginBottom: 60,
+  marginTop: 60,
+  label: null,
+  color: {legend: true},
+  x: {label: "Race", padding: 0},
+  y: {label: "Absolute Frequency", padding: 0},
 
   marks: [
     // 2. Add comma-separated marks options
+    Plot.ruleY[(0)],
+    Plot.axisX({label: null, lineWidth: 8, marginBottom: 40}),
 
     // 3. Create your bar chart
-    Plot.barY()
+    Plot.barY(
+      afByRace,
+      {
+        x: "race",
+        y: "af",
+        sort: {x: "-y"},
+        insetRight: 10,
+        insetLeft: 10,
+        tip: true,
+      }
+    )
   ]
 })
 ```
@@ -312,13 +333,17 @@ Plot.plot({
 
 To create the plot that you have the `oneLevelRollUpFlatMap()` function at your fingertips, as well as the new date property field for the month number, `ballot_req_dt_month`, which you should have created with `mapDateObject()` before this part of the notebook.
 
-```javascript
+```js
 /**
  * Use oneLevelRollUpFlatMap() to count the
  * absolute frequencies (AF) of `ballot_req_dt_month`.
  * Name the AF property `af`.
 **/
-const monthlyBallotRequests = oneLevelRollUpFlatMap()
+const monthlyBallotRequests = oneLevelRollUpFlatMap(
+  ncUpdates,
+  "ballot_req_dt_month",
+  "af"
+)
 ```
 
 Let's plot it as a histogram!
@@ -356,6 +381,21 @@ The output should resemble the following video, but you may add any options that
 
 ```javascript
 // Convert and plot the histogram here
+grid: true,
+  marginLeft: 100,
+  marginRight: 0,
+  marginBottom: 60,
+  marginTop: 60,
+  label: null,
+  color: {legend: true},
+  x: {label: "Race", padding: 0},
+  y: {label: "Absolute Frequency", padding: 0},
+
+  marks: [
+    // 2. Add comma-separated marks options
+    Plot.ruleY[(0)],
+    Plot.axisX({label: null, lineWidth: 8, marginBottom: 40}),
+  ]
 
 ```
 

@@ -20,6 +20,8 @@ import {utcParse,utcFormat} from "d3-time-format";
 const parseDate = utcParse("%m/%d/%Y");
 // Step2
 const formatWeekNumber = utcFormat("%U");
+// Create Month formatter
+const formatMonthNumber = utcFormat("%m");
 
 /**
  * 1. Create your general Date object function:
@@ -36,6 +38,7 @@ export const mapDateObject = (data, dateString) => {
     // 3. Create dynamic keys to use for new properties
     const objField = dateString+ "_obj"
     const weekField = dateString+ "_week"
+    const monthField = dateString+ "_month"
 
     // 4. Skip any null request dates
     if (ballot[dateString] != null) {
@@ -49,6 +52,7 @@ export const mapDateObject = (data, dateString) => {
       **/
      ballot[objField] = parseDate(ballot[dateString])
      ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
+     ballot[monthField] = Number(formatMonthNumber(ballot[objField]))
     }
     return ballot
   })
