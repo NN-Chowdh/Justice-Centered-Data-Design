@@ -504,7 +504,7 @@ In a few codeblocks below, redo your work from the last extended exercise. I als
     3. Also calculate percentage value for the group.
 
 
-### 1. Attach the dataset
+### 1. Attach the dataset`
 
 For this plot, we want to include all ballot requests and statuses -- except any rows that are `null`. So, let's attach and use the `nc_absentee_mail_2024_no_dropped_dupes.csv` dataset, which includes all such recorded instances, even if conducted by the same voter.
 
@@ -603,6 +603,178 @@ Finally, we need to reduce our grouped data to either being ACCEPTED or REJECTED
 
 I recommend reusing your code from the last chapter.
 
+### 4.1 Write your reducer functions
+
+<!-- Reducer Functions -->
+```js
+/**
+ * Write a reducer function that checks to make sure
+ * ballot_rtn_status is NOT null and starts with "ACCEPTED"
+ *    If true, return the 'af' value for the object
+ *    If false, return 0
+**/
+
+// Now, do the same for what will become "REJECTED" statuses
+const acceptedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+
+const rejectedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+```
+
+### 4.2 Write your reducer properties and objectify your reducer functions
+
+<!-- Reducer Properties & Objectify reducerFuncs -->
+```js
+const reducerProps = [
+  // Let's reduce the data to these two values for race
+  "WHITE", "BLACK or AFRICAN AMERICAN"
+]
+
+const reducerFuncs = [
+  {
+    type: "ACCEPTED",
+    func: acceptedReducerFunc
+  },
+  {
+    type: "REJECTED",
+    func: rejectedReducerFunc
+  },
+]
+
+const uniqueListOfWeekNumbers = getUniquePropListBy(
+  // Dataset
+  afByWeekRaceStatus,
+  // Specific key to pass
+  "ballot_req_dt_week"
+)
+```
+
+### 4.3 Create custom for loop to calculate sums & percentages
+
+<!-- Counting it all up through a series of custom loops -->
+```js
+// 1. Create array for tallied frequency results
+const afGroupedPercResults = []
+
+/**
+ * 2. Loop through WEEK NUMBERS.
+ *    We'll start by looping through
+ *    our unique list of possible values
+ *    in the first grouping level.
+**/
+for (const weekNumber of uniqueListOfWeekNumbers) {
+
+  // 3. Loop through testor functions with your custom conditions
+  //    - Use `for...in` so we can loop as many tests as provided
+  for (const testorObj in reducerFuncs) {
+
+    // 4. Loop through interested properties
+    //    - Use `for...in` so we can loop as many tests as provided
+    for (const rProperty in reducerProps) {
+
+      /**
+       * 3. Calculate the sum grand total
+       *    for the current WEEK value
+       *    for ALL current race and statuses.
+       *    We need this sum total, so we
+       *    can calculate the ratio/percentage
+       *    value for each week within
+       *    the current race.
+       *    **IMPORTANT!!!**
+       *    Make sure you ignore null values
+       *    for `ballot_rtn_status`
+      **/
+      const weekRaceAF = d3.sum(
+        // Replace me with the iterable: `afByWeekRaceStatus`
+        // Replace me with your accessor function here
+
+        // WARNING: Remember to separate your iterable and accessor with a comma
+        afByWeekRaceStatus,
+        (d) => {
+          if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty] && d.ballot_rtn_status != null) {
+            return d.af
+          }
+        }
+      )
+
+      /**
+       * 6. Tally absolute frequency based on
+       *    1. WEEK NUMBER,
+       *    2. RACE reducer prop, and
+       *    3. REDUCER FUNCTION return value.
+      **/
+      const summedUpLevel = d3.sum(
+        // Replace me with the `afByWeekRaceStatus` data
+        /**
+         * Replace me with your accessor function.
+         * Remember to use your reducer function and property
+         * in a conditional statement to only count the
+         * appropriate values.
+        **/
+
+       // WARNING: Remember to separate your iterable and accessor with a comma
+       afByWeekRaceStatus,
+       (d) => {
+        if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          const xTotalToSum = reducerFuncs[testorObj]["func"](d)
+          return xTotalToSum
+        }
+       }
+      )
+
+      // 7. Push result to array of results
+      /**
+       * Now, we have all the data we need,
+       * so push the appropriate results
+       * to the provided keys.
+       * Note how I'm retaining the original
+       * key values. That's a best practice,
+       * when processing and transforming the
+       * data, so you can create a linked
+       * chain back to the OG data.
+      **/
+      afGroupedPercResults.push({
+        // Add the current week
+        ballot_req_dt_week: weekNumber,
+        // Add the current reducer property here
+        race: reducerProps[rProperty],
+        // Add the current reducer function "type"
+        ballot_rtn_status: reducerFuncs[testorObj]["type"],
+        // Add the AF value for the week here
+        af: summedUpLevel,
+        // Calculate the percentage with:
+        // the total for the grouped level (summedUpLevel)
+        // divided by the total for the entire week (weekRaceAF)
+        percentage: summedUpLevel / weekRaceAF,
+      })
+
+    }
+  }
+}
+```
+
+<p class="codeblock-caption">
+  Output of afGroupedPercResults.
+</p>
+
+```js
+afGroupedPercResults
+```
+
+
 ### 5. Filter the data for plotting
 
 Our angle for this plot focuses on "REJECTED" ballots only. Additionally, recall that our `Plot.plot()` line chart needs to draw 2 different lines based on results from data with the race values of either `"WHITE"` and `"BLACK or AFRICAN AMERICAN"`. Finally, I recommend filtering the week numbers to only include weeks 0-45.
@@ -618,6 +790,39 @@ In a codeblock, use JS' `.filter()` on your grouped results to create a two cons
 
 #### BLACK or AFRICAN AMERICAN, rejected, weeks 0-45
 ![black race rejected ballot grouping output](./../assets/images/2-why-stats/04-plot-filtering-groups-white-rej.png)
+
+```js
+const whiteRejected = afGroupedPercResults.filter(
+  (d) => {
+    if (d.race == "WHITE" && d.ballot_rtn_status == "REJECTED" && d.ballot_req_dt_week >= 0 && d.ballot_req_dt_week <= 45) {
+      return true
+    } 
+  }
+)
+
+const blackRejected = afGroupedPercResults.filter(
+  (d) => {
+    if (d.race == "BLACK or AFRICAN AMERICAN" && d.ballot_rtn_status == "REJECTED" && d.ballot_req_dt_week >= 0 && d.ballot_req_dt_week <= 45) {
+      return true
+    } 
+  }
+)
+```
+<p class="codeblock-caption">
+  Output of whiteRejected.
+</p>
+
+```js
+whiteRejected
+```
+
+<p class="codeblock-caption">
+  Output of blackRejected.
+</p>
+
+```js
+blackRejected
+```
 
 ### 6. Plot the line chart with Plot.plot()
 
@@ -648,6 +853,71 @@ Do the best you can to recreate what you see in the video example.
 <video controls style="width: 620px; height:620px">
   <source src="../assets/vids/02-why-stats/02-voter-reject-perc.mp4" type="video/mp4" />
 </video>
+
+```js
+const parseDate = utcParse("%m/%d/%y")
+const formatWeekNumber = d3.utcFormat("%W")
+
+const pollsWeekOfLastDay = [
+  {
+    lastWeek: Number(formatWeekNumber(parseDate("10/29/24")))
+  }
+]
+```
+
+```js
+Plot.plot(
+  {
+    x: {
+      label: "weekNum"
+    },
+
+    y: {
+      label: "percNA",
+      percent: true
+    },
+
+    marks: [
+      Plot.lineY(
+        whiteRejected,
+        {
+        x: "ballot_req_dt_week",
+        y: "percentage",
+        stroke: "red",
+        tip: true
+        }
+      ),
+
+      Plot.lineY(
+        blackRejected,
+        {
+          x: "ballot_req_dt_week",
+          y: "percentage",
+          stroke: "black",
+          tip: true
+        }
+      ),
+
+      Plot.dot(
+        pollsWeekOfLastDay,
+        {
+          x: "lastWeek",
+          y: 0
+        }
+      ),
+
+      Plot.tip(
+        [`Last day\nto req\nOct 29th`],
+        {x: pollsWeekOfLastDay["lastWeek"], 
+        y: 0, 
+        dy: -5, 
+        dx: 277, 
+        anchor: "bottom"}
+      )
+    ]
+  }
+)
+```
 
 ## E8. Reflection Questions
 
