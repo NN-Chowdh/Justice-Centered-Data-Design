@@ -298,7 +298,7 @@ Below, I have assigned a tiny sample of 4 randomly selected abridged entries fro
 Take a moment to review the data below in the interactive output.
 
 <!-- Assign nc2024SampleVoters -->
-```javascripts
+```js
 // Sample of 4 randomly selected abridged entries from NC November 2024 absentee voter data
 let nc2024SampleVoters = [
   {
@@ -356,7 +356,7 @@ let nc2024SampleVoters = [
   Interactive output of <code>nc2024SampleVoters</code>
 </p>
 
-```javascripts
+```js
 nc2024SampleVoters
 ```
 
@@ -372,77 +372,14 @@ Here are some tips to consider as you complete this exercise.
 
 <!-- E1 -->
 ```js
-let nc2024SampleVoters = [
-  {
-    "race": "WHITE",
-    "ethnicity": "NOT HISPANIC or NOT LATINO",
-    "gender": "F",
-    "age": 33,
-    "ballot_req_type": "MAIL",
-    "ballot_request_party": "REP",
-    "ballot_req_dt": "10/23/2024",
-    "ballot_send_dt": "10/28/2024",
-    "ballot_rtn_dt": null,
-    "ballot_rtn_status": null
-  },
-  {
-    "race": "BLACK or AFRICAN AMERICAN",
-    "ethnicity": "UNDESIGNATED",
-    "gender": "F",
-    "age": 57,
-    "ballot_req_type": "MAIL",
-    "ballot_request_party": "DEM",
-    "ballot_req_dt": "09/14/2024",
-    "ballot_send_dt": "09/23/2024",
-    "ballot_rtn_dt": "10/28/2024",
-    "ballot_rtn_status": "SPOILED-EV"
-  },
-  {
-    "race": "WHITE",
-    "ethnicity": "NOT HISPANIC or NOT LATINO",
-    "gender": "M",
-    "age": 21,
-    "ballot_req_type": "MAIL",
-    "ballot_request_party": "UNA",
-    "ballot_req_dt": "09/19/2024",
-    "ballot_send_dt": "09/21/2024",
-    "ballot_rtn_dt": "10/24/2024",
-    "ballot_rtn_status": "ACCEPTED"
-  },
-  {
-    "race": "WHITE",
-    "ethnicity": "UNDESIGNATED",
-    "gender": "F",
-    "age": 32,
-    "ballot_req_type": "MAIL",
-    "ballot_request_party": "DEM",
-    "ballot_req_dt": "08/03/2024",
-    "ballot_send_dt": "09/24/2024",
-    "ballot_rtn_dt": null,
-    "ballot_rtn_status": "SPOILED-EV"
-  }
-]
-
 const parseDateSlash = utcParse("%m/%d/%Y")
 
 let ballotsWithDateObjs = nc2024SampleVoters.map(
   (voter) => {
-    return {
-      race: voter.race,
-      ethnicity: voter.ethnicity,
-      gender: voter.gender,
-      age: voter.age,
-      ballot_req_type: voter.ballot_req_type,
-      ballot_request_party: voter.ballot_request_party,
-      ballot_req_dt: voter.ballot_req_dt,
-      ballot_send_dt: voter.ballot_send_dt,
-      ballot_rtn_dt: voter.ballot_rtn_dt,
-      ballot_rtn_status: voter.ballot_rtn_status,
-      ballot_req_dt_obj: parseDateSlash(voter.ballot_req_dt)
-    }
+    voter.ballot_req_dt_obj = parseDateSlash(voter.ballot_req_dt)
+    return voter
   }
 )
-console.log(ballotsWithDateObjs)
 ```
 
 ```js
@@ -455,47 +392,15 @@ ballotsWithDateObjs
 
 <!-- E2 -->
 ```js
-const parseDateSlash = utcParse("%m/%d/%Y")
-
-let ballotsWithDateObjs = nc2024SampleVoters.map(
-  (voter) => {
-    return {
-      race: voter.race,
-      ethnicity: voter.ethnicity,
-      gender: voter.gender,
-      age: voter.age,
-      ballot_req_type: voter.ballot_req_type,
-      ballot_request_party: voter.ballot_request_party,
-      ballot_req_dt: voter.ballot_req_dt,
-      ballot_send_dt: voter.ballot_send_dt,
-      ballot_rtn_dt: voter.ballot_rtn_dt,
-      ballot_rtn_status: voter.ballot_rtn_status,
-      ballot_req_dt_obj: parseDateSlash(voter.ballot_req_dt)
-    }
-  }
-)
 
 const formatPretty = utcFormat("%a., %B %d, %Y")
 
 let updatedBallots = ballotsWithDateObjs.map(
   (voter) => {
-    return {
-      race: voter.race,
-      ethnicity: voter.ethnicity,
-      gender: voter.gender,
-      age: voter.age,
-      ballot_req_type: voter.ballot_req_type,
-      ballot_request_party: voter.ballot_request_party,
-      ballot_req_dt: voter.ballot_req_dt,
-      ballot_send_dt: voter.ballot_send_dt,
-      ballot_rtn_dt: voter.ballot_rtn_dt,
-      ballot_rtn_status: voter.ballot_rtn_status,
-      ballot_req_dt_obj: voter.ballot_req_dt_obj,
-      ballot_req_dt_pretty: formatPretty(voter.ballot_req_dt_obj)
-    }
+    voter.ballot_req_dt_pretty = formatPretty(voter.ballot_req_dt_obj)
+    return voter
   }
 )
-
 ```
 
 ```js
