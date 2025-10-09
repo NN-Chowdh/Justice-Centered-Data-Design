@@ -523,6 +523,12 @@ const ncMailBallots = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_
 ncMailBallots
 ```
 
+First row in the dataset:
+
+```js
+ncMailBallots[0]
+```
+
 ### 2. Map date objects to OG data
 
 Map those Date objects and other week properties with your custom `mapDateObject()` function.
