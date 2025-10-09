@@ -393,12 +393,12 @@ professions
 For this first exercise, I'll provide you with the basic structure:
 
 ```js
-let lessProfessions = professions.slice();
+let lessProfessions = []
 
-for (let i in lessProfessions) {
-    if (i == 1) {
-        lessProfessions.splice(i, 1); // remove item at index 1
-    }
+for (const i in professions) {
+  if (i != 1) {
+    lessProfessions.push(professions[i])
+  }
 }
 
 ```
@@ -408,7 +408,7 @@ for (let i in lessProfessions) {
 </p>
 
 ```js
-console.log(lessProfessions)
+lessProfessions
 ```
 
 ### E2. Push/add a new profession to an array
@@ -424,7 +424,7 @@ professions.push("spinster")
 </p>
 
 ```js
-console.log(professions)
+professions
 ```
 
 ### E3. Loop through an array and log to the console
@@ -456,6 +456,10 @@ for (let status of childStatus) {
 console.log(childStatusNew)
 ```
 
+```js
+childStatusNew
+```
+
 ### E5. Conditional logging
 
 **Goal**: Make a `for` loop that considers each item in the `childStatus` list. Log `"Person has child"` ***if*** the person has a child ***and*** `"Person does not have child"` ***if not***. Use `.length` in your conditional statement to enact this logging.
@@ -482,11 +486,7 @@ Make sure you check to see if the correct language has been logged to the web co
 For your reference, here's the original declaration and instantiation of `sex`: `let sex = ["f", "m", "f", "m", "i"]`.
 
 ```js
-let sex = ["f", "m", "f", "m", "i"]
-
 sex.push("unknown")
-
-console.log(sex)
 ```
 
 ### E7. More looping and conditional practice
@@ -494,7 +494,6 @@ console.log(sex)
 **Goal**: Make a `for` loop that considers each item in the `sex` list. Log "Person is male" ***if*** the person is `"m"`, "Person is female" ***if*** the person is `"f"`, "Person is intersex" ***if*** the person is `"i"`, and "Person's sex is not known" ***if*** `"unknown"`.
 
 ```js
-let sex = ["f", "m", "f", "m", "i", "unknown"]
 for (let s of sex) {
     if (s == "m") {
         console.log("Person is male")
@@ -520,8 +519,6 @@ Make sure to check if the items are logged correctly.
 Since this is your first big use of `.map()`, I'll give you the skeleton of the expression:
 
 ```js
-let sex = ["f", "m", "f", "m", "i"];
-
 let sexFullTerm = sex.map(
   (sexItem) => {
    if (sexItem == "m") {
