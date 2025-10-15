@@ -1,7 +1,7 @@
 # 2.5-Tending to The Mean, or Not?
 
 ```js
-import {getUniqueDataBy, getUniquePropListBy, mapDateObject, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests, downloadAsCSV} from "./utils-tc/utils.js"
+import {getUniqueDataBy, getUniquePropListBy, mapDateObject, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests, downloadAsCSV} from "./utils/utils.js"
 ```
 
 ## Start Your GH Workflow

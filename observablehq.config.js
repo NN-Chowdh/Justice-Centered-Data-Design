@@ -93,6 +93,10 @@ export default {
           name: "2.4 Plotting Frequency Distributions",
           path: "/02-Why-Stats/04-freq-dist-plot"
         },
+        {
+          name: "2.5 Central Tendency",
+          path: "/02-Why-Stats/05-central-tend"
+        },
         // {
         //   name: "2.5 Central Tendency & Variability",
         //   path: "/02-Why-Stats/05-central-tend-plot--teachers_copy"
