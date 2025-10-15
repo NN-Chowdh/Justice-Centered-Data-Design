@@ -925,7 +925,9 @@ Plot.plot(
 
 After working with the NC voter dataset, describe any new insights, new questions or angles, or issues that you might consider sharing with your team at Protect Democracy.
 
-YOUR_RESPONSE_HERE
+**YOUR_RESPONSE_HERE**
+
+The line chart reveals that Black or African American voters consistently face higher rejection rates compared to White voters throughout the most week. This disparity persists even when both groups request ballots during the same time period. Additionally, week 17 shows an unusual spike reaching over 50% rejection rate for Black voters while the highest rejection rate for White was 29.89% on week 26. 
 
 ### 2. Types of graphs
 
@@ -933,33 +935,35 @@ Use the structure provided below to briefly discuss each type of graph: line, ba
 
 #### Line
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Interval or ratio data.
+- **Strengths**: Shows trends and changes over time clearly, easy to compare multiple groups.
+- **Weaknesses**: Can become cluttered with too many lines.
 
 #### Bar
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Nominal or ordinal data (categories without inherent order).
+- **Strengths**: Easy to compare absolute values across categories, clear visual differences.
+- **Weaknesses**: Not suitable for showing trends over time.
 
 #### Pie
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Nominal data showing parts of a whole (percentages that sum to 100%)
+- **Strengths**: Shows proportions of a total at a glance
+- **Weaknesses**: Hard to compare similar-sized slices, ineffective with many categories, difficult to read precise values
 
 #### Histogram
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Interval or ratio data showing frequency distributions
+- **Strengths**: Shows distribution shape and patterns (normal, skewed).
+- **Weaknesses**: Histograms group data into bins or intervals, meaning the exact values of individual data points are lost.
 
 ### 3. On making un/ethical arguments with data
 
 Describe an example of how the voter data could be manipulated to give an unethical presence to inaccurate conclusions. What specifically about the data work and any visualizing or reporting deliverables woudl make them unethical? Feel free to draw upon any of our past critical data readings, including this week's short addition about interpretive levels and the importance of context.
 
-YOUR_RESPONSE_HERE
+**YOUR_RESPONSE_HERE**
+
+Someone could selectively show only weeks 0-10 where rejection rates are closer between groups, ignoring weeks 15-40 where disparities are clear. Or they could focus only on week 17's extreme spike without context, suggesting the problem is an isolated incident rather than a persistent pattern. Both approaches manipulate the temporal context to support a predetermined narrative. 
 
 ## Submission
 
