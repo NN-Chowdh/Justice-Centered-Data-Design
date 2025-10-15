@@ -242,10 +242,10 @@ h1 {
   max-width: unset;
 
   /* Effect */
-  background: linear-gradient( 30deg, var(--theme-foreground-focus), currentColor);
+  /* background: linear-gradient( 30deg, var(--theme-foreground-focus), currentColor);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background-clip: text; */
 
   & > a {
     background: unset !important;
