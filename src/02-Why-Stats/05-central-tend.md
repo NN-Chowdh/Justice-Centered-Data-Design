@@ -185,6 +185,10 @@ const digArchiveRolledUp = d3.rollup(
 )
 ```
 
+```js
+digArchivePageTests
+```
+
 <!-- Exectuable FCP rollup -->
 ```js
 const colOfInterest = "first-contentful-paint-numericValue"
@@ -229,6 +233,10 @@ let digArchiveCentralTendencies = Array.from(
     }
   }
 )
+```
+
+```js
+digArchiveCentralTendencies
 ```
 
 ## Exploratory Data Analysis of Central Tendency Measures
