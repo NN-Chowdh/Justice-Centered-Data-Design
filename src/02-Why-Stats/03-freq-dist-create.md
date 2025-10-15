@@ -59,8 +59,8 @@ Again, we are going to continue working with the 2024 NC absentee voter CSV file
 2. Assign the data to a variable named `ncVotersAll`.
 3. Render it to the page in a separate codeblock.
 
-```javascript
-// FileAttachment() code here assigned to `ncVotersAll`
+```js
+const ncVotersAll = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed: true})
 ```
 
 Output the data as an interactive array of objects below:
@@ -69,8 +69,7 @@ Output the data as an interactive array of objects below:
   Interactive output of full data set in <code>ncVotersAll</code>
 </p>
 
-```javascript
-// Convert to render on page
+```js
 ncVotersAll
 ```
 
@@ -80,7 +79,7 @@ We will be learning how to "read" large data sets with exploratory data analysis
 
 Observable has a suite of modules called **Inputs**. We're going to learn how to use [Observable's Inputs.table()](https://observablehq.com/framework/inputs/table) method to render the attached data as a table. In its most basic form, it expects a flat array of objects with properties, which is what `FileAttachment()` renders for us.
 
-```javascript
+```js
 // Most basic Inputs.table()
 Inputs.table(ncVotersAll)
 ```
@@ -132,13 +131,37 @@ Ok, now I want you to put all of those pieces together in your own `Inputs.table
 
 ![Example output table](./../assets/images/2-why-stats/02-why-stats-ex-table.png)
 
-```javascript
-// Insert your table here
+```js
 Inputs.table(
-  // The array of objects
   ncVotersAll,
   {
-    // enter each customizing property in this object
+    columns: [
+      "id_num", "county_desc", "race", "gender", "age",
+      "ballot_request_party", "ballot_rtn_status"
+    ],
+    format: {
+      id_num: (x) => x.toLocaleString(undefined, {useGrouping: false})
+      },
+    rows: 25,
+    width: {
+      id_num: 20,
+      county_desc: 90,
+      gender: 40,
+      age: 20,
+      race: 90,
+      ballot_request_party: 90,
+    },
+    header: {
+      id_num: "ID",
+      county_desc: "County",
+      race: "Race",
+      gender: "Gender",
+      age: "Age",
+      ballot_request_party: "Ballot Party",
+      ballot_rtn_status: "Ballot Status",
+    }
+    sort: "id_num",
+    reverse: false
   }
 )
 ```
@@ -167,15 +190,53 @@ Finally, inside of the `/src/data/nc-voters/provenance/` folder, you can also re
 
 **Question**: After reviewing the above information, how would a SJ ethic inform your intiial understanding of the data, its collected values, and its context? List out in other information or questions that you sense might be missing about the data.
 
-ENTER_YOUR_RESPONSE_HERE
+**ENTER_YOUR_RESPONSE_HERE**
+
+A SJ ethic requires that we view the NC voter data not as a neutral spreadsheet, but as the result of complex, politically charged system. In the following, I've discussed some crucial point:
+
+**Initial Understanding of the data and its values and Context**: 
+
+  - The core assumption shifts from "did voters of colors do something wrong that caused their ballots to be rejected?" to "Does the system have flaws that dispropotionately deprived certain voters?". The 583 study establishes a historical precedent for systemic disparity. We have to look for evidence of its continuation.
+  - We also should look closely at the steps a voter must take. For people with less disposable time, less digital literacy, or less reliable postal service - all of these factors are usually tied to systemic economic and racial inequality. These points in turn become barriers. 
+  - Regarding the "race" column, we must ask how accurate, how comprehensive, and how consistently it is being applied.
+  - We refuse to treat "Rejected" as a single, neutral outcome. It demands an investigation into the reason for rejection. A late ballot rejection might be due to postal service reliability, while a signature mismatch might relate to language barriers or differences in cursive instruction accross communities. The specific reason matters for developing equitable solutions.
+
+**Missing information and Questions**:
+
+  - Which specific counties have the highest rejection rate? 
+  - Since language barriers can affect the ability to fill out forms correctly, does the State Board of Elections track if a voter requested materials in Spanish or another language?
 
 **Question**: Based on the case scenario as a communicator at Protect Democracy, and a SJ ethic in mind, what questions, i.e., angles, do you think may be helpful to meet the needs of your situation. Discuss any columns/fields that you are surprised about or spark any curiosities, and create a list of questions they spark in you.
 
-ENTER_YOUR_RESPONSE_HERE
+**ENTER_YOUR_RESPONSE_HERE**
+
+As a communicator for Protect Democracy, our focus is not just reporting a problem. It is to identify the system failure that caused the problem and we should advocate for a fare fix. With a SJ ethic, we assume the fault lies with the process, not the voter. 
+
+In the below, I am discussing some angles we should consider to meet our needs:
+
+  - We must find out if certain counties (for instances- rural, under resourced) have rejection rate higher than the state average. If they do, the solution is not about traing the voters, rather it should be about forcing the state to provide equal funding and staffing for all county boards of elections.
+  - If a major cause of rejection is late arrival, we should intersect that with the voter_zip code data. Are voters in specific zip code areas known for slower postal service and in turn, dispropotionately penalized by the state's delivery deadline? The fault shifts from the voter to the postal infrastructure and the states's arbitrary deadline setting. 
+  - Like other states, NC must provide a special and expedited rules for military and overseas voters. This proves that the state can make the absentee process simple and fast. Therefore, "why note make it easy for everyone?". It shows that the current complex system is a choice, not a necessity.
 
 **Question**: What can you understand about the `ballot_rtn_status` column? In other words, what types of values are possible?
 
-ENTER_YOUR_RESPONSE_HERE
+**ENTER_YOUR_RESPONSE_HERE**
+
+```js
+import {rollup} from "d3-array"
+
+const ncVotersByRtnStatus = d3.rollup(
+  ncVotersAll, 
+  (D) => D.length,
+  (d) => d.ballot_rtn_status
+)
+```
+
+```js
+ncVotersByRtnStatus
+```
+
+By using the .rollup method, we can see that - the `ballot_rtn_status` column records the outcome of each absentee ballot. Looking at the data, there are both positive outcomes and a wide range of specific problem categories. Here, in this dataset, the column does not just say "rejected", but provides some distinct labels that explain why it was not accepted.
 
 ## 2.3.4 Calculate Absolute Grouped Frequencies with RFS Method
 
@@ -254,7 +315,7 @@ Ok, so we want to create a desired ***grouping*** of `ballot_rtn_status` > `race
     2. Add second param: the computation to perform on the rolled up data. In this case, we want the absolute frequency of ballot statuses per race.
 
 <!-- Example rollups() -->
-```javascript
+```js
 /**
  * .rollups()
  * @return: a flattened version of InternMap:
@@ -273,7 +334,7 @@ const afStatusByRace = d3.rollups(
 </p>
 
 <!-- afStatusByRace output -->
-```javascript
+```js
 // Convert to render on page
 afStatusByRace
 ```
@@ -358,25 +419,43 @@ In this second video, I explain the code inside of the custom `oneLevelRollUpFla
 
 Ok, now that you have watched the above video about the `oneLevelRollUpFlatMap()` function. Import it from the `./utils/utils.js` file in the codeblock below.
 
-```javascript
+```js
 // Convert me and import oneLevelRollUpFlatMap()
-import {PUT_ANY_FUNCTIONS_IN_HERE, SEPARATE_MORE_THAN_ONE, WITH_COMMAS} from "enter/path/here.js"
-
+import {oneLevelRollUpFlatMap,twoLevelRollUpFlatMap,sumUpWithReducerTests} from "./utils/utils.js"
 ```
 
 Now, see if it worked!
 
 Use the imported function in the below codeblock to rollup and flatten `ncVotersAll` by (1) `race` and (2) `ballot_rtn_status`.
 
-```javascript
+```js
 // Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
-const byRaceAndBallotStatus = ADD_FUNCTION_HERE
+const byRace = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "race",
+  "count"
+)
 ```
 
-Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
+Ok, let's see if `byRace` shows up here by rendering it to the page.
 
-```javascript
-byRaceAndBallotStatus
+```js
+byRace
+```
+
+```js
+// Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
+const byBallotRtnStatus = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "ballot_rtn_status",
+  "count"
+)
+```
+
+Ok, let's see if `byBallotRtnStatus` shows up here by rendering it to the page.
+
+```js
+byBallotRtnStatus
 ```
 
 <div class="error-caption">
@@ -392,12 +471,19 @@ byRaceAndBallotStatus
 
 Ok, now you try this custom function with a different variable from the dataset.
 
-```javascript
-// Convert and create your own one-level grouping
+```js
+const byBallotReqParty = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "ballot_request_party",
+  "count"
+)
 ```
+<p class="codeblock-caption">
+  Interactive output of rolled up <code>ballotRequestParty</code>:
+</p>
 
-```javascript
-// Convert and output your variable here
+```js
+byBallotReqParty
 ```
 
 ## E6. Import and use `twoLevelRollUpFlatMap()` on `ncVotersAll`
@@ -416,12 +502,17 @@ In this video, follow along as I explain the code for the `twoLevelRollUpFlatMap
 
 After you have watched the above video, it is time for you to try this custom function with the two example variables used in the our running angle.
 
-```javascript
-// Convert and create your own two-level grouping
+```js
+const byRaceAndBallotRtnStatus = twoLevelRollUpFlatMap(
+  ncVotersAll,
+  "race",
+  "ballot_rtn_status",
+  "count"
+)
 ```
 
-```javascript
-// Convert and output your variable here
+```js
+byRaceAndBallotRtnStatus
 ```
 
 ## 2.3.7 RFS 3. Sum it up with D3's .sum()!
@@ -502,17 +593,42 @@ Follow along with me in the video below to learn how to create a custom function
 </video>
 
 <!-- Your Reducer Functions -->
-```javascript
+```js
 // Convert and create your own reducer functions akin to "ACCEPTED" vs "REJECTED"
+
+const acceptedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.count
+  }
+  else {
+    return 0
+  }
+}
+
+const rejectedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false)
+  {
+    return d.count
+  }
+  else {
+    return 0
+  }
+}
 ```
 
 <!-- Call and use sumUpWithReducerTests() -->
-```javascript
-/**
- * Convert and use sumUpWithReducerTests().
- * Be sure to review the utils.js file, so you
- * can see the parameters needed for the function.
-**/
+```js
+const byRaceAccRej = sumUpWithReducerTests(
+  [
+    {type: "ACCEPTED", func: acceptedReducerFunc},
+    {type: "REJECTED", func: rejectedReducerFunc}
+  ],
+  ["WHITE", "BLACK or AFRICAN AMERICAN", "ASIAN", "UNDESIGNATED"],
+  byRaceAndBallotRtnStatus,
+  "race",
+  "ballot_rtn_status",
+  "count",
+)
 ```
 
 <p class="codeblock-caption">
@@ -520,8 +636,8 @@ Follow along with me in the video below to learn how to create a custom function
 </p>
 
 <!-- Your Reducer Functions -->
-```javascript
-// Convert and output your summed up data
+```js
+byRaceAccRej
 ```
 
 ## E8. Tabulated absolute frequencies of rejected ballots per race
@@ -533,15 +649,50 @@ Ok, tabulate the rolledup and summed-up results with `Inputs.table()`. Be sure t
 3. Sort the table based on what you deem the most helpful combo of column and ascending vs. descending.
 4. Be sure to provide a short response to the question about your table design.
 
-```javascript
+```js
 // Enter your table here
+Inputs.table(
+  byRaceAccRej,
+  {
+    columns: ["race", "ballot_rtn_status", "count"],
+    header: {
+      race: "Voter Race",
+      ballot_rtn_status: "Ballot Status",
+      count: "Total Count"
+    },
+    width: {
+      race: 20,
+      ballot_rtn_status: 20,
+      count: 20
+    },
+    align: {
+      race: "left",
+      ballot_rtn_status: "center",
+      af: "right"
+    },
+    sort: "count",
+    reverse: true
+  }
+)
 ```
 
 ### Question: Explain your table design choices.
 
 **Q**: What *insights* and *new questions* did you garner from it that you hope to also illustrate/provide for your audience?
 
-ENTER_YOUR_RESPONSE_HERE
+**ENTER_YOUR_RESPONSE_HERE**
+
+The above table groups all records into a binary "ACCEPTED" or "REJECTED" outcome by "Voter Race". I chose it to execute the essential first step of the RFS method. As a result, it reduced thousands of records into a meaningful summary statistics.
+
+As the case scenario explicitly directs us to investigate racial disparity, I grouped the data by "Race" primarily. Additionally, the data originally had lots of different reasons why a ballot had not been accepted. So, I created a binary status by grouping all of the reasons into one simple "REJECTED" bucket which is also a crucial part of summary analysis. Aggregating all these into a simple "REJECTED" status, provides us the necessary absolute frequency(af) baseline, which is the denominator for calculating rates.
+
+**Key Insights**:
+
+  - The af shows that over 70,000+ ballots were rejected statewide across all races. It indicates  a massive administrative burden and failure of the mail-in system to accept all votes. 
+  - According to the table, we can see that- White voters account for the largest sheer number of rejected ballots. But, if we consider the ratio, the Black or African American group faces the highest proportional risk. Their ballots were rejected at a rate of 27.02%, making a Black voter 1.27 times more likely to have their ballot rejected than a White voter.
+  - The Asian community's rate of 23.68% also represents significant disparity. This disparity, which disproportionately affects voters of color, aligns with historical concerns in North Carolina elections. It is the critical evidence needed to pursue legal and advocacy solutions.
+
+To sum up the above discussion, we should move the inquiry from 'What is the disparity?' to 'Why is this happening?' or 'How do we fix the system?'
 
 ## Conclusion
 

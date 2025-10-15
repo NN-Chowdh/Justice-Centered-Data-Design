@@ -3,7 +3,7 @@
 ```js
 import {utcParse, utcFormat} from "d3-time-format";
 // Import your functions
-
+import {oneLevelRollUpFlatMap,twoLevelRollUpFlatMap,threeLevelRollUpFlatMap,sumUpWithReducerTests,getUniquePropListBy,mapDateObject} from "./utils/utils.js";
 ```
 
 ## Start Your GH Workflow
@@ -127,15 +127,16 @@ Again, we are going to continue working with the 2024 NC absentee voter CSV file
 2. Assign the data to a variable named `ncVotersAll`.
 3. Render it to the page in a separate codeblock.
 
-```javascript
+```js
 // FileAttachment() code here.
+const ncVotersAll = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed: true})
 ```
 
 <p class="codeblock-caption">
   Interactive output of full data set.
 </p>
 
-```javascript
+```js
 // Convert if you want to print the data to the page
 ncVotersAll
 ```
@@ -145,12 +146,13 @@ ncVotersAll
 Let's use our helpful `mapDateObject()` function in the `utils.js` file, so we can easily create Date() objects and new date fields, such as week numbers.
 
 <!-- Create date objects and new date props -->
-```javascript
+```js
 /**
  * Use the mapDateObject() function below
  * and assign the returned data to a new
  * constant called `ncUpdates`
 **/
+const ncUpdates = mapDateObject(ncVotersAll, "ballot_req_dt")
 
 ```
 
@@ -158,7 +160,7 @@ Let's use our helpful `mapDateObject()` function in the `utils.js` file, so we c
   Interactive output of full data set.
 </p>
 
-```javascript
+```js
 // Convert if you want to print the data to the page
 ncUpdates
 ```
@@ -178,18 +180,40 @@ Alright, let's use our custom utility functions to create some data to plot. Con
     <p class="note">We're also going to sort this data after we roll it up and flatten it.</p>
 
 <!-- Use the custom functions here -->
-```javascript
+```js
 // Convert and create the data described above
-
+const afByRace = oneLevelRollUpFlatMap(
+  ncUpdates,
+  "race",
+  "af"
+)
 ```
 
 <p class="codeblock-caption">
-  Feel free to use the codeblock below to check your outputs.
+  Interactive output of byRace
 </p>
 
-```javascript
+```js
 // Convert check outputs: afByRace & afByWeekAndRace
+afByRace
+```
+```js
+// Convert and create the data described above
+const afByWeekAndRace = twoLevelRollUpFlatMap(
+  ncUpdates,
+  "ballot_req_dt_week",
+  "race",
+  "af"
+)
+```
 
+<p class="codeblock-caption">
+  Interactive output of afByWeekAndRace
+</p>
+
+```js
+// Convert check outputs: afByRace & afByWeekAndRace
+afByWeekAndRace
 ```
 
 ## E4. Sort *afByWeekAndRace* with *.sort()*
@@ -205,7 +229,7 @@ JS has the built-in `sort()` method, which takes a function/accessor as a parame
 3. Code that does organizes the data.
     - In this case, we can use D3's `ascending()` function, which accepts two parameters: the 2 items to compare. Since we're comparing two objects, we need to specify which keys to compare with `a` & `b`.
 
-```javascript
+```js
 // How to use JS' .sort() method with D3's ascending or descending functions.
 const afByWeekAndRaceSorted = afByWeekAndRace.sort(
   // sort() takes a function/accessor as a parameter.
@@ -217,9 +241,9 @@ const afByWeekAndRaceSorted = afByWeekAndRace.sort(
   Output of the sorted data: <code>afByWeekAndRaceSorted</code>.
 </p>
 
-```javascript
+```js
 // Convert and output rendered data to page
-
+afByWeekAndRaceSorted
 ```
 
 ## E5. Bar Chart: Plotting Absolute Frequencies
@@ -269,15 +293,36 @@ const afByWeekAndRaceSorted = afByWeekAndRace.sort(
 
 I've supplied you with the skeleton for this plot. Be sure to add the options noted in the directions above.
 
-```javascript
+```js
 Plot.plot({
   // 1. Add comma-separated layout options
+  grid: true,
+  marginLeft: 100,
+  marginRight: 0,
+  marginBottom: 60,
+  marginTop: 60,
+  label: null,
+  color: {legend: true},
+  x: {label: "Race", padding: 0},
+  y: {label: "Absolute Frequency", padding: 0},
 
   marks: [
     // 2. Add comma-separated marks options
+    Plot.ruleY[(0)],
+    Plot.axisX({label: null, lineWidth: 8, marginBottom: 40}),
 
     // 3. Create your bar chart
-    Plot.barY()
+    Plot.barY(
+      afByRace,
+      {
+        x: "race",
+        y: "af",
+        sort: {x: "-y"},
+        insetRight: 10,
+        insetLeft: 10,
+        tip: true,
+      }
+    )
   ]
 })
 ```
@@ -288,13 +333,17 @@ Plot.plot({
 
 To create the plot that you have the `oneLevelRollUpFlatMap()` function at your fingertips, as well as the new date property field for the month number, `ballot_req_dt_month`, which you should have created with `mapDateObject()` before this part of the notebook.
 
-```javascript
+```js
 /**
  * Use oneLevelRollUpFlatMap() to count the
  * absolute frequencies (AF) of `ballot_req_dt_month`.
  * Name the AF property `af`.
 **/
-const monthlyBallotRequests = oneLevelRollUpFlatMap()
+const monthlyBallotRequests = oneLevelRollUpFlatMap(
+  ncUpdates,
+  "ballot_req_dt_month",
+  "af"
+)
 ```
 
 Let's plot it as a histogram!
@@ -330,8 +379,34 @@ The output should resemble the following video, but you may add any options that
   </p>
 </video>
 
-```javascript
+```js
 // Convert and plot the histogram here
+Plot.plot({
+  marginLeft: 60,
+  marks: [
+    // 2. Add comma-separated marks options
+    Plot.ruleY([0], {stroke: "blue", strokeWidth: 3,}),
+    Plot.rectY(
+      monthlyBallotRequests,
+      {
+        x: "ballot_req_dt_month",
+        y: "af",
+        tip: true,
+        insetLeft: -3,
+        insetRight: -3,
+        insetBottom: 1,
+        interval:1,
+      }
+    ),
+    Plot.tip(
+      ['Online ballot request \nbegin in January 2024,'],
+      {x: 1, y: 10000, dy: -3, anchor: "bottom"}
+    )
+  ]
+})
+
+  
+  
 
 ```
 
@@ -429,7 +504,7 @@ In a few codeblocks below, redo your work from the last extended exercise. I als
     3. Also calculate percentage value for the group.
 
 
-### 1. Attach the dataset
+### 1. Attach the dataset`
 
 For this plot, we want to include all ballot requests and statuses -- except any rows that are `null`. So, let's attach and use the `nc_absentee_mail_2024_no_dropped_dupes.csv` dataset, which includes all such recorded instances, even if conducted by the same voter.
 
@@ -437,6 +512,22 @@ Assign it to a constant variable named `ncMailBallots`.
 
 <!-- JS codeblock to attach nc_absentee_mail_2024_no_dropped_dupes.csv -->
 
+```js
+const ncMailBallots = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_no_dropped_dupes.csv").csv({typed: true})
+```
+<p class="codeblock-caption">
+  Output of full dataset
+</p>
+
+```js
+ncMailBallots
+```
+
+First row in the dataset:
+
+```js
+ncMailBallots[0]
+```
 
 ### 2. Map date objects to OG data
 
@@ -445,11 +536,18 @@ Map those Date objects and other week properties with your custom `mapDateObject
 Assign it to a constant variable named `ncMailBallotsUpdated`.
 
 <!-- JS codeblock to map date objects as ncMailBallotsUpdated-->
+```js
+const ncMailBallotsUpdated = mapDateObject(
+  ncMailBallots,
+  "ballot_req_dt"
+)
+```
 
+<p class="codeblock-caption">
+  Interactive output of <code>ncMailBallotsUpdated</code> with new date properties:
+</p>
 
-Output `ncMailBallotsUpdated` below:
-
-```javascript
+```js
 ncMailBallotsUpdated
 ```
 
@@ -467,7 +565,21 @@ Time to use your `threeLevelRollUpFlatMap` function!
 
 #### Output of afByWeekRaceStatus
 
-```javascript
+```js
+const afByWeekRaceStatus = threeLevelRollUpFlatMap(
+  ncMailBallotsUpdated,
+  "ballot_req_dt_week",
+  "race",
+  "ballot_rtn_status",
+  "af"
+)
+```
+
+<p class="codeblock-caption">
+  Interactive output of ballot's per week:
+</p>
+
+```js
 // Convert and render data
 afByWeekRaceStatus
 ```
@@ -491,6 +603,178 @@ Finally, we need to reduce our grouped data to either being ACCEPTED or REJECTED
 
 I recommend reusing your code from the last chapter.
 
+### 4.1 Write your reducer functions
+
+<!-- Reducer Functions -->
+```js
+/**
+ * Write a reducer function that checks to make sure
+ * ballot_rtn_status is NOT null and starts with "ACCEPTED"
+ *    If true, return the 'af' value for the object
+ *    If false, return 0
+**/
+
+// Now, do the same for what will become "REJECTED" statuses
+const acceptedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+
+const rejectedReducerFunc = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+```
+
+### 4.2 Write your reducer properties and objectify your reducer functions
+
+<!-- Reducer Properties & Objectify reducerFuncs -->
+```js
+const reducerProps = [
+  // Let's reduce the data to these two values for race
+  "WHITE", "BLACK or AFRICAN AMERICAN"
+]
+
+const reducerFuncs = [
+  {
+    type: "ACCEPTED",
+    func: acceptedReducerFunc
+  },
+  {
+    type: "REJECTED",
+    func: rejectedReducerFunc
+  },
+]
+
+const uniqueListOfWeekNumbers = getUniquePropListBy(
+  // Dataset
+  afByWeekRaceStatus,
+  // Specific key to pass
+  "ballot_req_dt_week"
+)
+```
+
+### 4.3 Create custom for loop to calculate sums & percentages
+
+<!-- Counting it all up through a series of custom loops -->
+```js
+// 1. Create array for tallied frequency results
+const afGroupedPercResults = []
+
+/**
+ * 2. Loop through WEEK NUMBERS.
+ *    We'll start by looping through
+ *    our unique list of possible values
+ *    in the first grouping level.
+**/
+for (const weekNumber of uniqueListOfWeekNumbers) {
+
+  // 3. Loop through testor functions with your custom conditions
+  //    - Use `for...in` so we can loop as many tests as provided
+  for (const testorObj in reducerFuncs) {
+
+    // 4. Loop through interested properties
+    //    - Use `for...in` so we can loop as many tests as provided
+    for (const rProperty in reducerProps) {
+
+      /**
+       * 3. Calculate the sum grand total
+       *    for the current WEEK value
+       *    for ALL current race and statuses.
+       *    We need this sum total, so we
+       *    can calculate the ratio/percentage
+       *    value for each week within
+       *    the current race.
+       *    **IMPORTANT!!!**
+       *    Make sure you ignore null values
+       *    for `ballot_rtn_status`
+      **/
+      const weekRaceAF = d3.sum(
+        // Replace me with the iterable: `afByWeekRaceStatus`
+        // Replace me with your accessor function here
+
+        // WARNING: Remember to separate your iterable and accessor with a comma
+        afByWeekRaceStatus,
+        (d) => {
+          if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty] && d.ballot_rtn_status != null) {
+            return d.af
+          }
+        }
+      )
+
+      /**
+       * 6. Tally absolute frequency based on
+       *    1. WEEK NUMBER,
+       *    2. RACE reducer prop, and
+       *    3. REDUCER FUNCTION return value.
+      **/
+      const summedUpLevel = d3.sum(
+        // Replace me with the `afByWeekRaceStatus` data
+        /**
+         * Replace me with your accessor function.
+         * Remember to use your reducer function and property
+         * in a conditional statement to only count the
+         * appropriate values.
+        **/
+
+       // WARNING: Remember to separate your iterable and accessor with a comma
+       afByWeekRaceStatus,
+       (d) => {
+        if (d.ballot_req_dt_week == weekNumber && d.race == reducerProps[rProperty]) {
+          const xTotalToSum = reducerFuncs[testorObj]["func"](d)
+          return xTotalToSum
+        }
+       }
+      )
+
+      // 7. Push result to array of results
+      /**
+       * Now, we have all the data we need,
+       * so push the appropriate results
+       * to the provided keys.
+       * Note how I'm retaining the original
+       * key values. That's a best practice,
+       * when processing and transforming the
+       * data, so you can create a linked
+       * chain back to the OG data.
+      **/
+      afGroupedPercResults.push({
+        // Add the current week
+        ballot_req_dt_week: weekNumber,
+        // Add the current reducer property here
+        race: reducerProps[rProperty],
+        // Add the current reducer function "type"
+        ballot_rtn_status: reducerFuncs[testorObj]["type"],
+        // Add the AF value for the week here
+        af: summedUpLevel,
+        // Calculate the percentage with:
+        // the total for the grouped level (summedUpLevel)
+        // divided by the total for the entire week (weekRaceAF)
+        percentage: summedUpLevel / weekRaceAF,
+      })
+
+    }
+  }
+}
+```
+
+<p class="codeblock-caption">
+  Output of afGroupedPercResults.
+</p>
+
+```js
+afGroupedPercResults
+```
+
+
 ### 5. Filter the data for plotting
 
 Our angle for this plot focuses on "REJECTED" ballots only. Additionally, recall that our `Plot.plot()` line chart needs to draw 2 different lines based on results from data with the race values of either `"WHITE"` and `"BLACK or AFRICAN AMERICAN"`. Finally, I recommend filtering the week numbers to only include weeks 0-45.
@@ -506,6 +790,39 @@ In a codeblock, use JS' `.filter()` on your grouped results to create a two cons
 
 #### BLACK or AFRICAN AMERICAN, rejected, weeks 0-45
 ![black race rejected ballot grouping output](./../assets/images/2-why-stats/04-plot-filtering-groups-white-rej.png)
+
+```js
+const whiteRejected = afGroupedPercResults.filter(
+  (d) => {
+    if (d.race == "WHITE" && d.ballot_rtn_status == "REJECTED" && d.ballot_req_dt_week >= 0 && d.ballot_req_dt_week <= 45) {
+      return true
+    } 
+  }
+)
+
+const blackRejected = afGroupedPercResults.filter(
+  (d) => {
+    if (d.race == "BLACK or AFRICAN AMERICAN" && d.ballot_rtn_status == "REJECTED" && d.ballot_req_dt_week >= 0 && d.ballot_req_dt_week <= 45) {
+      return true
+    } 
+  }
+)
+```
+<p class="codeblock-caption">
+  Output of whiteRejected.
+</p>
+
+```js
+whiteRejected
+```
+
+<p class="codeblock-caption">
+  Output of blackRejected.
+</p>
+
+```js
+blackRejected
+```
 
 ### 6. Plot the line chart with Plot.plot()
 
@@ -537,13 +854,80 @@ Do the best you can to recreate what you see in the video example.
   <source src="../assets/vids/02-why-stats/02-voter-reject-perc.mp4" type="video/mp4" />
 </video>
 
+```js
+const parseDate = utcParse("%m/%d/%y")
+const formatWeekNumber = d3.utcFormat("%W")
+
+const pollsWeekOfLastDay = [
+  {
+    lastWeek: Number(formatWeekNumber(parseDate("10/29/24")))
+  }
+]
+```
+
+```js
+Plot.plot(
+  {
+    x: {
+      label: "weekNum"
+    },
+
+    y: {
+      label: "percNA",
+      percent: true
+    },
+
+    marks: [
+      Plot.lineY(
+        whiteRejected,
+        {
+        x: "ballot_req_dt_week",
+        y: "percentage",
+        stroke: "red",
+        tip: true
+        }
+      ),
+
+      Plot.lineY(
+        blackRejected,
+        {
+          x: "ballot_req_dt_week",
+          y: "percentage",
+          stroke: "black",
+          tip: true
+        }
+      ),
+
+      Plot.dot(
+        pollsWeekOfLastDay,
+        {
+          x: "lastWeek",
+          y: 0
+        }
+      ),
+
+      Plot.tip(
+        [`Last day\nto req\nOct 29th`],
+        {x: pollsWeekOfLastDay["lastWeek"], 
+        y: 0, 
+        dy: -5, 
+        dx: 277, 
+        anchor: "bottom"}
+      )
+    ]
+  }
+)
+```
+
 ## E8. Reflection Questions
 
 ### 1. Reflect on any new questions, angles, ideas
 
 After working with the NC voter dataset, describe any new insights, new questions or angles, or issues that you might consider sharing with your team at Protect Democracy.
 
-YOUR_RESPONSE_HERE
+**YOUR_RESPONSE_HERE**
+
+The line chart reveals that Black or African American voters consistently face higher rejection rates compared to White voters throughout the most week. This disparity persists even when both groups request ballots during the same time period. Additionally, week 17 shows an unusual spike reaching over 50% rejection rate for Black voters while the highest rejection rate for White was 29.89% on week 26. 
 
 ### 2. Types of graphs
 
@@ -551,33 +935,35 @@ Use the structure provided below to briefly discuss each type of graph: line, ba
 
 #### Line
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Interval or ratio data.
+- **Strengths**: Shows trends and changes over time clearly, easy to compare multiple groups.
+- **Weaknesses**: Can become cluttered with too many lines.
 
 #### Bar
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Nominal or ordinal data (categories without inherent order).
+- **Strengths**: Easy to compare absolute values across categories, clear visual differences.
+- **Weaknesses**: Not suitable for showing trends over time.
 
 #### Pie
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Nominal data showing parts of a whole (percentages that sum to 100%)
+- **Strengths**: Shows proportions of a total at a glance
+- **Weaknesses**: Hard to compare similar-sized slices, ineffective with many categories, difficult to read precise values
 
 #### Histogram
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Interval or ratio data showing frequency distributions
+- **Strengths**: Shows distribution shape and patterns (normal, skewed).
+- **Weaknesses**: Histograms group data into bins or intervals, meaning the exact values of individual data points are lost.
 
 ### 3. On making un/ethical arguments with data
 
 Describe an example of how the voter data could be manipulated to give an unethical presence to inaccurate conclusions. What specifically about the data work and any visualizing or reporting deliverables woudl make them unethical? Feel free to draw upon any of our past critical data readings, including this week's short addition about interpretive levels and the importance of context.
 
-YOUR_RESPONSE_HERE
+**YOUR_RESPONSE_HERE**
+
+Someone could selectively show only weeks 0-10 where rejection rates are closer between groups, ignoring weeks 15-40 where disparities are clear. Or they could focus only on week 17's extreme spike without context, suggesting the problem is an isolated incident rather than a persistent pattern. Both approaches manipulate the temporal context to support a predetermined narrative. 
 
 ## Submission
 
