@@ -109,8 +109,9 @@ Plot.plot({
       {
         x: "ballot_req_dt_week",
         y: "percentage",
-        // r: "af",
+        // r: "af", 
         fill: "race",
+        // stroke: "race", instead of fill you can use the stroke and r
         tip: true,
       }
     ),
