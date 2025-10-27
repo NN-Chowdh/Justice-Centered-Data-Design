@@ -1352,6 +1352,25 @@ video {
     font-weight: 700;
   }
 }
+.note--definition {
+  margin: auto;
+  color: var(--foregroundColor);
+  border-left: solid 1px;
+  border-radius: 0 4px 4px 0;
+  padding: 1rem 0.5rem;
+  box-sizing: border-box;
+  max-width: 640px;
+  border-left-color: var(--accentShade5);
+  background-color: var(--accentShade1);
+
+  &::before {
+    content: "DEFINITION";
+    color: var(--accentShade6);
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+}
 .note--data {
   margin: auto;
   color: var(--foregroundColor);
