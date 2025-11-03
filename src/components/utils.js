@@ -5,7 +5,7 @@ import * as d3 from "npm:@d3";
  * EXPORTED FUNCTIONS
  */
 
-export rollupByRaceAndStatus = (data) => {
+export const rollupByRaceAndStatus = (data) => {
   const dataWithOther = data.map(d => ({ ...d, status: statusSubset.includes(d.ballot_rtn_status) ? d.ballot_rtn_status : "OTHER"}))
 
   return d3.rollups(dataWithOther, v => d3.sum(v, d => d.count), d => d.race, d => d.status)
@@ -14,3 +14,4 @@ export rollupByRaceAndStatus = (data) => {
     return entries.map(([status, sum]) => ({race, status, sum, percentage: total ? sum / total : 0}))
   })
 }
+

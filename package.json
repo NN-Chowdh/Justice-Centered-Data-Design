@@ -11,6 +11,7 @@
   "dependencies": {
     "@observablehq/framework": "^1.13.2",
     "@observablehq/plot": "^0.6.17",
+    "comprise": "^0.2.0",
     "compromise": "^14.14.4",
     "compromise-stats": "^0.1.1",
     "csv": "^6.4.1",
