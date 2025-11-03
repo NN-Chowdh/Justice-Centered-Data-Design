@@ -121,6 +121,9 @@
   --theme-foreground-muted: var(--accent2Shade6);
 
   --theme-foreground-focus: var(--accentColor);
+
+  /* WIDTH & HEIGHT CONSTANTS */
+  --label-width: 160px !important;
 }
 
 html:not(:focus-within) {
@@ -1307,6 +1310,10 @@ video {
 /* NOTES & TIP BOXES */
 .note, .tip, .warning, .caution, .example {
   margin: 2rem auto;
+}
+.warning {
+  background-color: var(--theme-foreground-alt);
+  color: var(--theme-background-alt);
 }
 .example {
   margin: auto;

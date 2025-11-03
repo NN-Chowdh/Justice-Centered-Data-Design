@@ -356,7 +356,6 @@ Inputs.table(
 )
 ```
 
-
 The creator of tiny-tfidf, Kerry Rodden, notes how a major implication of the original IDF weighted formula is rendered in the chart above:
 
   > ... a term that appears in every document will have a collection frequency weight of 0. Because the ${tex`CFW`} is used as a multiplier in the final term weight, this means that these very common terms effectively disappear, in the same way that stopwords do, and therefore will produce no results for a query. I think this is counterintuitive, so in the \`tiny-tfidf\` implementation, which is meant for educational purposes, I chose to use a collection frequency weight of ${tex`\ log(N+1) - log(n)`}, so that a term appearing in every document gets a very low weight, not zero.
@@ -577,6 +576,21 @@ Below I provide a means of comparing two terms across the corpus, based on their
  - the array is sorted in descending order by the score.
  - The score for a document is the total combined weight of each query term that appears in the document.
 
+To test out the helpfulness of document rank, consider the following specifying question:
+
+> Does HCR discuss vaccines in relationship to U.S. CDC officials?
+
+One way to see how these term perform together would be to enter the following 2 queries to compute the document ranks for each query:
+
+1. **Vaccine Terms**: vaccine vaccines vaccinate vaccinated vaccination vaccinations
+2. **U.S. Gov Terms**: cdc hargan azar cochran becerra rfk fink
+
+Based on what you see, what preliminary conclusions could you draw from the visuals, and what new questions surface for you?
+
+- Enter question/insight
+- Enter question/insight
+- Enter question/insight
+
 <!-- Input texts for searchQuery1 & searchQuery2 -->
 ```js
 const searchQuery1 = view(
@@ -744,6 +758,39 @@ Plot.plot({
 
   ]
 })
+```
+
+### Letter Lookup Tool
+
+<!-- Inputs.select() to choose which letter to tabulate -->
+```js
+let selectedQueryLetter = view(
+  Inputs.select(
+    letterTitles,
+    {
+      multiple: false,
+      label: "Choose a letter to view",
+    }
+  )
+)
+```
+
+```js
+let queriedLetter = corpus.getDocument(selectedQueryLetter)._text
+```
+
+```js
+view(
+  Inputs.textarea({
+    label: `Selected letter from ${urlDateFormatter(selectedQueryLetter)}`,
+    value: queriedLetter,
+    disabled: true,
+    readonly: true,
+    rows: 50,
+    width: 500,
+    resize: true,
+  })
+)
 ```
 
 ## Conclusion
