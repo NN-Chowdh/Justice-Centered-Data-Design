@@ -30,14 +30,14 @@ export const sparkbar = (max) => {
  * @return
  *   - uniqList: Array. List of unique data values.
 **/
-export const getUniquePropListBy = (arr, key) => {
-  const uniqueObjs = [...new Map(arr.map(item => [item[key], item])).values()]
-  const uniqList = []
-  for (const o of uniqueObjs) {
-    uniqList.push(o[key])
-  }
-  return uniqList
-}
+// export const getUniquePropListBy = (arr, key) => {
+//   const uniqueObjs = [...new Map(arr.map(item => [item[key], item])).values()]
+//   const uniqList = []
+//   for (const o of uniqueObjs) {
+//     uniqList.push(o[key])
+//   }
+//   return uniqList
+// }
 
 export const printList = (doc) => {
   return JSON.stringify(doc.out('array'), null, 2)
