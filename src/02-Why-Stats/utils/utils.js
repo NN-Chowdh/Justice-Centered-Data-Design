@@ -109,7 +109,7 @@ export const oneLevelRollUpFlatMap = (data, level1Key, countKey) => {
 }
 
 /** twoLevelRollUpSumUp()
- * Groups & counts data by one level
+ * Groups & counts data by two level
  * @params
  *    - data: Array of objects. Data to rollup and sum up.
  *    - level1Key: String. Name of key for 1st level.
