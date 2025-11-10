@@ -1615,3 +1615,10 @@ code {
   border-left: 1px solid var(--accentShade6);
   padding: 0.5rem 0 0.5rem 0.5rem;
 }
+
+/* MAPS */
+
+#us_map__container {
+  background-color: var(--accentShade1);
+  overflow: hidden;
+}
