@@ -161,7 +161,7 @@ In the attached dataset, `digArchivePageTests`, the FCP value in milliseconds us
     1. Within `.rollup()`, create object of central tendency measurements on the leaf node by using D3's methods: `d3.mean`, `d3.median`, `d3.mode`, `d3.min`, `d3.max`, and the JS `.length` method.
     2. Rollup at per website level with `.hostname`.
 
-<!-- Exectuable FCP rollup -->
+<!-- Non-Exectuable FCP rollup -->
 ```javascript
 // FCP measured in milliseconds
 const colOfInterest = "first-contentful-paint-numericValue"
@@ -183,10 +183,6 @@ const digArchiveRolledUp = d3.rollup(
   // Will group at per website level
   d => d.hostname,
 )
-```
-
-```js
-digArchivePageTests
 ```
 
 <!-- Exectuable FCP rollup -->
@@ -315,7 +311,7 @@ Plot.plot({
       }
     ),
 
-    // Plot median values
+    // Plot values
     Plot.dot(
       digArchivePageTests,
       {
@@ -343,20 +339,43 @@ Plot.plot({
 You may have noticed how there are some websites in the dataset with some atypical values. While the bar-dot chart gave us the opportunity to see some possible atypical values, we can alternatively use Observable's faceting plots to help us see the distribution in a different way.
 
 ```js
+d3.groupSort(
+  digArchivePageTests.filter(
+    (d) => d[colOfInterest]),
+    (Group) => {
+      // What's Group? Log it and find out.
+      // console.log("hostname MEAN:", d3.mean(Group, (g) => g[colOfInterest]))
+      return d3.median(Group, (g) => g[colOfInterest])
+    },
+  (d) => d.hostname,
+)
+```
+
+```js
 Plot.plot({
   color: {legend: true, scheme: "YlGnBu", label: "Frequency Ratio (0-1)"},
   marginLeft: 200,
   padding: 0,
   x: {grid: true},
-  // `fy` is the "force-directed" y-axis value, which groups the y axis per hostname in this case
+  /**
+   * `fy` is the "force-directed" y-axis value, which groups the y axis per hostname in this case.
+   * In fy, we want to create a domain range based on the hostname as a grouped leaf node: An array of hostnames. However, let's group and sort them by a central tendency value of the column of interest, since that's the goal of the visual.
+  **/
   fy: {
+    /**
+     * `domain` is the range of values of an axis.
+     * In this case, we're
+     * 1. Grouping by the hostname property, which will be our leaf node;
+     * 2. Filtering the grouped data by our column of interest, but specifically a sorted return value at the leaf node.
+     * The output: Array of hostname values sorted by their returned value in the
+    **/
     domain: d3.groupSort(
       digArchivePageTests.filter(
         (d) => d[colOfInterest]),
         (Group) => {
           // What's Group? Log it and find out.
           // console.log("hostname MEAN:", d3.mean(Group, (g) => g[colOfInterest]))
-          return d3.mean(Group, (g) => g[colOfInterest])
+          return d3.median(Group, (g) => g[colOfInterest])
         },
       (d) => d.hostname,
     )
@@ -364,11 +383,20 @@ Plot.plot({
   marks: [
     Plot.rect(
       digArchivePageTests,
+      /**
+       * BINS
+       * (https://observablehq.com/plot/transforms/bin#bin-transform)
+       * The bin transform groups quantitative or temporal data — continuous measurements such as heights, weights, or temperatures — into discrete bins. You can then compute summary statistics for each bin, such as a count, sum, or proportion.
+      **/
       Plot.binX(
         {
+          // fill channel represents count per bin
           fill: "proportion-facet",
         },
         {
+          /**
+           * outputs argument (here {y: "count"}) declares additional output channels (y) and the associated reducer (count). Hence the height of each rect above represents the number of athletes in the corresponding bin, i.e., the number of athletes with a similar weight.
+          **/
           x: colOfInterest,
           fy: "hostname",
         }
@@ -387,8 +415,3 @@ Plot.plot({
 })
 ```
 
-## Submission
-
-1. Create a **PR** (**pull request**) and use the provided content in the template to start it.
-2. Respond to your peers and comment on their work on at least one chapter..
-3. Submit the PR link in Moodle, when you're ready.

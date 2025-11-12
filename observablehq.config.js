@@ -64,16 +64,12 @@ export default {
           path: "/01-Learning-JS/07-dates"
         },
         {
-          name: "1.7. Dates & Time - My Copy",
-          path: "/01-Learning-JS/07-dates--teachers_copy"
+          name: "1.7. Dates & Time",
+          path: "/01-Learning-JS/07-dates"
         },
         {
           name: "1.8. Data Formats & Loading",
           path: "/01-Learning-JS/08-load-data"
-        },
-        {
-          name: "1.8. Data Formats & Loading - My Copy",
-          path: "/01-Learning-JS/08-load-data--teachers_copy"
         },
         {
           name: "1.9. Objects & Maps",
@@ -82,10 +78,6 @@ export default {
         {
           name: "1.10. Functions",
           path: "/01-Learning-JS/10-functions"
-        },
-        {
-          name: "1.10. Functions - TC",
-          path: "/01-Learning-JS/10-functions--teachers_copy"
         },
       ]
     },
@@ -108,7 +100,7 @@ export default {
         },
         {
           name: "2.3-Grouping & FDs - My Copy",
-          path: "/02-Why-Stats/03-freq-dist-create--teachers_copy"
+          path: "/02-Why-Stats/03-freq-dist-create"
         },
         {
           name: "E-2.3 Group & Count 3-Levels",
@@ -164,6 +156,10 @@ export default {
           name: "4.1 Geo Data Basics",
           path: "/04-Geo/01-geo-basics"
         },
+        {
+          name: "4.2 Mapping with Plot",
+          path: "/04-Geo/02-plot-geo"
+        },
       ]
     },
     // HELP PAGES
@@ -178,6 +174,10 @@ export default {
         {
           name: "Markdown Support",
           path: "/Help/markdown"
+        },
+        {
+          name: "Data Processing",
+          path: "/Help/processing"
         },
       ]
     },
