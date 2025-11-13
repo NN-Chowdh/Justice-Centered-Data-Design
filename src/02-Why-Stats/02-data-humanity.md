@@ -49,13 +49,29 @@ All PDF copies are available in our learning management system.
 
 **Question**: According to D'Ignazio and Klein, what principles concern data and "power"? Define and discuss each principle below. Be sure to note the important questions to ask about data and power.
 
-YOUR_RESPONSE_HERE
+**Answer**: Catherine D'Ignazio and Lauren F. Klein identify two key principles in their work "Data Feminism" that directly concern the relationship between data and "power": Examine Power and Challenge Power. These principles are fundamental to their argument that data science is not neutral and can either reinforce or dismantle existing power structures.
+
+**The Principles of Data and Power**:
+
+- **Examine Power**: This principle involves critically analyzing how power operates in the world and how it is reflected in datasets, databases, and algorithms. The goal is to identify and understand the forces of oppression - such as systemic racism, patriarchy, and colonialism. These are embedded in our daily lives and, by extension, in our data systems.
+    - **Question to ask**: 
+        1. Data science for whom? (Who benefits from the data science work?)
+        2. Data science by whom? (Who is actually doing the data science work?)
+        3. Data science with whose interests and goals in mind? (Whose agenda is being served?)
+- **Challenge Power**: This principle follows from the first, as once power is examined, the next step is to challenge it. It is a commitment to dismantling unequal power structures and working toward justice. This means moving beyond focusing on individual biases or technical fixes to address the larger systems that perpetuate inequality. For this, the authors emphasize collecting counterdata - gathering data that powerful institutions are failing to collect, especially when official counting systems are inadequate or biased.
+    - **Question to ask**: 
+      1. Does the data strengthen existing power imbalances, or does it empower underrepresented communities?
 
 ### 1.2 Data: Objective mirror, or not?
 
 **Question**: What do D'Ignazio and Klein mean by issues of "false binaries and hidden hierarchies" (p. 3)? Then, explain how principles 3, 5, 6 and 7 each approach such issues.
 
-YOUR_RESPONSE_HERE
+**Answer**: By "false binaries and hidden hierarchies" the authors refer to systems of counting and classification that our culture creates, which are based on an either/or structure but in reality conceal a power imbalance. They use the gender binary of "man" and "woman" as a prime example, where this seemingly simple division hides a hierarchy in which men are at the top, dominating social institutions. They argue that these false binaries and hidden hierarchies permeate all data collection and categorization decisions. 
+
+- **Principle 3: Elevate emotion and embodiment** This principle challenges the false binary between data communication that is "neutral, rational, and 'just the facts'" versus that which is emotional. The authors reject the idea that emotion introduces a suspicious subjectivity. It should not be exiled from the process and should advocate for considering multiple forms of knowledge. Valuing emotion in data science is important as it grounds us in the real world and with the people from whom the data are derived.
+- **Principle 5: Embrace pluralism** This principle insists that complete knowledge comes from synthesizing multiple perspectives, with priority given to a wide range of individuals and groups who are directly impacted by the issues at hand. This approach directly confronts the hierarchy of knowledge that privileges some voices over others. D'Ignazio and Klein use the example of digital contact tracing apps, noting that they often exclude the poor, children, and other "uncounted groups," whose needs should be prioritized, while relying on top-down, non-local organizations to implement a public health program.
+- **Principle 6: Consider context** This principle refutes the false binary that data is neutral or objective. Instead, it asserts that data is a product of unequal social relations and that this context is essential for accurate and ethical analysis. The authors note that understanding the geographic, environmental, and economic conditions that contribute to health outcomes in Black communities, for instance, helps to identify those communities as "more at risk" rather than "riskier" themselves, thereby challenging racist hierarchies.
+- **Principle 7: Make labor visible** This principle challenges the hierarchy that devalues and makes invisible the work of many people in data science, including those who are not "valued or even named". The authors discuss how the COVID-19 pandemic made visible the labor of essential workers who are often under-compensated and not properly valued, and who are disproportionately women and people of color. By making this labor visible, data feminism seeks to ensure that this work is properly compensated, valued, and named, thereby challenging the hidden hierarchies that place elite and highly compensated jobs at the top.
 
 ## 2. Questions about Queer Data
 
@@ -69,27 +85,55 @@ YOUR_RESPONSE_HERE
 - "Short paraphrase 2" (p. xx)
 - ...
 
+**Answer**:
+
+1. **Queer Data**
+      - "Short excerpt 1" (p. 7): "Queer data is more than a study of individuals that sit outside the categories of heterosexual or cisgender."
+      - "Short paraphrase 1" (p. 7): "As an approach to data and identities, queer data disrupts the binaries of male/female, heterosexual/homosexual and cis/trans and asks us to reconsider the notion that 'numbers speak for themselves'. "
+      - "Short excerpt 1" (p. 9): "The conflictual ingredients of queer data therefore require researchers to adopt a mixed approach that elevates the stories of LGBTQ people but also exposes the constructed structures upon which all minority and majority identity characteristics stand."
+      - "Short paraphrase 1" (p. 9): "Queer Data charts a practical path through this tension that acknowledges data's potential to recreate simplified, stereotypical and exclusionary rules but also operates as a tool to gather evidence, document inequality and bring about change."
+      
+2. **Intersectional LGBTQ data**
+      - "Short excerpt 1" (p. 19): "Intersectional LGBTQ data tells a nuanced story that better reflects the messy and overlapping experiences of people's everyday lives."
+      - "Short paraphrase 1" (p. 19): "An intersectional approach to analysis can identify par-ticularities and new challenges."
+
 **Question**: Based on your list above, write your own movie tagline, i.e., a short and entertaining one-liner that tries to capture one of the main aspects of "queer data", and another tagline about "intersectional LGBTQ data."
 
-YOUR_TAGLINE_HERE
+**Answer**:
+
+**Queer Data**: "The numbers don't lie... but who's asking the questions?"
+
+**Intersectional LGBTQ data**: "One identity is never enough to tell the whole story."
 
 ### 2.2 Guyan's exigence for the book
 
 **Question**: Why did Guyan write this book? What was his exigence?
 
-YOUR_RESPONSE_HERE
+**Answer**: Kevin Guyan wrote this book because of his experiences and observations while working as a researcher in the higher education sector. He felt there was an urgent need to address a few key issues he encountered: 
+- He wanted to clear up misunderstandings about data on LGBTQ staff and students.
+- He observed that some groups were using misinformation and fear to "weaponize" data about gender, sex, and sexuality to reduce the rights of LGBTQ people.
+- He was frustrated that people often didn't understand data well and only focused on simple, headline numbers, missing the deeper context.
 
 ### 2.3 "Prescriptive" versus "descriptive"
 
 **Question**: What does Guyan mean when he labels terms like gender, sex, and sexuality as being descriptive—*not* prescriptive (see pp. 13-14 in particular)? Explain the differences between the two with an example from each of the terms.
 
-YOUR_RESPONSE_HERE
+**Answer**: According to Kevin Guyan, when he labels terms like gender, sex, and sexuality as being descriptive—not prescriptive, he means that these terms should describe a person's individual experience rather than tell them who they are or how they should be. The terms are meant to capture how people actually live their lives, which can be fluid and unique to each person.
+
+Here's the difference between descriptive and prescriptive terms with an example for each:
+
+- **Descriptive**: This approach acknowledges that how a person defines their own gender, sex, or sexuality can change over time and may vary from person to person. The terms are meant to describe an individual's personal and social identity, how they express themselves, and how they are perceived by others.
+    - **Example for Gender**: Instead of saying, "You are a man," which is prescriptive, a descriptive approach would say, "I am a man," or "They identify as a woman".
+- **Prescriptive**: This approach uses a fixed, rigid definition for these terms, which can be limiting and does not allow for individual differences. A prescriptive view dictates what a person's identity should be, often based on biological or legal factors
+    - **Example for Sex**: A prescriptive approach to sex would be to say, "Your sex is based solely on your genitalia or reproductive functions". Guyan argues against this by noting that a person's lived identity and legal status also play a role and that these concepts are not exclusively biological.
 
 ### 2.4 "'Visibility is a trap'"
 
 **Question**: Guyan cites Foucault's idea about how "'visibility is a trap'" (p. 20 of the PDF). What does this expression mean, and why does Guyan draw parallels between Foucault's original use of it with issues of power and data? Be sure to illuminate your discussion with specific examples that Guyan uses in the book.
 
-YOUR_RESPONSE_HERE
+**Answer**: Foucault's expression "Visibility is a trap" means that being seen or counted is not always a positive thing. It can actually make people vulnerable to control and harm. Guyan draws a parallel between this idea and queer data with issues of power and data highlighting that how power can be used through surveillance.
+
+Foucault's original use referred to the Panopticon prison design, where prisoners couldn't tell if they were being watched which forcing them to act as if they are always being observed. Guyan applies this to data by arguing that being made visible in official records or statistics can make LGBTQ people vulnerable to scrutiny, control, and violence by systems of power. The data collected to prove their existence or fight injustice can be weaponized against them. He aslo cites Reina Gossett et al., who state, "We are living in a time of trans visibility. Yet we are also living in a time of anti-trans violence." This shows that visibility in media and culture does not automatically lead to safety or liberation; it can, in fact, lead to an increase in backlash and attacks. In addition, cites Reina Gossett et al., who state, "We are living in a time of trans visibility. Yet we are also living in a time of anti-trans violence." This shows that visibility in media and culture does not automatically lead to safety or liberation; it can, in fact, lead to an increase in backlash and attacks.
 
 ## 3. Questions about "The topology of race"
 
@@ -99,13 +143,28 @@ YOUR_RESPONSE_HERE
 
 **Question**: Why does Lee think it important that Appiah changed the standard line of inquiry in legal studies from "whether racism exists" (p. 441) to "what race and racism are"? What "overdetermined" (p. 441) parts or race, i.e., issues about race, does this definitional question bring into focus for deliberation? Be sure to ***define*** and discuss Appiah's position about race as being essential/biological or not and being cultural or not. Indeed, pay close attention to Appiah's definition of culture.
 
-YOUR_RESPONSE_HERE
+**Answer**: Lee thinks Appiah's shift in the standard legal inquiry from "whether racism exists" to "what race and racism are" is important because it moves the focus from a simple, factual question to a crucial definitional and theoretical challenge. By asking "what race and racism are", Appiah forces legal studies and scholars to grapple with the conceptual foundations of race, which are complex and deeply flawed.
+
+The term "overdetermined" suggests that the concept of race is burdened by too many different, often contradictory, meanings. 
+
+Appiah's Position on Definition:
+
+  1. Appiah rejects "Race as Essential/Biological" view, stating that 'there are no races'. He argues that, this concept built on the false presumption of shared, inherited biological traits, is inherently flawed and dangerous.
+  2. Appiah’s accepts "Race as cultureal", but as a substitute. He argues that any meaningful identity should be defined as culture or "communities of meaning", which are based on shared beliefs and effort, not fixed biology.
 
 ### 3.2 Race as multiplicitous
 
 **Question**: What does Lee mean by "race is always multiplicitous because social contexts are multiplicitous" (p. 447)? Use the Shaw v. Reno case to help you explain how this challenges both essentialist/biological definitions of race & Appiah's race as synonomous with culture.
 
-YOUR_RESPONSE_HERE
+**Answer**: Lee's statement - "race is always multiplicitous because social contexts are multiplicitous", means that the meaning of race is never fixed. It constantly shifts based on the specific context like social, political or legal. We can say it as 'dynamic concept' which can be used differently accross various situations to achieve certal goals.
+
+The Shaw v. Reno case provides a perfect example of how this multiplicitious nature challenges the 'fixed' definition of race:
+
+The Supreme Court argued that the district was unconstitutional because it separated voters based only on race. This decision treated race as a single, defining factor, ignoring the complex political, economic, and historical factors that actually motivate voting behavior in that region. Lee’s argument is that the court’s action of reducing race to a single criterion proves that the legal context shapes the definition of race.
+
+Again, the court could not treat the voting district as a neutral cultural grouping. Instead, the court viewed the district as a form of "racial domination" or political power play, not just an ethnic community organizing around cultural affinity. This shows that in a legal context, race is defined by its role in political power, social hierarchy, and historical oppression, not by a flexible cultural definition.
+
+In short, the Shaw v. Reno case demonstrates Lee's point: whether race is viewed as a fixed essential marker or a tool of political hierarchy, its meaning is determined entirely by the context of the legal dispute, not by biology or simple culture.
 
 ## 4. Questions about a data team's "rhetorical process of data"
 
@@ -113,19 +172,42 @@ YOUR_RESPONSE_HERE
 
 **Question**: Briefly describe the "god trick" problem. Also, discuss what connections you recognize between the "god trick" problem and some issues raised in our other readings.
 
-YOUR_RESPONSE_HERE
+**Answer**: The "god trick" problem refers to the false belief that data is a completely objective, neutral, and unbiased mirror of reality. It is maintained by two core ideas. 
+  - Data is presented with the false "alibi of describing it fully". This means data acts like a comprehensive, factual summary of the world, making people trust that it "objectively mirrors reality and speaks plainly for itself" 
+  - The human choices involved in selecting, analyzing, and presenting the rhetorical processes of data are "sacrificed at the altar of positivist quantification". In other words, the human decisions are hidden, making the final numbers look like pure fact rather than a choice designed to persuade.
+
+The connections between the "god trick" and other readings:
+
+  - The god trick demands fixed categories. Guyan refutes this by arguing that data categories for LGBTQ people are not value neutral and that numbers "always speak for someone."
+
+  - The god trick hides the influence of power. D'Ignazio & Klein provide principles to deliberately expose it, arguing that data choices are inherently political. 
+
+  - The god trick relies on the assumption that the subject being measured is a stable, essential fact. Lee's analysis of Appiah shows that race is "overdetermined" and "multiplicitous", meaning its definition constantly shifts based on social and legal context.
+
 
 ### 4.2 What's stasis and stasis networks?
 
 **Question**: Briefly define stasis and stasis networks. Explain what stasis networks provides qualitative researchers?
 
-YOUR_RESPONSE_HERE
+**Answer**:
+
+Statis: Stasis refers to the classic rhetorical concept of asking a series of questions to find the point of disagreement in an argument. These questions (fact, definition, quality, action) help define the core issue.
+
+Stasis Network: The Stasis Network is a new, sociotechnical methodology that combines the classical stasis questions with network analysis to map the relationships between rhetorical arguments (Stases), technical activities (Practices), and data objects (Mediating Artifacts) in real-world data work. 
+
+The Stasis Network methodology qualitative researcher a powerful tool to analyze and expose the rhetorical, value-laden nature of data work, which traditional methods pften overlook. It can capture the complex, circular, and messy negotiation that actually happens in data teams. It also helps researchers identify and quantify the human values and arguments that shape the data conclusuions.
 
 ### 4.3 What's the "DMT cluster"?
 
 **Question**: What's the *DMT cluster*, and how did connect to observations about the data team's judgment about the *quality of metrics*?
 
-YOUR_RESPONSE_HERE
+**Answer**: The DMT cluster represents the core negotiation hub of the data journalism team's process. In this cluster, the journalism team was constantly debating the meaning and classification of the data before they could move on to analysis or reporting.
+
+Connection to judgment about the *quality of metrics*:
+
+- The high density of negotiation in the DMT cluster meant that the team could not efficiently assess a metric's quality until they had first settled its definition. The network proved that the Definitive Stasis and the Quality Stasis were tightly entangled.
+- In addition, the cluster's activity showed that the instability in defintion made it difficult for the team to achieve consensus on the matric's quality.
+- This relationship proved that, the matric quality was not inherent, rather it was determined by the team's rhetorical goal. The SN revealed that the matric's utility was judged not by its raw number, but whether its definition helped the team construct a significant and ethically justifiable story angel.
 
 ## 5. Synthesis Response
 
