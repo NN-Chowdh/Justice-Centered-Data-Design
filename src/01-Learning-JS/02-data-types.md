@@ -62,8 +62,44 @@ Primitives enable you to perform fundamental data operations.
 3. Print them all to the console with `console.log()`.
 4. Check your work, as you go, by opening the browser console with the **Inspect Element** tool.
 
-```javascript
-// Write your code in here
+```js
+// Friends- themed suite of primitives
+
+// String
+let catchPhrase = "How you doin'?"
+
+console.log("Joey's favorite dialogue :", catchPhrase)
+
+// Number
+let totalSeason = 10
+
+console.log("Number of Episodes :", totalSeason)
+
+// Boolean
+let rossDivorcedAgain = true
+
+console.log("Is Ross divorced (again)", rossDivorcedAgain)
+
+// null
+let joeyFridge = null
+
+console.log("Joey's Fridge :",)
+
+// undefined
+let chandlersJob;
+
+console.log("Chandler's Job", chandlersJob)
+
+// Object
+let monica = {
+  name: "Monica Geller",
+  favoriteActivity: "Cleaning"
+}
+//Assign new property to object
+monica.marriedTo = "Chandler"
+
+console.log("Monica's Profile:", monica)
+
 ```
 
 ## Submission
