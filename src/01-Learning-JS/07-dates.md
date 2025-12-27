@@ -371,12 +371,18 @@ Here are some tips to consider as you complete this exercise.
 <p class="tip"><strong>Isolate interested parts of data</strong>: If dates are important to the inquiry, remember that the dates are stored as Strings in the following format: <code>"10/24/2024"</code>, i.e.,<code>"mm/dd/YYYY"</code>.</p>
 
 <!-- E1 -->
-```javascript
-// Convert and code here
+```js
+const parseDateSlash = utcParse("%m/%d/%Y")
+
+let ballotsWithDateObjs = nc2024SampleVoters.map(
+  (voter) => {
+    voter.ballot_req_dt_obj = parseDateSlash(voter.ballot_req_dt)
+    return voter
+  }
+)
 ```
 
-```javascript
-// Convert and output
+```js
 ballotsWithDateObjs
 ```
 
@@ -385,12 +391,19 @@ ballotsWithDateObjs
 **Goal**: Use `.map()` to loop through the updated array of objects, `ballotsWithDateObjs`, and create a new array of objects called `updatedBallots`. In the new `updatedBallots`, use `d3.utcFormat()` to assign a converted and formatted version of `ballot_req_dt_obj` with the following date ***format***: Wed., January 27, 1981.
 
 <!-- E2 -->
-```javascript
-// Convert and code here
+```js
+
+const formatPretty = utcFormat("%a., %B %d, %Y")
+
+let updatedBallots = ballotsWithDateObjs.map(
+  (voter) => {
+    voter.ballot_req_dt_pretty = formatPretty(voter.ballot_req_dt_obj)
+    return voter
+  }
+)
 ```
 
-```javascript
-// Convert and output updatedBallots here
+```js
 updatedBallots
 ```
 
