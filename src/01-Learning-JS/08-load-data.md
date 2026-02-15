@@ -221,6 +221,12 @@ Goal: Demonstrate your understanding of the CSV file format by creating a mini C
 Use the empty codeblock below.
 
 ```
+name,age,favorite_food
+Alice,22,Pizza
+Bob,25,Tacos
+Charlie,19,Burgers
+Diana,28,Sushi
+Eve,24,Pasta
 ```
 
 ### E2. Load a CSV file
@@ -234,12 +240,14 @@ In this case, load the following CSV file: `nc_absentee_mail_2024.csv`.
 2. In the second codeblock, use `console.log()` to log the following properties to the console: `.name` and `.size`.
 3. Still in the second codeblock, add a second `console.log()` and log the first object in the Array to the console.
 
-```javascript
-// Your FileAttachment() code goes here
+```js
+const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed: true})
 ```
 
-```javascript
-// Your other code with your variable goes here
+```js
+console.log("File name:", ncVoterData.name)
+console.log("File size:", ncVoterData.size)
+console.log("First voter record:", ncVoterData[0])
 ```
 
 Make sure that you verify the logs are there!
