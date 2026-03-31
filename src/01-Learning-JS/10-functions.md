@@ -93,8 +93,13 @@ Overall keep that rule-of-thumb in mind as you practice writing functions.
 Use D3.js `FileAttachment()` method below in VS Code. Remember that you'll need to write a relative path as a String parameter that helps the computer find where the CSV file is in relation to this particular page's file in the project tree.
 
 <!-- Attach sampled NC voter data -->
-```javascript
+```js
 // Convert to `js` codeblock and attach sampled NC voter data file: nc_absentee_mail_2024_n20000.csv
+const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
+```
+
+```js
+ncVoterData
 ```
 
 ## E2. Convert String dates to Date() objects
@@ -103,26 +108,41 @@ Use D3.js `FileAttachment()` method below in VS Code. Remember that you'll need 
 
 First outline your procedure with steps below.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. 1st, I imported utcParse and utcFormat
+2. Then, I declared a function
+3. then, used a for...of loop and inside it, converted the string to date object
+4. Finally, called the function.
 
 Now, code!
 
-```javascript
+```js
 // Your function code goes here
+// const ncVoterData = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
+
+import {utcParse,utcFormat} from "d3-time-format";
+
+const parseDateSlash = utcParse("%m/%d/%y")
+
+const convertStringToDate = (dataArray, dateFieldName) => {
+  for (const item of dataArray) {
+    item[dateFieldName + "_obj"] = parseDateSlash(item[dateFieldName])
+  }
+  return dataArray
+}
 ```
 
-```javascript
+```js
 // Your use of the function code goes here
+const updatedVoterData = convertStringToDate(ncVoterData, "ballot_send_dt")
 ```
 
 <p class="codeblock-caption">
   E1 Interactive Output
 </p>
 
-```javascript
+```js
 // Convert and output variable here
+updatedVoterData
 ```
 
 ## E3. Create Your Own Function (with Conditions)!
@@ -131,26 +151,52 @@ Now, code!
 
 First outline your procedure with steps below.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. At first, i have to declare a function.
+2. Then, I used a for..of loop and inside it I used a if condition.
+3. Again, I declared variables used in the if condition
+4. Finally, I called the function.
 
 Now, code!
 
-```javascript
+```js
 // Your function code goes here
+const countAgeGroups = (dataArray) => {
+
+  let youngCount = 0
+  let middleAgeCount = 0
+  let seniorCount = 0
+
+  for (const item of dataArray) {
+    if (item.age >= 18 && item.age <= 35) {
+      youngCount = youngCount + 1
+    }
+    else if (item.age >=36 && item.age <= 65) {
+      middleAgeCount = middleAgeCount + 1
+    }
+    else if (item.age > 65) {
+      seniorCount = seniorCount + 1
+    }
+  }
+  return {
+    young: youngCount,
+    middleAged: middleAgeCount,
+    senior: seniorCount
+  }
+}
 ```
 
-```javascript
+```js
 // Your use of the function code goes here
+const ageGroupResults = countAgeGroups(ncVoterData)
 ```
 
 <p class="codeblock-caption">
   E2 Interactive Output
 </p>
 
-```javascript
+```js
 // Your output variable here
+ageGroupResults
 ```
 
 ## Submission
